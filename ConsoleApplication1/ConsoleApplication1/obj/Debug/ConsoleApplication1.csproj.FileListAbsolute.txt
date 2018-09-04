@@ -1,1 +1,7 @@
 c:\users\14053673\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\GIT\TeamStudy\82780_Team3\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
