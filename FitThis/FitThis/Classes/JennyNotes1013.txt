@@ -1,8 +1,12 @@
-﻿10/13/2018 8:00PM Notes & Adjustments
+﻿10/13/2018 & 10/14/2018 Notes & Adjustments
 -------------------------------------------
+10-13-18
 -Created user class as per ERD outline.  All fields were made private & encapsulated w/ getters & setters.
 -Added additional fields that will be need for calculations in methods, including a currentWeight, gender, and activityLevel field.
 -Created methods for calculating & returning BMI & BMR, based on Joe's file indicating these calculations.
+
+10-14-18
+-Created outline for user creation form.
 
 Questions/TO DO's
 - not sure if we'll need getters & setters for all fields depending on use.
@@ -10,3 +14,5 @@ Questions/TO DO's
 - Case switch statement for determining BMR activity level adjustment preference of default using sedentary value? or prefer sepearate default?
 - User will enter height in ft/inches.  This number needs to be converted & stored in inches.
 - User will need to select activity level from dropdown menu/or radio buttons.  Geneder can be selected from radio buttons.
+- Are we asking the weight for their goal weight & timeframe @ profile creation (calculating calorie intake target)
+- Formatu user createion form to match other program formmatting.
