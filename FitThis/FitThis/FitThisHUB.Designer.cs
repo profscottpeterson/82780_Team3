@@ -30,7 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabDash = new System.Windows.Forms.TabPage();
+            this.tabWeight = new System.Windows.Forms.TabPage();
+            this.tabFood = new System.Windows.Forms.TabPage();
             this.tabPersonal = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
             this.lblStrtWght = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
@@ -39,14 +43,17 @@
             this.txtActLvl = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.tabWeight = new System.Windows.Forms.TabPage();
-            this.tabFood = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tabDash = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SQLTest = new System.Windows.Forms.TabPage();
+            this.CreateConnectDb = new System.Windows.Forms.Button();
+            this.btnCreateTestTable = new System.Windows.Forms.Button();
+            this.btnViewData = new System.Windows.Forms.Button();
+            this.txbResults = new System.Windows.Forms.TextBox();
+            this.btnInsertTestData = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SQLTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -55,12 +62,41 @@
             this.tabControl1.Controls.Add(this.tabWeight);
             this.tabControl1.Controls.Add(this.tabFood);
             this.tabControl1.Controls.Add(this.tabPersonal);
+            this.tabControl1.Controls.Add(this.SQLTest);
             this.tabControl1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(196, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 611);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tabDash
+            // 
+            this.tabDash.BackColor = System.Drawing.Color.Lime;
+            this.tabDash.Location = new System.Drawing.Point(4, 27);
+            this.tabDash.Name = "tabDash";
+            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDash.Size = new System.Drawing.Size(792, 580);
+            this.tabDash.TabIndex = 4;
+            this.tabDash.Text = "Dashboard";
+            // 
+            // tabWeight
+            // 
+            this.tabWeight.BackColor = System.Drawing.Color.Lime;
+            this.tabWeight.Location = new System.Drawing.Point(4, 27);
+            this.tabWeight.Name = "tabWeight";
+            this.tabWeight.Size = new System.Drawing.Size(792, 580);
+            this.tabWeight.TabIndex = 2;
+            this.tabWeight.Text = "Weight Log";
+            // 
+            // tabFood
+            // 
+            this.tabFood.BackColor = System.Drawing.Color.Lime;
+            this.tabFood.Location = new System.Drawing.Point(4, 27);
+            this.tabFood.Name = "tabFood";
+            this.tabFood.Size = new System.Drawing.Size(792, 580);
+            this.tabFood.TabIndex = 3;
+            this.tabFood.Text = "Food Log";
             // 
             // tabPersonal
             // 
@@ -78,9 +114,18 @@
             this.tabPersonal.Location = new System.Drawing.Point(4, 27);
             this.tabPersonal.Name = "tabPersonal";
             this.tabPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPersonal.Size = new System.Drawing.Size(387, 300);
+            this.tabPersonal.Size = new System.Drawing.Size(792, 580);
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
+            this.pictureBox1.Location = new System.Drawing.Point(136, 148);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 93);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // txtStrtWght
             // 
@@ -154,24 +199,6 @@
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 0;
             // 
-            // tabWeight
-            // 
-            this.tabWeight.BackColor = System.Drawing.Color.Lime;
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
-            this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(387, 300);
-            this.tabWeight.TabIndex = 2;
-            this.tabWeight.Text = "Weight Log";
-            // 
-            // tabFood
-            // 
-            this.tabFood.BackColor = System.Drawing.Color.Lime;
-            this.tabFood.Location = new System.Drawing.Point(4, 27);
-            this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(424, 300);
-            this.tabFood.TabIndex = 3;
-            this.tabFood.Text = "Food Log";
-            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.RoyalBlue;
@@ -183,24 +210,67 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // tabDash
+            // SQLTest
             // 
-            this.tabDash.BackColor = System.Drawing.Color.Lime;
-            this.tabDash.Location = new System.Drawing.Point(4, 27);
-            this.tabDash.Name = "tabDash";
-            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDash.Size = new System.Drawing.Size(792, 580);
-            this.tabDash.TabIndex = 4;
-            this.tabDash.Text = "Dashboard";
+            this.SQLTest.BackColor = System.Drawing.Color.Lime;
+            this.SQLTest.Controls.Add(this.btnInsertTestData);
+            this.SQLTest.Controls.Add(this.txbResults);
+            this.SQLTest.Controls.Add(this.btnViewData);
+            this.SQLTest.Controls.Add(this.btnCreateTestTable);
+            this.SQLTest.Controls.Add(this.CreateConnectDb);
+            this.SQLTest.Location = new System.Drawing.Point(4, 27);
+            this.SQLTest.Name = "SQLTest";
+            this.SQLTest.Size = new System.Drawing.Size(792, 580);
+            this.SQLTest.TabIndex = 5;
+            this.SQLTest.Text = "SQLTest";
             // 
-            // pictureBox1
+            // CreateConnectDb
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
-            this.pictureBox1.Location = new System.Drawing.Point(136, 148);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 93);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.CreateConnectDb.Location = new System.Drawing.Point(61, 71);
+            this.CreateConnectDb.Name = "CreateConnectDb";
+            this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
+            this.CreateConnectDb.TabIndex = 0;
+            this.CreateConnectDb.Text = "Create and collect Database";
+            this.CreateConnectDb.UseVisualStyleBackColor = true;
+            this.CreateConnectDb.Click += new System.EventHandler(this.CreateConnectDb_Click);
+            // 
+            // btnCreateTestTable
+            // 
+            this.btnCreateTestTable.Location = new System.Drawing.Point(99, 184);
+            this.btnCreateTestTable.Name = "btnCreateTestTable";
+            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
+            this.btnCreateTestTable.TabIndex = 1;
+            this.btnCreateTestTable.Text = "Create Test Table";
+            this.btnCreateTestTable.UseVisualStyleBackColor = true;
+            this.btnCreateTestTable.Click += new System.EventHandler(this.btnCreateTestTable_Click);
+            // 
+            // btnViewData
+            // 
+            this.btnViewData.Location = new System.Drawing.Point(99, 411);
+            this.btnViewData.Name = "btnViewData";
+            this.btnViewData.Size = new System.Drawing.Size(163, 40);
+            this.btnViewData.TabIndex = 2;
+            this.btnViewData.Text = "View Data";
+            this.btnViewData.UseVisualStyleBackColor = true;
+            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
+            // 
+            // txbResults
+            // 
+            this.txbResults.Location = new System.Drawing.Point(344, 95);
+            this.txbResults.Multiline = true;
+            this.txbResults.Name = "txbResults";
+            this.txbResults.Size = new System.Drawing.Size(393, 420);
+            this.txbResults.TabIndex = 3;
+            // 
+            // btnInsertTestData
+            // 
+            this.btnInsertTestData.Location = new System.Drawing.Point(99, 272);
+            this.btnInsertTestData.Name = "btnInsertTestData";
+            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
+            this.btnInsertTestData.TabIndex = 4;
+            this.btnInsertTestData.Text = "Insert Test Data";
+            this.btnInsertTestData.UseVisualStyleBackColor = true;
+            this.btnInsertTestData.Click += new System.EventHandler(this.btnInsertTestData_Click);
             // 
             // FitThisHUB
             // 
@@ -220,6 +290,8 @@
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.SQLTest.ResumeLayout(false);
+            this.SQLTest.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +313,11 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TabPage tabDash;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage SQLTest;
+        private System.Windows.Forms.Button CreateConnectDb;
+        private System.Windows.Forms.Button btnViewData;
+        private System.Windows.Forms.Button btnCreateTestTable;
+        private System.Windows.Forms.TextBox txbResults;
+        private System.Windows.Forms.Button btnInsertTestData;
     }
 }

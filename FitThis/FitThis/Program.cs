@@ -16,7 +16,9 @@ namespace FitThis
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignIn());
+            //TODO RYAN commented out to skip login
+            //Application.Run(new SignIn());
+            Application.Run(new FitThisHUB());
         }
     }
 }
