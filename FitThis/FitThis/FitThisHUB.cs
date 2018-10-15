@@ -51,9 +51,52 @@ namespace FitThis
 
         private void btnInsertTestData_Click(object sender, EventArgs e)
         {
-            sqlcmd.InsertData(database,"Test", "Insert into Test (Id, Fname, Lname)values (1, 'John', 'Doe')");
-            sqlcmd.InsertData(database, "Test", "Insert into Test (Id, Fname, Lname)values (2, 'Will', 'Smith')");
-            sqlcmd.InsertData(database, "Test", "Insert into Test (Id, Fname, Lname)values (3, 'Star', 'Bucks')");
+            sqlcmd.InsertUpdateDeleteData(database, "Insert into Test (Id, Fname, Lname)values (1, 'John', 'Doe')");
+            sqlcmd.InsertUpdateDeleteData(database, "Insert into Test (Id, Fname, Lname)values (2, 'Will', 'Smith')");
+            sqlcmd.InsertUpdateDeleteData(database, "Insert into Test (Id, Fname, Lname)values (3, 'Star', 'Bucks')");
+        }
+
+        //TODO Why does this fail? First create works, other two do not :'(  Bad SQL?
+        private void btnCreateTables_Click(object sender, EventArgs e)
+        {
+
+            //sqlcmd.CreateTable(database, "CREATE TABLE USER (UserID INT, Fname varchar(20), Lname varchar(20), Height varchar(5))");
+            sqlcmd.CreateTable(database, "CREATE TABLE USER (" +
+                                         "UserID INT," +
+                                         "Fname varchar(20)," +
+                                         "LName varchar(20)," +
+                                         "Height varchar(5)," +
+                                         "StartingWeight INT," +
+                                         "GoalWeight INT," +
+                                         "Age INT," +
+                                         "RecommendIntake INT)");
+                                         
+            //sqlcmd.CreateTable(database, "CREATE TABLE USER (UserID INT, Fname varchar(20), LName varchar(20), Height varchar(5), StartingWeight INT, GoalWeight INT, Age INT, RecommendIntake INT");
+
+        }
+
+        private void btnInsertData_Click(object sender, EventArgs e)
+        {
+            sqlcmd.InsertUpdateDeleteData(database, "INSERT into USER (UserId, Fname, Lname) values (1, 'John', 'Doe')");
+        }
+
+        private void btnViewUser_Click(object sender, EventArgs e)
+        {
+            SQLiteDataReader reader = new SQLiteCommand("Select * from USER", database).ExecuteReader();
+            while (reader.Read())
+            {
+                //this.txbResults.Text = reader.GetName(0) + reader. +"";
+                for (int index = 0; index < reader.FieldCount; index++)
+                {
+                    this.txbResults.Text += reader.GetName(index) + "\t";
+                }
+                //this.txbResults.Text = reader[0] + "\t" + reader[1] + "\t" + reader[2];
+            }
+        }
+
+        private void btnViewFood_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

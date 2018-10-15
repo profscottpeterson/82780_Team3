@@ -1,4 +1,5 @@
-﻿using System.Data.SQLite;
+﻿using System.CodeDom.Compiler;
+using System.Data.SQLite;
 using System.IO;
 
 namespace FitThis.Classes
@@ -36,11 +37,16 @@ namespace FitThis.Classes
         }
 
 
-        public void InsertData(SQLiteConnection db,string table, string sql)
+        public void InsertUpdateDeleteData(SQLiteConnection db, string sql)
         {
             var cmd = new SQLiteCommand(sql,db);
             cmd.ExecuteNonQuery();
         }
 
+        public SQLiteDataReader SelectData(SQLiteConnection db, string sql)
+        {
+            var cmd = new SQLiteCommand(sql, db);
+            return cmd.ExecuteReader();
+        }
     }
 }

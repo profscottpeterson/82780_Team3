@@ -43,13 +43,17 @@
             this.txtActLvl = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.SQLTest = new System.Windows.Forms.TabPage();
-            this.CreateConnectDb = new System.Windows.Forms.Button();
-            this.btnCreateTestTable = new System.Windows.Forms.Button();
-            this.btnViewData = new System.Windows.Forms.Button();
-            this.txbResults = new System.Windows.Forms.TextBox();
             this.btnInsertTestData = new System.Windows.Forms.Button();
+            this.txbResults = new System.Windows.Forms.TextBox();
+            this.btnViewData = new System.Windows.Forms.Button();
+            this.btnCreateTestTable = new System.Windows.Forms.Button();
+            this.CreateConnectDb = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnCreateTables = new System.Windows.Forms.Button();
+            this.btnInsertData = new System.Windows.Forms.Button();
+            this.btnViewUser = new System.Windows.Forms.Button();
+            this.btnViewFood = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -199,20 +203,13 @@
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 0;
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnClose.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(26, 677);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(104, 27);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            // 
             // SQLTest
             // 
             this.SQLTest.BackColor = System.Drawing.Color.Lime;
+            this.SQLTest.Controls.Add(this.btnViewFood);
+            this.SQLTest.Controls.Add(this.btnViewUser);
+            this.SQLTest.Controls.Add(this.btnInsertData);
+            this.SQLTest.Controls.Add(this.btnCreateTables);
             this.SQLTest.Controls.Add(this.btnInsertTestData);
             this.SQLTest.Controls.Add(this.txbResults);
             this.SQLTest.Controls.Add(this.btnViewData);
@@ -224,35 +221,15 @@
             this.SQLTest.TabIndex = 5;
             this.SQLTest.Text = "SQLTest";
             // 
-            // CreateConnectDb
+            // btnInsertTestData
             // 
-            this.CreateConnectDb.Location = new System.Drawing.Point(61, 71);
-            this.CreateConnectDb.Name = "CreateConnectDb";
-            this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
-            this.CreateConnectDb.TabIndex = 0;
-            this.CreateConnectDb.Text = "Create and collect Database";
-            this.CreateConnectDb.UseVisualStyleBackColor = true;
-            this.CreateConnectDb.Click += new System.EventHandler(this.CreateConnectDb_Click);
-            // 
-            // btnCreateTestTable
-            // 
-            this.btnCreateTestTable.Location = new System.Drawing.Point(99, 184);
-            this.btnCreateTestTable.Name = "btnCreateTestTable";
-            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
-            this.btnCreateTestTable.TabIndex = 1;
-            this.btnCreateTestTable.Text = "Create Test Table";
-            this.btnCreateTestTable.UseVisualStyleBackColor = true;
-            this.btnCreateTestTable.Click += new System.EventHandler(this.btnCreateTestTable_Click);
-            // 
-            // btnViewData
-            // 
-            this.btnViewData.Location = new System.Drawing.Point(99, 411);
-            this.btnViewData.Name = "btnViewData";
-            this.btnViewData.Size = new System.Drawing.Size(163, 40);
-            this.btnViewData.TabIndex = 2;
-            this.btnViewData.Text = "View Data";
-            this.btnViewData.UseVisualStyleBackColor = true;
-            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
+            this.btnInsertTestData.Location = new System.Drawing.Point(3, 129);
+            this.btnInsertTestData.Name = "btnInsertTestData";
+            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
+            this.btnInsertTestData.TabIndex = 4;
+            this.btnInsertTestData.Text = "Insert Test Data";
+            this.btnInsertTestData.UseVisualStyleBackColor = true;
+            this.btnInsertTestData.Click += new System.EventHandler(this.btnInsertTestData_Click);
             // 
             // txbResults
             // 
@@ -262,15 +239,86 @@
             this.txbResults.Size = new System.Drawing.Size(393, 420);
             this.txbResults.TabIndex = 3;
             // 
-            // btnInsertTestData
+            // btnViewData
             // 
-            this.btnInsertTestData.Location = new System.Drawing.Point(99, 272);
-            this.btnInsertTestData.Name = "btnInsertTestData";
-            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
-            this.btnInsertTestData.TabIndex = 4;
-            this.btnInsertTestData.Text = "Insert Test Data";
-            this.btnInsertTestData.UseVisualStyleBackColor = true;
-            this.btnInsertTestData.Click += new System.EventHandler(this.btnInsertTestData_Click);
+            this.btnViewData.Location = new System.Drawing.Point(3, 195);
+            this.btnViewData.Name = "btnViewData";
+            this.btnViewData.Size = new System.Drawing.Size(163, 40);
+            this.btnViewData.TabIndex = 2;
+            this.btnViewData.Text = "View Data";
+            this.btnViewData.UseVisualStyleBackColor = true;
+            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
+            // 
+            // btnCreateTestTable
+            // 
+            this.btnCreateTestTable.Location = new System.Drawing.Point(3, 92);
+            this.btnCreateTestTable.Name = "btnCreateTestTable";
+            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
+            this.btnCreateTestTable.TabIndex = 1;
+            this.btnCreateTestTable.Text = "Create Test Table";
+            this.btnCreateTestTable.UseVisualStyleBackColor = true;
+            this.btnCreateTestTable.Click += new System.EventHandler(this.btnCreateTestTable_Click);
+            // 
+            // CreateConnectDb
+            // 
+            this.CreateConnectDb.Location = new System.Drawing.Point(3, 52);
+            this.CreateConnectDb.Name = "CreateConnectDb";
+            this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
+            this.CreateConnectDb.TabIndex = 0;
+            this.CreateConnectDb.Text = "Create and collect Database";
+            this.CreateConnectDb.UseVisualStyleBackColor = true;
+            this.CreateConnectDb.Click += new System.EventHandler(this.CreateConnectDb_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnClose.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(26, 677);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(104, 27);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateTables
+            // 
+            this.btnCreateTables.Location = new System.Drawing.Point(0, 297);
+            this.btnCreateTables.Name = "btnCreateTables";
+            this.btnCreateTables.Size = new System.Drawing.Size(125, 24);
+            this.btnCreateTables.TabIndex = 5;
+            this.btnCreateTables.Text = "Create Tables";
+            this.btnCreateTables.UseVisualStyleBackColor = true;
+            this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
+            // 
+            // btnInsertData
+            // 
+            this.btnInsertData.Location = new System.Drawing.Point(20, 346);
+            this.btnInsertData.Name = "btnInsertData";
+            this.btnInsertData.Size = new System.Drawing.Size(158, 36);
+            this.btnInsertData.TabIndex = 6;
+            this.btnInsertData.Text = "Insert testing data";
+            this.btnInsertData.UseVisualStyleBackColor = true;
+            this.btnInsertData.Click += new System.EventHandler(this.btnInsertData_Click);
+            // 
+            // btnViewUser
+            // 
+            this.btnViewUser.Location = new System.Drawing.Point(15, 403);
+            this.btnViewUser.Name = "btnViewUser";
+            this.btnViewUser.Size = new System.Drawing.Size(122, 23);
+            this.btnViewUser.TabIndex = 7;
+            this.btnViewUser.Text = "View User";
+            this.btnViewUser.UseVisualStyleBackColor = true;
+            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
+            // 
+            // btnViewFood
+            // 
+            this.btnViewFood.Location = new System.Drawing.Point(15, 444);
+            this.btnViewFood.Name = "btnViewFood";
+            this.btnViewFood.Size = new System.Drawing.Size(110, 30);
+            this.btnViewFood.TabIndex = 2;
+            this.btnViewFood.Text = "View Food";
+            this.btnViewFood.UseVisualStyleBackColor = true;
+            this.btnViewFood.Click += new System.EventHandler(this.btnViewFood_Click);
             // 
             // FitThisHUB
             // 
@@ -319,5 +367,9 @@
         private System.Windows.Forms.Button btnCreateTestTable;
         private System.Windows.Forms.TextBox txbResults;
         private System.Windows.Forms.Button btnInsertTestData;
+        private System.Windows.Forms.Button btnViewFood;
+        private System.Windows.Forms.Button btnViewUser;
+        private System.Windows.Forms.Button btnInsertData;
+        private System.Windows.Forms.Button btnCreateTables;
     }
 }
