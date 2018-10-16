@@ -54,11 +54,18 @@
     <Compile Include="Classes\Food_DataMapper.cs" />
     <Compile Include="Classes\IDataMapper.cs" />
     <Compile Include="Classes\Weight.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="FitThisHUB.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FitThisHUB.Designer.cs">
       <DependentUpon>FitThisHUB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserCreation.Designer.cs">
+      <DependentUpon>UserCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -70,6 +77,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FitThisHUB.resx">
       <DependentUpon>FitThisHUB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCreation.resx">
+      <DependentUpon>UserCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
@@ -96,6 +106,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Classes\JennyNotes1013.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

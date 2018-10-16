@@ -16,5 +16,12 @@ namespace FitThis
         {
             InitializeComponent();
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the User creation form & show it.
+            UserCreationForm UC = new UserCreationForm();
+            UC.Show();
+        }
     }
 }
