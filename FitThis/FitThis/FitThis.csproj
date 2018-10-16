@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\Food.cs" />
     <Compile Include="Classes\Food_DataMapper.cs" />
     <Compile Include="Classes\IDataMapper.cs" />
