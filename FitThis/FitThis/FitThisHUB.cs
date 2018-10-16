@@ -62,7 +62,7 @@ namespace FitThis
 
             //sqlcmd.CreateTable(database, "CREATE TABLE USER (UserID INT, Fname varchar(20), Lname varchar(20), Height varchar(5))");
             sqlcmd.CreateTable(database, "CREATE TABLE USER (" +
-                                         "UserID INT," +
+                                         "UserID INT PRIMARY KEY," +
                                          "Fname varchar(20)," +
                                          "LName varchar(20)," +
                                          "Height varchar(5)," +
@@ -70,7 +70,26 @@ namespace FitThis
                                          "GoalWeight INT," +
                                          "Age INT," +
                                          "RecommendIntake INT)");
-                                         
+            sqlcmd.CreateTable(database, "CREATE TABLE FOOD (" +
+                                         "FoodID INT PRIMARY KEY," +
+                                         "Title varchar(50)," +
+                                         "Calories INT," +
+                                         "DateAdded DATE," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserId) REFERENCES User(UserID))");
+            sqlcmd.CreateTable(database, "CREATE TABLE Weight(" +
+                                         "WeightID INT PRIMARY KEY," +
+                                         "Date DATE," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
+            sqlcmd.CreateTable(database, "CREATE TABLE Activity (" +
+                                         "ActivityID INT PRIMARY KEY," +
+                                         "Name Varchar(20)," +
+                                         "Duration INT," +
+                                         "CaloriesBurned INT," +
+                                         "Date DATE," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
             //sqlcmd.CreateTable(database, "CREATE TABLE USER (UserID INT, Fname varchar(20), LName varchar(20), Height varchar(5), StartingWeight INT, GoalWeight INT, Age INT, RecommendIntake INT");
 
         }
