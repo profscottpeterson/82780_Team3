@@ -1,4 +1,4 @@
-﻿namespace FitThis.Classes
+﻿namespace FitThis
 {
     using System;
     using System.Collections.Generic;
@@ -67,6 +67,38 @@
         /// Integer to hold the user's recommended daily calorie intake.
         /// </summary>
         private int recommendIntake;
+
+        /// <summary>
+        /// Initializes a new instance of the User class.
+        /// </summary>
+        /// <param name="fName1">User first name</param>
+        /// <param name="lName1">User last name</param>
+        /// <param name="age1">User age</param>
+        /// <param name="height1">User height</param>
+        /// <param name="weight1">User weight</param>
+        /// <param name="goalWeight1">User goal weight</param>
+        /// <param name="gender1">User gender</param>
+        /// <param name="actlevel1">User activity level</param>
+        public User
+            (string fName1, 
+            string lName1,
+            int age1, 
+            int height1,
+            int weight1, 
+            int goalWeight1, 
+            string gender1, 
+            string actlevel1)
+        {
+            // Set user fields based on passed in values.
+            this.fName = fName1;
+            this.lName = lName1;
+            this.age = age1;
+            this.height = height1;
+            this.currentWeight = weight1;
+            this.goalWeight = goalWeight1;
+            this.gender = gender1;
+            this.activityLevel = actlevel1;
+        }
 
         /// <summary>
         /// Gets or sets the user ID.
@@ -325,6 +357,13 @@
 
             // Return the calculated BMI
             return bmi;
+        }
+
+        public int CalculateTargetCalorieIntake()
+        {
+            // Need the code to calculate this.
+            int calorieIntakegoal = 0;
+            return calorieIntakegoal;
         }
 
         /// <summary>
