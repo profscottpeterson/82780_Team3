@@ -72,8 +72,6 @@
   <ItemGroup>
     <Compile Include="Classes\Activity.cs" />
     <Compile Include="Classes\Food.cs" />
-    <Compile Include="Classes\Food_DataMapper.cs" />
-    <Compile Include="Classes\IDataMapper.cs" />
     <Compile Include="Classes\Weight.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\SQLiteConfig.cs" />
@@ -83,7 +81,7 @@
     <Compile Include="FitThisHUB.Designer.cs">
       <DependentUpon>FitThisHUB.cs</DependentUpon>
     </Compile>
-	<Compile Include="UserCreation.cs">
+    <Compile Include="UserCreation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserCreation.Designer.cs">

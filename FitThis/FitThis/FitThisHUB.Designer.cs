@@ -63,7 +63,6 @@
             this.btnInsertData = new System.Windows.Forms.Button();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.btnViewFood = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,6 +77,7 @@
             this.tabConsole1.Controls.Add(this.tabFood);
             this.tabConsole1.Controls.Add(this.tabPersonal);
             this.tabConsole1.Controls.Add(this.tabActivity);
+            this.tabConsole1.Controls.Add(this.SQLTest);
             this.tabConsole1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabConsole1.Location = new System.Drawing.Point(196, 12);
             this.tabConsole1.Name = "tabConsole1";
@@ -112,17 +112,6 @@
             this.tabFood.Size = new System.Drawing.Size(792, 580);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food Log";
-            this.tabControl1.Controls.Add(this.tabDash);
-            this.tabControl1.Controls.Add(this.tabWeight);
-            this.tabControl1.Controls.Add(this.tabFood);
-            this.tabControl1.Controls.Add(this.tabPersonal);
-            this.tabControl1.Controls.Add(this.SQLTest);
-            this.tabControl1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(196, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 611);
-            this.tabControl1.TabIndex = 0;
             // 
             // tabDash
             // 
