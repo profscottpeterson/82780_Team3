@@ -49,6 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Food.cs" />
+    <Compile Include="Classes\Food_DataMapper.cs" />
+    <Compile Include="Classes\IDataMapper.cs" />
+    <Compile Include="Classes\Weight.cs" />
     <Compile Include="FitThisHUB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +95,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
