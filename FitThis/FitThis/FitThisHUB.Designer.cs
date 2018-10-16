@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabConsole1 = new System.Windows.Forms.TabControl();
+            this.tabDash = new System.Windows.Forms.TabPage();
+            this.tabWeight = new System.Windows.Forms.TabPage();
+            this.tabFood = new System.Windows.Forms.TabPage();
             this.tabPersonal = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
             this.lblStrtWght = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
@@ -39,28 +43,63 @@
             this.txtActLvl = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.tabWeight = new System.Windows.Forms.TabPage();
-            this.tabFood = new System.Windows.Forms.TabPage();
+            this.tabActivity = new System.Windows.Forms.TabPage();
+            this.lblCaloriesBurnedDisplay = new System.Windows.Forms.Label();
+            this.lblCaloriesBurned = new System.Windows.Forms.Label();
+            this.tbxDuration = new System.Windows.Forms.TextBox();
+            this.lblSelectDuration = new System.Windows.Forms.Label();
+            this.lblSelectActivity = new System.Windows.Forms.Label();
+            this.combActivities = new System.Windows.Forms.ComboBox();
+            this.btnClearActivity = new System.Windows.Forms.Button();
+            this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.tabDash = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1.SuspendLayout();
+            this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabActivity.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabConsole1
             // 
-            this.tabControl1.Controls.Add(this.tabDash);
-            this.tabControl1.Controls.Add(this.tabWeight);
-            this.tabControl1.Controls.Add(this.tabFood);
-            this.tabControl1.Controls.Add(this.tabPersonal);
-            this.tabControl1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(196, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 611);
-            this.tabControl1.TabIndex = 0;
+            this.tabConsole1.Controls.Add(this.tabDash);
+            this.tabConsole1.Controls.Add(this.tabWeight);
+            this.tabConsole1.Controls.Add(this.tabFood);
+            this.tabConsole1.Controls.Add(this.tabPersonal);
+            this.tabConsole1.Controls.Add(this.tabActivity);
+            this.tabConsole1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabConsole1.Location = new System.Drawing.Point(196, 12);
+            this.tabConsole1.Name = "tabConsole1";
+            this.tabConsole1.SelectedIndex = 0;
+            this.tabConsole1.Size = new System.Drawing.Size(800, 611);
+            this.tabConsole1.TabIndex = 0;
+            // 
+            // tabDash
+            // 
+            this.tabDash.BackColor = System.Drawing.Color.Lime;
+            this.tabDash.Location = new System.Drawing.Point(4, 27);
+            this.tabDash.Name = "tabDash";
+            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDash.Size = new System.Drawing.Size(792, 580);
+            this.tabDash.TabIndex = 4;
+            this.tabDash.Text = "Dashboard";
+            // 
+            // tabWeight
+            // 
+            this.tabWeight.BackColor = System.Drawing.Color.Lime;
+            this.tabWeight.Location = new System.Drawing.Point(4, 27);
+            this.tabWeight.Name = "tabWeight";
+            this.tabWeight.Size = new System.Drawing.Size(792, 580);
+            this.tabWeight.TabIndex = 2;
+            this.tabWeight.Text = "Weight Log";
+            // 
+            // tabFood
+            // 
+            this.tabFood.BackColor = System.Drawing.Color.Lime;
+            this.tabFood.Location = new System.Drawing.Point(4, 27);
+            this.tabFood.Name = "tabFood";
+            this.tabFood.Size = new System.Drawing.Size(792, 580);
+            this.tabFood.TabIndex = 3;
+            this.tabFood.Text = "Food Log";
             // 
             // tabPersonal
             // 
@@ -78,9 +117,18 @@
             this.tabPersonal.Location = new System.Drawing.Point(4, 27);
             this.tabPersonal.Name = "tabPersonal";
             this.tabPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPersonal.Size = new System.Drawing.Size(387, 300);
+            this.tabPersonal.Size = new System.Drawing.Size(792, 580);
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
+            this.pictureBox1.Location = new System.Drawing.Point(136, 148);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 93);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // txtStrtWght
             // 
@@ -154,23 +202,100 @@
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 0;
             // 
-            // tabWeight
+            // tabActivity
             // 
-            this.tabWeight.BackColor = System.Drawing.Color.Lime;
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
-            this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(387, 300);
-            this.tabWeight.TabIndex = 2;
-            this.tabWeight.Text = "Weight Log";
+            this.tabActivity.BackColor = System.Drawing.Color.Lime;
+            this.tabActivity.Controls.Add(this.lblCaloriesBurnedDisplay);
+            this.tabActivity.Controls.Add(this.lblCaloriesBurned);
+            this.tabActivity.Controls.Add(this.tbxDuration);
+            this.tabActivity.Controls.Add(this.lblSelectDuration);
+            this.tabActivity.Controls.Add(this.lblSelectActivity);
+            this.tabActivity.Controls.Add(this.combActivities);
+            this.tabActivity.Controls.Add(this.btnClearActivity);
+            this.tabActivity.Controls.Add(this.btnAddActivity);
+            this.tabActivity.Location = new System.Drawing.Point(4, 27);
+            this.tabActivity.Name = "tabActivity";
+            this.tabActivity.Padding = new System.Windows.Forms.Padding(3);
+            this.tabActivity.Size = new System.Drawing.Size(792, 580);
+            this.tabActivity.TabIndex = 5;
+            this.tabActivity.Text = "Activity";
             // 
-            // tabFood
+            // lblCaloriesBurnedDisplay
             // 
-            this.tabFood.BackColor = System.Drawing.Color.Lime;
-            this.tabFood.Location = new System.Drawing.Point(4, 27);
-            this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(424, 300);
-            this.tabFood.TabIndex = 3;
-            this.tabFood.Text = "Food Log";
+            this.lblCaloriesBurnedDisplay.AutoSize = true;
+            this.lblCaloriesBurnedDisplay.Location = new System.Drawing.Point(227, 261);
+            this.lblCaloriesBurnedDisplay.Name = "lblCaloriesBurnedDisplay";
+            this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 18);
+            this.lblCaloriesBurnedDisplay.TabIndex = 7;
+            // 
+            // lblCaloriesBurned
+            // 
+            this.lblCaloriesBurned.AutoSize = true;
+            this.lblCaloriesBurned.Location = new System.Drawing.Point(32, 257);
+            this.lblCaloriesBurned.Name = "lblCaloriesBurned";
+            this.lblCaloriesBurned.Size = new System.Drawing.Size(148, 18);
+            this.lblCaloriesBurned.TabIndex = 6;
+            this.lblCaloriesBurned.Text = "Total Calories Burned: ";
+            // 
+            // tbxDuration
+            // 
+            this.tbxDuration.Location = new System.Drawing.Point(183, 166);
+            this.tbxDuration.Name = "tbxDuration";
+            this.tbxDuration.Size = new System.Drawing.Size(100, 23);
+            this.tbxDuration.TabIndex = 5;
+            // 
+            // lblSelectDuration
+            // 
+            this.lblSelectDuration.AutoSize = true;
+            this.lblSelectDuration.Location = new System.Drawing.Point(32, 166);
+            this.lblSelectDuration.Name = "lblSelectDuration";
+            this.lblSelectDuration.Size = new System.Drawing.Size(124, 18);
+            this.lblSelectDuration.TabIndex = 4;
+            this.lblSelectDuration.Text = "Duration (minutes)";
+            // 
+            // lblSelectActivity
+            // 
+            this.lblSelectActivity.AutoSize = true;
+            this.lblSelectActivity.Location = new System.Drawing.Point(32, 120);
+            this.lblSelectActivity.Name = "lblSelectActivity";
+            this.lblSelectActivity.Size = new System.Drawing.Size(95, 18);
+            this.lblSelectActivity.TabIndex = 3;
+            this.lblSelectActivity.Text = "Select Activity";
+            // 
+            // combActivities
+            // 
+            this.combActivities.FormattingEnabled = true;
+            this.combActivities.Items.AddRange(new object[] {
+            "Running",
+            "Walking",
+            "Swimming",
+            "Biking",
+            "Eliptical",
+            ""});
+            this.combActivities.Location = new System.Drawing.Point(183, 120);
+            this.combActivities.Name = "combActivities";
+            this.combActivities.Size = new System.Drawing.Size(121, 26);
+            this.combActivities.TabIndex = 2;
+            // 
+            // btnClearActivity
+            // 
+            this.btnClearActivity.Location = new System.Drawing.Point(201, 384);
+            this.btnClearActivity.Name = "btnClearActivity";
+            this.btnClearActivity.Size = new System.Drawing.Size(75, 23);
+            this.btnClearActivity.TabIndex = 1;
+            this.btnClearActivity.Text = "Clear";
+            this.btnClearActivity.UseVisualStyleBackColor = true;
+            this.btnClearActivity.Click += new System.EventHandler(this.btnClearActivity_Click);
+            // 
+            // btnAddActivity
+            // 
+            this.btnAddActivity.Location = new System.Drawing.Point(91, 384);
+            this.btnAddActivity.Name = "btnAddActivity";
+            this.btnAddActivity.Size = new System.Drawing.Size(75, 23);
+            this.btnAddActivity.TabIndex = 0;
+            this.btnAddActivity.Text = "Add Activity";
+            this.btnAddActivity.UseVisualStyleBackColor = true;
+            this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
             // 
             // btnClose
             // 
@@ -183,25 +308,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // tabDash
-            // 
-            this.tabDash.BackColor = System.Drawing.Color.Lime;
-            this.tabDash.Location = new System.Drawing.Point(4, 27);
-            this.tabDash.Name = "tabDash";
-            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDash.Size = new System.Drawing.Size(792, 580);
-            this.tabDash.TabIndex = 4;
-            this.tabDash.Text = "Dashboard";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
-            this.pictureBox1.Location = new System.Drawing.Point(136, 148);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 93);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -211,22 +317,24 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabConsole1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
-            this.tabControl1.ResumeLayout(false);
+            this.tabConsole1.ResumeLayout(false);
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabActivity.ResumeLayout(false);
+            this.tabActivity.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabConsole1;
         private System.Windows.Forms.TabPage tabPersonal;
         private System.Windows.Forms.TabPage tabWeight;
         private System.Windows.Forms.TabPage tabFood;
@@ -241,5 +349,14 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TabPage tabDash;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TabPage tabActivity;
+        private System.Windows.Forms.Label lblSelectActivity;
+        private System.Windows.Forms.Button btnClearActivity;
+        private System.Windows.Forms.Button btnAddActivity;
+        private System.Windows.Forms.Label lblCaloriesBurnedDisplay;
+        private System.Windows.Forms.Label lblCaloriesBurned;
+        private System.Windows.Forms.TextBox tbxDuration;
+        private System.Windows.Forms.Label lblSelectDuration;
+        public System.Windows.Forms.ComboBox combActivities;
     }
 }
