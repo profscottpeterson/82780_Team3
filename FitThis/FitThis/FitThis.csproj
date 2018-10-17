@@ -132,12 +132,74 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SQLite Studio\SQLiteStudio\app_icon\sqlitestudio.icns" />
+    <None Include="SQLite Studio\SQLiteStudio\qt.conf" />
+    <None Include="SQLite Studio\SQLiteStudio\UpdateSQLiteStudio.dat" />
+    <None Include="SQLite Studio\SQLiteStudio\UpdateSQLiteStudio.ini" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Classes\JennyNotes1013.txt" />
+    <Content Include="SQLite Studio\SQLiteStudio\app_icon\sqlitestudio.ico" />
+    <Content Include="SQLite Studio\SQLiteStudio\app_icon\sqlitestudio.png" />
+    <Content Include="SQLite Studio\SQLiteStudio\app_icon\sqlitestudio.svg" />
+    <Content Include="SQLite Studio\SQLiteStudio\components.xml" />
+    <Content Include="SQLite Studio\SQLiteStudio\coreSQLiteStudio.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\guiSQLiteStudio.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\iconengines\qsvgicon.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qgif.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qicns.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qico.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qjpeg.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qsvg.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qtga.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qtiff.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\imageformats\qwbmp.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\InstallationLog.txt" />
+    <Content Include="SQLite Studio\SQLiteStudio\libeay32.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\libgcc_s_dw2-1.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\libstdc++-6.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\libwinpthread-1.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\network.xml" />
+    <Content Include="SQLite Studio\SQLiteStudio\platforms\qwindows.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\ConfigMigration.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\CsvExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\CsvImport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\DbAndroid.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\DbSqlite2.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\DbSqliteCipher.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\DbSqliteSystemData.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\DbSqliteWx.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\HtmlExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\JsonExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\MultiEditorImage.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\PdfExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\Printing.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\RegExpImport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\ScriptingTcl.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\SqlEnterpriseFormatter.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\SqlExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\SqlFormatterSimple.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\plugins\XmlExport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\printsupport\windowsprintersupport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Core.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Gui.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Network.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5PrintSupport.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Script.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Svg.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Widgets.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\Qt5Xml.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\sqlite.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\sqlite3.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\SQLiteStudio.exe" />
+    <Content Include="SQLite Studio\SQLiteStudio\sqlitestudiocli.exe" />
+    <Content Include="SQLite Studio\SQLiteStudio\styles\qwindowsvistastyle.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\tcl86.dll" />
+    <Content Include="SQLite Studio\SQLiteStudio\UpdateSQLiteStudio.exe" />
+    <Content Include="SQLite Studio\SQLiteStudio\zlib1.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
