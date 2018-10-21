@@ -43,12 +43,6 @@
             this.txtActLvl = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.SQLTest = new System.Windows.Forms.TabPage();
-            this.btnInsertTestData = new System.Windows.Forms.Button();
-            this.txbResults = new System.Windows.Forms.TextBox();
-            this.btnViewData = new System.Windows.Forms.Button();
-            this.btnCreateTestTable = new System.Windows.Forms.Button();
-            this.CreateConnectDb = new System.Windows.Forms.Button();
             this.tabActivity = new System.Windows.Forms.TabPage();
             this.lblCaloriesBurnedDisplay = new System.Windows.Forms.Label();
             this.lblCaloriesBurned = new System.Windows.Forms.Label();
@@ -58,16 +52,23 @@
             this.combActivities = new System.Windows.Forms.ComboBox();
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnCreateTables = new System.Windows.Forms.Button();
-            this.btnInsertData = new System.Windows.Forms.Button();
-            this.btnViewUser = new System.Windows.Forms.Button();
+            this.SQLTest = new System.Windows.Forms.TabPage();
             this.btnViewFood = new System.Windows.Forms.Button();
+            this.btnViewUser = new System.Windows.Forms.Button();
+            this.btnInsertData = new System.Windows.Forms.Button();
+            this.btnCreateTables = new System.Windows.Forms.Button();
+            this.btnInsertTestData = new System.Windows.Forms.Button();
+            this.txbResults = new System.Windows.Forms.TextBox();
+            this.btnViewData = new System.Windows.Forms.Button();
+            this.btnCreateTestTable = new System.Windows.Forms.Button();
+            this.CreateConnectDb = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnRyanTest = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SQLTest.SuspendLayout();
             this.tabActivity.SuspendLayout();
+            this.SQLTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabConsole1
@@ -84,34 +85,6 @@
             this.tabConsole1.SelectedIndex = 0;
             this.tabConsole1.Size = new System.Drawing.Size(800, 611);
             this.tabConsole1.TabIndex = 0;
-            // 
-            // tabDash
-            // 
-            this.tabDash.BackColor = System.Drawing.Color.Lime;
-            this.tabDash.Location = new System.Drawing.Point(4, 27);
-            this.tabDash.Name = "tabDash";
-            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDash.Size = new System.Drawing.Size(792, 580);
-            this.tabDash.TabIndex = 4;
-            this.tabDash.Text = "Dashboard";
-            // 
-            // tabWeight
-            // 
-            this.tabWeight.BackColor = System.Drawing.Color.Lime;
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
-            this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(792, 580);
-            this.tabWeight.TabIndex = 2;
-            this.tabWeight.Text = "Weight Log";
-            // 
-            // tabFood
-            // 
-            this.tabFood.BackColor = System.Drawing.Color.Lime;
-            this.tabFood.Location = new System.Drawing.Point(4, 27);
-            this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(792, 580);
-            this.tabFood.TabIndex = 3;
-            this.tabFood.Text = "Food Log";
             // 
             // tabDash
             // 
@@ -242,53 +215,6 @@
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 0;
             // 
-            // SQLTest
-            // 
-            this.SQLTest.BackColor = System.Drawing.Color.Lime;
-            this.SQLTest.Controls.Add(this.btnViewFood);
-            this.SQLTest.Controls.Add(this.btnViewUser);
-            this.SQLTest.Controls.Add(this.btnInsertData);
-            this.SQLTest.Controls.Add(this.btnCreateTables);
-            this.SQLTest.Controls.Add(this.btnInsertTestData);
-            this.SQLTest.Controls.Add(this.txbResults);
-            this.SQLTest.Controls.Add(this.btnViewData);
-            this.SQLTest.Controls.Add(this.btnCreateTestTable);
-            this.SQLTest.Controls.Add(this.CreateConnectDb);
-            this.SQLTest.Location = new System.Drawing.Point(4, 27);
-            this.SQLTest.Name = "SQLTest";
-            this.SQLTest.Size = new System.Drawing.Size(792, 580);
-            this.SQLTest.TabIndex = 5;
-            this.SQLTest.Text = "SQLTest";
-            // 
-            // btnInsertTestData
-            // 
-            this.btnInsertTestData.Location = new System.Drawing.Point(3, 129);
-            this.btnInsertTestData.Name = "btnInsertTestData";
-            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
-            this.btnInsertTestData.TabIndex = 4;
-            this.btnInsertTestData.Text = "Insert Test Data";
-            this.btnInsertTestData.UseVisualStyleBackColor = true;
-            this.btnInsertTestData.Click += new System.EventHandler(this.btnInsertTestData_Click);
-            // 
-            // txbResults
-            // 
-            this.txbResults.Location = new System.Drawing.Point(344, 95);
-            this.txbResults.Multiline = true;
-            this.txbResults.Name = "txbResults";
-            this.txbResults.Size = new System.Drawing.Size(393, 420);
-            this.txbResults.TabIndex = 3;
-            // 
-            // btnViewData
-            // 
-            this.btnViewData.Location = new System.Drawing.Point(3, 195);
-            this.btnViewData.Name = "btnViewData";
-            this.btnViewData.Size = new System.Drawing.Size(163, 40);
-            this.btnViewData.TabIndex = 2;
-            this.btnViewData.Text = "View Data";
-            this.btnViewData.UseVisualStyleBackColor = true;
-            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
-            // 
-            // btnCreateTestTable
             // tabActivity
             // 
             this.tabActivity.BackColor = System.Drawing.Color.Lime;
@@ -373,13 +299,6 @@
             this.btnClearActivity.Text = "Clear";
             this.btnClearActivity.UseVisualStyleBackColor = true;
             this.btnClearActivity.Click += new System.EventHandler(this.btnClearActivity_Click);
-            this.btnCreateTestTable.Location = new System.Drawing.Point(3, 92);
-            this.btnCreateTestTable.Name = "btnCreateTestTable";
-            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
-            this.btnCreateTestTable.TabIndex = 1;
-            this.btnCreateTestTable.Text = "Create Test Table";
-            this.btnCreateTestTable.UseVisualStyleBackColor = true;
-            this.btnCreateTestTable.Click += new System.EventHandler(this.btnCreateTestTable_Click);
             // 
             // btnAddActivity
             // 
@@ -390,9 +309,106 @@
             this.btnAddActivity.Text = "Add Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
             this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
-            //
+            // 
+            // SQLTest
+            // 
+            this.SQLTest.BackColor = System.Drawing.Color.Lime;
+            this.SQLTest.Controls.Add(this.btnRyanTest);
+            this.SQLTest.Controls.Add(this.btnViewFood);
+            this.SQLTest.Controls.Add(this.btnViewUser);
+            this.SQLTest.Controls.Add(this.btnInsertData);
+            this.SQLTest.Controls.Add(this.btnCreateTables);
+            this.SQLTest.Controls.Add(this.btnInsertTestData);
+            this.SQLTest.Controls.Add(this.txbResults);
+            this.SQLTest.Controls.Add(this.btnViewData);
+            this.SQLTest.Controls.Add(this.btnCreateTestTable);
+            this.SQLTest.Controls.Add(this.CreateConnectDb);
+            this.SQLTest.Location = new System.Drawing.Point(4, 27);
+            this.SQLTest.Name = "SQLTest";
+            this.SQLTest.Size = new System.Drawing.Size(792, 580);
+            this.SQLTest.TabIndex = 5;
+            this.SQLTest.Text = "SQLTest";
+            // 
+            // btnViewFood
+            // 
+            this.btnViewFood.Location = new System.Drawing.Point(15, 444);
+            this.btnViewFood.Name = "btnViewFood";
+            this.btnViewFood.Size = new System.Drawing.Size(110, 30);
+            this.btnViewFood.TabIndex = 2;
+            this.btnViewFood.Text = "View Food";
+            this.btnViewFood.UseVisualStyleBackColor = true;
+            this.btnViewFood.Click += new System.EventHandler(this.btnViewFood_Click);
+            // 
+            // btnViewUser
+            // 
+            this.btnViewUser.Location = new System.Drawing.Point(15, 403);
+            this.btnViewUser.Name = "btnViewUser";
+            this.btnViewUser.Size = new System.Drawing.Size(122, 23);
+            this.btnViewUser.TabIndex = 7;
+            this.btnViewUser.Text = "View User";
+            this.btnViewUser.UseVisualStyleBackColor = true;
+            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
+            // 
+            // btnInsertData
+            // 
+            this.btnInsertData.Location = new System.Drawing.Point(20, 346);
+            this.btnInsertData.Name = "btnInsertData";
+            this.btnInsertData.Size = new System.Drawing.Size(158, 36);
+            this.btnInsertData.TabIndex = 6;
+            this.btnInsertData.Text = "Insert testing data";
+            this.btnInsertData.UseVisualStyleBackColor = true;
+            this.btnInsertData.Click += new System.EventHandler(this.btnInsertData_Click);
+            // 
+            // btnCreateTables
+            // 
+            this.btnCreateTables.Location = new System.Drawing.Point(0, 297);
+            this.btnCreateTables.Name = "btnCreateTables";
+            this.btnCreateTables.Size = new System.Drawing.Size(125, 24);
+            this.btnCreateTables.TabIndex = 5;
+            this.btnCreateTables.Text = "Create Tables";
+            this.btnCreateTables.UseVisualStyleBackColor = true;
+            this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
+            // 
+            // btnInsertTestData
+            // 
+            this.btnInsertTestData.Location = new System.Drawing.Point(3, 129);
+            this.btnInsertTestData.Name = "btnInsertTestData";
+            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
+            this.btnInsertTestData.TabIndex = 4;
+            this.btnInsertTestData.Text = "Insert Test Data";
+            this.btnInsertTestData.UseVisualStyleBackColor = true;
+            this.btnInsertTestData.Click += new System.EventHandler(this.btnInsertTestData_Click);
+            // 
+            // txbResults
+            // 
+            this.txbResults.Location = new System.Drawing.Point(344, 95);
+            this.txbResults.Multiline = true;
+            this.txbResults.Name = "txbResults";
+            this.txbResults.Size = new System.Drawing.Size(393, 420);
+            this.txbResults.TabIndex = 3;
+            // 
+            // btnViewData
+            // 
+            this.btnViewData.Location = new System.Drawing.Point(3, 195);
+            this.btnViewData.Name = "btnViewData";
+            this.btnViewData.Size = new System.Drawing.Size(163, 40);
+            this.btnViewData.TabIndex = 2;
+            this.btnViewData.Text = "View Data";
+            this.btnViewData.UseVisualStyleBackColor = true;
+            this.btnViewData.Click += new System.EventHandler(this.btnViewData_Click);
+            // 
+            // btnCreateTestTable
+            // 
+            this.btnCreateTestTable.Location = new System.Drawing.Point(3, 92);
+            this.btnCreateTestTable.Name = "btnCreateTestTable";
+            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
+            this.btnCreateTestTable.TabIndex = 1;
+            this.btnCreateTestTable.Text = "Create Test Table";
+            this.btnCreateTestTable.UseVisualStyleBackColor = true;
+            this.btnCreateTestTable.Click += new System.EventHandler(this.btnCreateTestTable_Click);
+            // 
             // CreateConnectDb
-            //
+            // 
             this.CreateConnectDb.Location = new System.Drawing.Point(3, 52);
             this.CreateConnectDb.Name = "CreateConnectDb";
             this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
@@ -412,45 +428,15 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // btnCreateTables
+            // btnRyanTest
             // 
-            this.btnCreateTables.Location = new System.Drawing.Point(0, 297);
-            this.btnCreateTables.Name = "btnCreateTables";
-            this.btnCreateTables.Size = new System.Drawing.Size(125, 24);
-            this.btnCreateTables.TabIndex = 5;
-            this.btnCreateTables.Text = "Create Tables";
-            this.btnCreateTables.UseVisualStyleBackColor = true;
-            this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
-            // 
-            // btnInsertData
-            // 
-            this.btnInsertData.Location = new System.Drawing.Point(20, 346);
-            this.btnInsertData.Name = "btnInsertData";
-            this.btnInsertData.Size = new System.Drawing.Size(158, 36);
-            this.btnInsertData.TabIndex = 6;
-            this.btnInsertData.Text = "Insert testing data";
-            this.btnInsertData.UseVisualStyleBackColor = true;
-            this.btnInsertData.Click += new System.EventHandler(this.btnInsertData_Click);
-            // 
-            // btnViewUser
-            // 
-            this.btnViewUser.Location = new System.Drawing.Point(15, 403);
-            this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(122, 23);
-            this.btnViewUser.TabIndex = 7;
-            this.btnViewUser.Text = "View User";
-            this.btnViewUser.UseVisualStyleBackColor = true;
-            this.btnViewUser.Click += new System.EventHandler(this.btnViewUser_Click);
-            // 
-            // btnViewFood
-            // 
-            this.btnViewFood.Location = new System.Drawing.Point(15, 444);
-            this.btnViewFood.Name = "btnViewFood";
-            this.btnViewFood.Size = new System.Drawing.Size(110, 30);
-            this.btnViewFood.TabIndex = 2;
-            this.btnViewFood.Text = "View Food";
-            this.btnViewFood.UseVisualStyleBackColor = true;
-            this.btnViewFood.Click += new System.EventHandler(this.btnViewFood_Click);
+            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
+            this.btnRyanTest.Name = "btnRyanTest";
+            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
+            this.btnRyanTest.TabIndex = 8;
+            this.btnRyanTest.Text = "Ryan\'s Test Data";
+            this.btnRyanTest.UseVisualStyleBackColor = true;
+            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
             // 
             // FitThisHUB
             // 
@@ -514,5 +500,6 @@
         private System.Windows.Forms.TextBox tbxDuration;
         private System.Windows.Forms.Label lblSelectDuration;
         public System.Windows.Forms.ComboBox combActivities;
+        private System.Windows.Forms.Button btnRyanTest;
     }
 }

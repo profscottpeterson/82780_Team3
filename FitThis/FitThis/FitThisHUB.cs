@@ -17,10 +17,9 @@ namespace FitThis
     public partial class FitThisHUB : Form
     {
 
-        private SQLiteConnection database = new SQLiteConnection();
-
         private SQLiteConfig sqlcmd = new SQLiteConfig();
-
+        private SQLiteConnection database = new SQLiteConnection();
+        
 
         public FitThisHUB()
         {
@@ -156,6 +155,77 @@ namespace FitThis
         private void btnViewFood_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRyanTest_Click(object sender, EventArgs e)
+        {
+            // connect
+            database = sqlcmd.DatabaseConnection();
+
+            // Create Tables
+            sqlcmd.CreateTable(database, "CREATE TABLE USER (" +
+                                         "UserID INT PRIMARY KEY," +
+                                         "Fname varchar(20)," +
+                                         "LName varchar(20)," +
+                                         "Height varchar(5)," +
+                                         "StartingWeight INT," +
+                                         "GoalWeight INT," +
+                                         "Age INT," +
+                                         "RecommendIntake INT)");
+            sqlcmd.CreateTable(database, "CREATE TABLE FOOD (" +
+                                         "FoodID INT PRIMARY KEY," +
+                                         "Title varchar(50)," +
+                                         "Calories INT," +
+                                         "DateAdded DATE," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserId) REFERENCES User(UserID))");
+            sqlcmd.CreateTable(database, "CREATE TABLE Weight(" +
+                                         "WeightID INT PRIMARY KEY," +
+                                         "Date DATE," +
+                                         "Weight INT," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
+            sqlcmd.CreateTable(database, "CREATE TABLE Activity (" +
+                                         "ActivityID INT PRIMARY KEY," +
+                                         "Name Varchar(20)," +
+                                         "Duration INT," +
+                                         "CaloriesBurned INT," +
+                                         "Date DATE," +
+                                         "FK_UserID INT," +
+                                         "FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
+
+            // insert User
+            //UserID INT PRIMARY KEY
+            //Fname varchar(20)," +
+            //LName varchar(20)," +
+            //Height varchar(5)," +
+            //StartingWeight INT," +
+            //GoalWeight INT," +
+            //Age INT," +
+            //RecommendIntake INT)");
+            string sqltestuser = "INSERT INTO USER (UserID, Fname, Lname, Height, StartingWeight, GoalWeight, Age, RecommendIntake) " +
+                                 "values (0, 'John', 'Doe', '5-10', 195, 175, 26, 2500)";
+            SQLiteCommand cmdtestuser = new SQLiteCommand(sqltestuser, database);
+            cmdtestuser.ExecuteNonQuery();
+
+            // insert Weight log x3
+            //WeightID INT PRIMARY KEY," +
+            //Date DATE," +
+            //Weight INT," +
+            //FK_UserID INT," +
+            //FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
+            string sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
+                                 " values (0, 2018-10-21, 193, 0)";
+            SQLiteCommand cmdtestfood = new SQLiteCommand(sqltestfood, database);
+            cmdtestfood.ExecuteNonQuery();
+            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
+                          " values (1, 2018-10-21, 192, 0)";
+            cmdtestfood = new SQLiteCommand(sqltestfood, database);
+            cmdtestfood.ExecuteNonQuery();
+            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
+                          " values (2, 2018-10-21, 190, 0)";
+            cmdtestfood = new SQLiteCommand(sqltestfood, database);
+            cmdtestfood.ExecuteNonQuery();
         }
     }
 }
