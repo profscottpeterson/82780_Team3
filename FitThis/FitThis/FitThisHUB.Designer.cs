@@ -53,6 +53,7 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.SQLTest = new System.Windows.Forms.TabPage();
+            this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnViewFood = new System.Windows.Forms.Button();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.btnInsertData = new System.Windows.Forms.Button();
@@ -63,8 +64,12 @@
             this.btnCreateTestTable = new System.Windows.Forms.Button();
             this.CreateConnectDb = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnRyanTest = new System.Windows.Forms.Button();
+            this.lbxWeightLog = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabConsole1.SuspendLayout();
+            this.tabWeight.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
@@ -99,6 +104,10 @@
             // tabWeight
             // 
             this.tabWeight.BackColor = System.Drawing.Color.Lime;
+            this.tabWeight.Controls.Add(this.textBox1);
+            this.tabWeight.Controls.Add(this.button2);
+            this.tabWeight.Controls.Add(this.button1);
+            this.tabWeight.Controls.Add(this.lbxWeightLog);
             this.tabWeight.Location = new System.Drawing.Point(4, 27);
             this.tabWeight.Name = "tabWeight";
             this.tabWeight.Size = new System.Drawing.Size(792, 580);
@@ -329,6 +338,16 @@
             this.SQLTest.TabIndex = 5;
             this.SQLTest.Text = "SQLTest";
             // 
+            // btnRyanTest
+            // 
+            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
+            this.btnRyanTest.Name = "btnRyanTest";
+            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
+            this.btnRyanTest.TabIndex = 8;
+            this.btnRyanTest.Text = "Ryan\'s Test Data";
+            this.btnRyanTest.UseVisualStyleBackColor = true;
+            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
+            // 
             // btnViewFood
             // 
             this.btnViewFood.Location = new System.Drawing.Point(15, 444);
@@ -428,15 +447,40 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // btnRyanTest
+            // lbxWeightLog
             // 
-            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
-            this.btnRyanTest.Name = "btnRyanTest";
-            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
-            this.btnRyanTest.TabIndex = 8;
-            this.btnRyanTest.Text = "Ryan\'s Test Data";
-            this.btnRyanTest.UseVisualStyleBackColor = true;
-            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
+            this.lbxWeightLog.FormattingEnabled = true;
+            this.lbxWeightLog.ItemHeight = 18;
+            this.lbxWeightLog.Location = new System.Drawing.Point(310, 206);
+            this.lbxWeightLog.Name = "lbxWeightLog";
+            this.lbxWeightLog.Size = new System.Drawing.Size(450, 310);
+            this.lbxWeightLog.TabIndex = 0;
+            this.lbxWeightLog.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(153, 348);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(52, 348);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(103, 295);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 3;
             // 
             // FitThisHUB
             // 
@@ -453,6 +497,8 @@
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
             this.tabConsole1.ResumeLayout(false);
+            this.tabWeight.ResumeLayout(false);
+            this.tabWeight.PerformLayout();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -501,5 +547,9 @@
         private System.Windows.Forms.Label lblSelectDuration;
         public System.Windows.Forms.ComboBox combActivities;
         private System.Windows.Forms.Button btnRyanTest;
+        private System.Windows.Forms.ListBox lbxWeightLog;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
