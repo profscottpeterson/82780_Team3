@@ -2,13 +2,13 @@
 using System.Data.SQLite;
 using System.IO;
 
-namespace FitThis.Classes
+namespace FitThis
 {
     public class SQLiteConfig
     {
         public void CreateFile()
         {
-            SQLiteConnection.CreateFile("FitThis.sqlite");
+            SQLiteConnection.CreateFile("..\\..\\FitThisDB\\FitThis.sqlite");
         }
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace FitThis.Classes
         public SQLiteConnection DatabaseConnection()
         {
 
-            SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite");
+            SQLiteConnection data = new SQLiteConnection("Data Source=..\\..\\FitThisDB\\FitThis.sqlite");
             data.Open();
             return data;
         }

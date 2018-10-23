@@ -16,10 +16,17 @@ namespace FitThis
 {
     public partial class FitThisHUB : Form
     {
+        // varaible to hold the current user
+        User currentUser;
+        int currentUserID;
 
-        private SQLiteConnection database = new SQLiteConnection();
+        public SQLiteConnection database = new SQLiteConnection();
 
-        private SQLiteConfig sqlcmd = new SQLiteConfig();
+        public SQLiteConfig sqlcmd = new SQLiteConfig();
+        public void CreateConnection()
+        {
+            database = sqlcmd.DatabaseConnection();
+        }
 
 
         public FitThisHUB()
@@ -156,6 +163,22 @@ namespace FitThis
         private void btnViewFood_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FitThisHUB_Load(object sender, EventArgs e)
+        {
+            // On load, find the current user and load information into current user object
+            // TODO Activity level in database
+            string sqlLoadCurrentUser = "Select * From user where currentUser = 1";
+            this.CreateConnection();
+            SQLiteCommand command = new SQLiteCommand(sqlLoadCurrentUser, database);
+            SQLiteDataReader reader = command.ExecuteReader();
+            reader.Read();
+            this.currentUserID = reader.GetInt32(0);
+            int height = 0;
+            int.TryParse(reader["Height"].ToString(), out height);
+            // this.currentUser = new User(reader["Fname"].ToString(), reader["LName"].ToString(), reader.GetInt32(6), height,
+              //  reader.GetInt32(4), reader.GetInt32(5), reader["Gender"].ToString(), "FixThisActLevl");
         }
     }
 }

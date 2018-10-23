@@ -1,0 +1,65 @@
+﻿Jenny's Notes-- Week 10-17-->10-23
+---------------------------------------
+Main points
+-DB created & lives in FitThisDB folder
+-On Sign in load, form accesses DB & retrieves list of user names & last logins
+-The selected user @ login has their current user field set to true.
+-When the DB is referenced from the FitThis Hub, we search DB for current user & can either
+	-- reference current UserID or recreate current user object
+--Login & Logout methods can reset current user, but these shouldn't live in the user class
+	(Maybe a user management/ DB management class.)
+
+
+
+
+
+
+
+
+
+IGNORE ALL RAMBLING BELOW!
+
+10-17
+-Created new branch (Jenny 2) from Master to get all new updates instead of remerging
+master with orginal branch
+-Figure out DB strucuture. I think we'll need to have the DB built & accesible when the 
+program opens.
+- Changed namespace on SQLiteConfig.CS from FitThis.Classes to FitThis
+- Added SQLite using directive on needed classes.
+
+-- So much for these changes... I found a better way--
+xxx-Got rid of Ryan's change to start the program back at the sign in page.
+xxx-->Created DB creation class (this needs to take care of everything DB config/create wise)
+xxx-->Created an instance of the DB creation class on the sign in load form
+-----------------------------------------
+
+10-18 
+- The SQLite connection from the fit hub form is made public, user class opens the 
+DB and can add a user. :)  This still might need some work.
+-- I moved the location of the SQLite file to it's own folder in the solution.  It
+   should be able to live here and move around with our versions.
+-- We might have the option to have the DB created BEFORE the program ever runs. Data
+  could be added as users use the program on their machine.  This might save 
+  headaches with table creation.
+
+  10-19
+  -Go the user list selected from the database so it can be displayed from the 
+    sign in form combo box dropdown.
+ -Commented/code cleanup....
+
+Questions/To DO's
+-We need to make DB accessible at all points of the program.  Not sure if this is best  
+ practice, but even at the user sign in, a user will either be selecting their DB 
+ reference OR creating their DB reference (User ID line in table)  DB rereference should
+ be passed to different classes, as they all need to access the DB
+- We need to go over what happens when a user logs in and out (their db information
+ should be the only information visiable in the hub.)
+-  Why is height a string in the db???
+- pubic access to db-- probably not best practice, is there a better way?
+- User list @ sign in--- is this going to come from the database or a local list?
+- Database class-- can we adjust the SQLite config class to create a database 
+ connection upon object instantiation.  It would be nice if we could keep the majority
+ of the interaction with the database here.
+ - Need to set up db primary key fields to be auto incrementing.  In the case of user, the userID
+  needs to be returned for a reference to other tables & tabs.
+-  The current user needs to be passed form the sign in page to the fit this hub!

@@ -145,8 +145,7 @@
             {
                 User user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
                     ucGender, ucActivityLevel);
-                MessageBox.Show(user1.CalculateBMI().ToString());
-                MessageBox.Show(user1.CalculateBMR().ToString());
+                user1.AddUsertoDB();
                 this.Close();
             }
 

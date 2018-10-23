@@ -367,6 +367,32 @@
         }
 
         /// <summary>
+        /// Method to add the user's information to the Fit This database.
+        /// </summary>
+        public void AddUsertoDB()
+        {
+            // Create an a FitThisHub refrence to access the database...
+            FitThisHUB fh = new FitThisHUB();
+
+            // Create the SQL string to insert all user information into 
+            // the corresponding USER table fields
+            String sqlUserInsert = "INSERT INTO USER" +
+                "(Fname, LName, Height, StartingWeight, GoalWeight, Age)"
+                + "VALUES (" +"'"+ this.fName + "','" 
+                + this.lName + "','"
+                + this.height.ToString() + "',"
+                + this.startingWeight + ","
+                + this.goalWeight + ","
+                + this.age + ")";
+            // TODO Not sure if DB should be opened here or elsewhere? (when form or
+            // program loads)
+
+            // Open the databse & send the sql command.
+            fh.CreateConnection(); // 
+            fh.sqlcmd.InsertUpdateDeleteData(fh.database, sqlUserInsert);
+        }
+
+        /// <summary>
         /// Method to execute events when a user is logged in.
         /// </summary>
         public void Login()
