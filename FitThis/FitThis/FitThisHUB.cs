@@ -19,12 +19,31 @@ namespace FitThis
 
         private SQLiteConfig sqlcmd = new SQLiteConfig();
         private SQLiteConnection database = new SQLiteConnection();
-        
+        public User CurrentUser;
 
         public FitThisHUB()
         {
             
             InitializeComponent();
+            //load current user
+            //TODO Currently hard coded to grab user 0
+            database = sqlcmd.DatabaseConnection();
+            SQLiteCommand usercmd = new SQLiteCommand("Select * From User Where UserID = 0", database);
+            SQLiteDataReader userReader = usercmd.ExecuteReader();
+            
+            if (userReader.Read())
+            {
+                //TODO Syntax error in SQL
+                /*CurrentUser = new User(userReader["FName"].ToString(), userReader["LName"].ToString(), 
+                    int.Parse(userReader["Age"].ToString()), int.Parse(userReader["Height"].ToString()), 
+                    int.Parse(userReader["Weight"].ToString()), int.Parse(userReader["GoalWeight"].ToString()), 
+                    userReader["Gender"].ToString(), "Sedentary");
+                    */
+                CurrentUser = new User();
+                CurrentUser.UserID = int.Parse(userReader["UserID"].ToString());
+                CurrentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
+
+            }
             
         }
 
@@ -159,7 +178,12 @@ namespace FitThis
 
         private void btnRyanTest_Click(object sender, EventArgs e)
         {
-            // connect
+            CreateTestData();
+        }
+
+        private void CreateTestData()
+        {
+// connect
             database = sqlcmd.DatabaseConnection();
 
             // Create Tables
@@ -203,8 +227,9 @@ namespace FitThis
             //GoalWeight INT," +
             //Age INT," +
             //RecommendIntake INT)");
-            string sqltestuser = "INSERT INTO USER (UserID, Fname, Lname, Height, StartingWeight, GoalWeight, Age, RecommendIntake) " +
-                                 "values (0, 'John', 'Doe', '5-10', 195, 175, 26, 2500)";
+            string sqltestuser =
+                "INSERT INTO USER (UserID, Fname, Lname, Height, StartingWeight, GoalWeight, Age, RecommendIntake) " +
+                "values (0, 'John', 'Doe', '5-10', 195, 175, 26, 2500)";
             SQLiteCommand cmdtestuser = new SQLiteCommand(sqltestuser, database);
             cmdtestuser.ExecuteNonQuery();
 
@@ -214,23 +239,49 @@ namespace FitThis
             //Weight INT," +
             //FK_UserID INT," +
             //FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
-            string sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
+            string sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
                                  " values (0, 2018-10-21, 193, 0)";
             SQLiteCommand cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
-            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
-                          " values (1, 2018-10-21, 192, 0)";
+            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
+                          " values (1, 2018-10-22, 192, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
-            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight FK_UserID)" +
-                          " values (2, 2018-10-21, 190, 0)";
+            sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
+                          " values (2, 2018-10-18, 190, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void tabWeight_Enter(object sender, EventArgs e)
         {
+            // load list box
+            string lbxsql = "Select * From Weight WHERE FK_UserID = " + CurrentUser.UserID;
+            SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
+            while (lbxdata.Read())
+            {
+                //TODO Remove Time From Date Stamp
+                string date = lbxdata["Date"].ToString();
+                lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["Weight"]);
+            }
 
+            // load labels (current and goal)
+            string currentweightsql = "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
+                                      "WHERE UserID = " + CurrentUser.UserID +
+                                      " ORDER BY Date";
+            SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
+            if (curwght.Read())
+            {
+                this.lblCurrentWeight.Text = curwght[0].ToString();
+            }
+
+            lblGoalWeight.Text = CurrentUser.GoalWeight.ToString();
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

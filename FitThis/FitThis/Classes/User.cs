@@ -69,6 +69,13 @@
         private int recommendIntake;
 
         /// <summary>
+        /// Empty Constructor
+        /// </summary>
+        public User()
+        {
+        }
+
+        /// <summary>
         /// Initializes a new instance of the User class.
         /// </summary>
         /// <param name="fName1">User first name</param>
