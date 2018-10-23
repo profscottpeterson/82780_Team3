@@ -38,13 +38,17 @@ namespace FitThis
                     int.Parse(userReader["Age"].ToString()), int.Parse(userReader["Height"].ToString()), 
                     int.Parse(userReader["Weight"].ToString()), int.Parse(userReader["GoalWeight"].ToString()), 
                     userReader["Gender"].ToString(), "Sedentary");
-                    */
+                    */                    
                 CurrentUser = new User();
                 CurrentUser.UserID = int.Parse(userReader["UserID"].ToString());
                 CurrentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
 
             }
             
+
+            CurrentUser = new User();
+            CurrentUser.UserID = 0;
+            CurrentUser.GoalWeight = 175;
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -240,15 +244,15 @@ namespace FitThis
             //FK_UserID INT," +
             //FOREIGN KEY(FK_UserID) REFERENCES User(UserID))");
             string sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
-                                 " values (0, 2018-10-21, 193, 0)";
+                                 " values (0, '2018-10-21', 193, 0)";
             SQLiteCommand cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
             sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
-                          " values (1, 2018-10-22, 192, 0)";
+                          " values (1, '2018-10-22', 192, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
             sqltestfood = "INSERT INTO Weight (WeightID, Date, Weight, FK_UserID)" +
-                          " values (2, 2018-10-18, 190, 0)";
+                          " values (2, '2018-10-18', 190, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
         }
@@ -261,7 +265,7 @@ namespace FitThis
             while (lbxdata.Read())
             {
                 //TODO Remove Time From Date Stamp
-                string date = lbxdata["Date"].ToString();
+                string date = lbxdata.GetDateTime(1).ToString();
                 lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["Weight"]);
             }
 
