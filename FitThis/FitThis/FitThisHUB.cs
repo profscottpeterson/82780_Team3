@@ -33,6 +33,9 @@ namespace FitThis
             Activity active = new Activity();
             string act = "";
             int duration = 0;
+            int cals;
+            string sqlInsert;
+            
 
             if(combActivities.SelectedIndex == -1)
             {
@@ -42,17 +45,25 @@ namespace FitThis
             else
             {
                 act = combActivities.GetItemText(this.combActivities.SelectedItem);
-                MessageBox.Show(act);
+                //MessageBox.Show(act);
 
                 if (tbxDuration.Text.All(char.IsDigit))
                 {
                     Int32.TryParse(tbxDuration.Text, out duration);
                 }
-                int cals = active.CaloriesPerHour(act);
+                cals = active.CaloriesPerHour(act);
 
                 double total;
                 total = active.CaloriesBurned(duration, cals);
                 lblCaloriesBurnedDisplay.Text = total.ToString();
+
+//Location of Database file: C:\Users\origi\source\repos\profscottpeterson\82780_Team3\FitThis\FitThis\bin\Debug\fitThis.sqlite
+
+                sqlInsert = ("Insert into Activity (ActivityID, Name, Duration, CaloriesBurned, Date, FK_USERID) " +
+                    "values (" + (combActivities.SelectedIndex + 1) + ", '" + act + "', "
+                    + duration + ", " + total + ", date('now')" + ", " + 1 + ")");
+                MessageBox.Show(sqlInsert);
+                sqlcmd.InsertUpdateDeleteData(database, sqlInsert);
             }
 
             
@@ -77,14 +88,21 @@ namespace FitThis
 
         private void btnViewData_Click(object sender, EventArgs e)
         {
+            //TODO -- CHanged from Test to Activity
             this.txbResults.Text = "Id\tFirst Name \t Last Name\r\n";
-            string sql = "select * from Test order by Id";
+            string sql = "select * from Activity order by ActivityID";
             SQLiteCommand command = new SQLiteCommand(sql, database);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                this.txbResults.Text += reader["Id"] + "\t" + reader["Fname"] + "\t" + reader["Lname"] + "\r\n";
+                this.txbResults.Text += reader["ActivityID"] + "\t" + reader["Name"] + "\t" + reader["Duration"]
+                    +"\t" + reader["CaloriesBurned"] + "\t" + reader["Date"] + "\t" + reader["FK_USERID"] + "\r\n";
+                //this.txbResults.Text += reader["Id"] + "\t" + reader["Fname"] + "\t" + reader["Lname"] + "\r\n";
                 //("Name: " + reader["name"] + "\tScore: " + reader["score"]);
+                DateTime date = reader.GetDateTime(4).Date;
+                string x = date.ToString();
+                MessageBox.Show(x);
+
             }
         }
 
@@ -140,6 +158,7 @@ namespace FitThis
 
         private void btnViewUser_Click(object sender, EventArgs e)
         {
+            //TODO----- I changed the table to be viewed from USER to ACTIVITY
             SQLiteDataReader reader = new SQLiteCommand("Select * from USER", database).ExecuteReader();
             while (reader.Read())
             {

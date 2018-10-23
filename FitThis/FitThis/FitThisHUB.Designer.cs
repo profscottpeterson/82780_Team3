@@ -53,6 +53,7 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.SQLTest = new System.Windows.Forms.TabPage();
+            this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnViewFood = new System.Windows.Forms.Button();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.btnInsertData = new System.Windows.Forms.Button();
@@ -63,7 +64,6 @@
             this.btnCreateTestTable = new System.Windows.Forms.Button();
             this.CreateConnectDb = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnRyanTest = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -329,6 +329,16 @@
             this.SQLTest.TabIndex = 5;
             this.SQLTest.Text = "SQLTest";
             // 
+            // btnRyanTest
+            // 
+            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
+            this.btnRyanTest.Name = "btnRyanTest";
+            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
+            this.btnRyanTest.TabIndex = 8;
+            this.btnRyanTest.Text = "Ryan\'s Test Data";
+            this.btnRyanTest.UseVisualStyleBackColor = true;
+            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
+            // 
             // btnViewFood
             // 
             this.btnViewFood.Location = new System.Drawing.Point(15, 444);
@@ -365,7 +375,7 @@
             this.btnCreateTables.Name = "btnCreateTables";
             this.btnCreateTables.Size = new System.Drawing.Size(125, 24);
             this.btnCreateTables.TabIndex = 5;
-            this.btnCreateTables.Text = "Create Tables";
+            this.btnCreateTables.Text = "Create Tables 2";
             this.btnCreateTables.UseVisualStyleBackColor = true;
             this.btnCreateTables.Click += new System.EventHandler(this.btnCreateTables_Click);
             // 
@@ -413,7 +423,7 @@
             this.CreateConnectDb.Name = "CreateConnectDb";
             this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
             this.CreateConnectDb.TabIndex = 0;
-            this.CreateConnectDb.Text = "Create and collect Database";
+            this.CreateConnectDb.Text = "Create and collect Database 1";
             this.CreateConnectDb.UseVisualStyleBackColor = true;
             this.CreateConnectDb.Click += new System.EventHandler(this.CreateConnectDb_Click);
             // 
@@ -427,16 +437,6 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
-            // 
-            // btnRyanTest
-            // 
-            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
-            this.btnRyanTest.Name = "btnRyanTest";
-            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
-            this.btnRyanTest.TabIndex = 8;
-            this.btnRyanTest.Text = "Ryan\'s Test Data";
-            this.btnRyanTest.UseVisualStyleBackColor = true;
-            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
             // 
             // FitThisHUB
             // 
