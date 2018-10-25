@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
             this.tabConsole1 = new System.Windows.Forms.TabControl();
             this.tabDash = new System.Windows.Forms.TabPage();
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.btnCalCalc = new System.Windows.Forms.Button();
+            this.chartCal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPersonal = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
@@ -53,6 +58,7 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.SQLTest = new System.Windows.Forms.TabPage();
+            this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnViewFood = new System.Windows.Forms.Button();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.btnInsertData = new System.Windows.Forms.Button();
@@ -63,8 +69,9 @@
             this.btnCreateTestTable = new System.Windows.Forms.Button();
             this.CreateConnectDb = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnRyanTest = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
+            this.tabFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).BeginInit();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
@@ -108,11 +115,44 @@
             // tabFood
             // 
             this.tabFood.BackColor = System.Drawing.Color.Lime;
+            this.tabFood.Controls.Add(this.btnCalCalc);
+            this.tabFood.Controls.Add(this.chartCal);
             this.tabFood.Location = new System.Drawing.Point(4, 27);
             this.tabFood.Name = "tabFood";
             this.tabFood.Size = new System.Drawing.Size(792, 580);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food Log";
+            // 
+            // btnCalCalc
+            // 
+            this.btnCalCalc.Location = new System.Drawing.Point(241, 535);
+            this.btnCalCalc.Name = "btnCalCalc";
+            this.btnCalCalc.Size = new System.Drawing.Size(75, 23);
+            this.btnCalCalc.TabIndex = 2;
+            this.btnCalCalc.Text = "ChartCalc";
+            this.btnCalCalc.UseVisualStyleBackColor = true;
+            this.btnCalCalc.Click += new System.EventHandler(this.btnCalCalc_Click);
+            // 
+            // chartCal
+            // 
+            this.chartCal.BackColor = System.Drawing.Color.Lime;
+            this.chartCal.BorderlineColor = System.Drawing.Color.Black;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Name = "ChartArea1";
+            this.chartCal.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartCal.Legends.Add(legend1);
+            this.chartCal.Location = new System.Drawing.Point(322, 258);
+            this.chartCal.Name = "chartCal";
+            this.chartCal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Cals";
+            this.chartCal.Series.Add(series1);
+            this.chartCal.Size = new System.Drawing.Size(437, 300);
+            this.chartCal.TabIndex = 0;
             // 
             // tabPersonal
             // 
@@ -329,6 +369,16 @@
             this.SQLTest.TabIndex = 5;
             this.SQLTest.Text = "SQLTest";
             // 
+            // btnRyanTest
+            // 
+            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
+            this.btnRyanTest.Name = "btnRyanTest";
+            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
+            this.btnRyanTest.TabIndex = 8;
+            this.btnRyanTest.Text = "Ryan\'s Test Data";
+            this.btnRyanTest.UseVisualStyleBackColor = true;
+            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
+            // 
             // btnViewFood
             // 
             this.btnViewFood.Location = new System.Drawing.Point(15, 444);
@@ -428,16 +478,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // btnRyanTest
-            // 
-            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
-            this.btnRyanTest.Name = "btnRyanTest";
-            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
-            this.btnRyanTest.TabIndex = 8;
-            this.btnRyanTest.Text = "Ryan\'s Test Data";
-            this.btnRyanTest.UseVisualStyleBackColor = true;
-            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
-            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -453,6 +493,8 @@
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
             this.tabConsole1.ResumeLayout(false);
+            this.tabFood.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).EndInit();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -501,5 +543,7 @@
         private System.Windows.Forms.Label lblSelectDuration;
         public System.Windows.Forms.ComboBox combActivities;
         private System.Windows.Forms.Button btnRyanTest;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCal;
+        private System.Windows.Forms.Button btnCalCalc;
     }
 }

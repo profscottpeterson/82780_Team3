@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using FitThis.Classes;
 
 
@@ -226,6 +228,64 @@ namespace FitThis
                           " values (2, 2018-10-21, 190, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
+        }
+
+        private void btnCalCalc_Click(object sender, EventArgs e)
+        {
+            //variable to hold total number of calories consumed
+            int calorieIntake = 0;
+
+            //vairable for total number of callories recommended for the day
+            int calAllowance = 0;
+
+            //variable for the calories left for the day after eating
+            int calLeft = 0;
+
+            //opens connection to database
+            database = sqlcmd.DatabaseConnection();
+
+            //create reader to collect calories consumed
+            SQLiteDataReader intakeReader = new SQLiteCommand("Select CALORIES from FOOD", database).ExecuteReader();
+
+            //while there is a next record in the database
+            //find the number of calories for each meal
+            //then add them into the calorie intake variable
+            while (intakeReader.Read())
+            {
+
+                for (int i = 0; i < intakeReader.FieldCount; i++)
+                {
+                    calorieIntake += intakeReader.GetInt32(i);
+                }
+
+            }
+
+            //create reader to collect the user's calorie allowance
+            SQLiteDataReader allowanceReader = new SQLiteCommand(
+                "Select RECOMMENDINTAKE from USER where USERID = 1", database).ExecuteReader();
+
+            //finds the user's calorie allowance and places it in the variable
+            while (allowanceReader.Read())
+            {
+
+                for (int i = 0; i < allowanceReader.FieldCount; i++)
+                {
+                    calAllowance += allowanceReader.GetInt32(i);
+                }
+
+            }
+
+            //subtracts the allowance from the intake to get the calories 
+            //that can be consumed
+            calLeft = calAllowance - calorieIntake;
+
+            //adds title to chart
+            chartCal.Titles.Add("Calories");
+
+            //gives label and values to chart
+            //random text
+            chartCal.Series["Cals"].Points.AddXY("Calories Consumed", calorieIntake.ToString());
+            chartCal.Series["Cals"].Points.AddXY("Calories Available", calLeft.ToString());
         }
     }
 }
