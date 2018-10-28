@@ -6,19 +6,16 @@ namespace FitThis
 {
     public class SQLiteConfig
     {
-        public void CreateFile()
-        {
-            SQLiteConnection.CreateFile("..\\..\\FitThisDB\\FitThis.sqlite");
-        }
-
+   
         /// <summary>
+        /// TODO -- See methods in DB Management class
         /// Returns open connection
         /// </summary>
         /// <returns>SQLiteConnection to FitThis.sqlite</returns>
         public SQLiteConnection DatabaseConnection()
         {
-
-            SQLiteConnection data = new SQLiteConnection("Data Source=..\\..\\FitThisDB\\FitThis.sqlite");
+          
+            SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite");
             data.Open();
             return data;
         }

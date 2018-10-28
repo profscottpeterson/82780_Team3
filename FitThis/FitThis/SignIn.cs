@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,62 +14,68 @@ namespace FitThis
 {
     public partial class SignIn : Form
     {
-        List<string> UserList = new List<string>();
-        List<int> UserIDList = new List<int>();
+        // User object to store the current user
+        User currentUserS = new User(); // a current user object
 
-        public SignIn()
+        // User Management object
+        UserManagement UserMgmt = new UserManagement();
+
+        // Create a SQLite database object
+        public SQLiteConnection database = new SQLiteConnection();
+
+        public void OpenFitThisHub()
+        {
+            FitThisHUB FB = new FitThisHUB(this.currentUserS);
+            FB.Show();
+            this.Close();
+        }
+      
+        // Instantiation of the form, accepts a user object from the program class.
+        public SignIn(User user1)
         {
             InitializeComponent();
+            // Sets passes in user to current user.
+            user1 = this.currentUserS;
         }
 
+        /// <summary>
+        /// Button will open new user form to allow addtion 
+        /// of new user object.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
             // Create a new instance of the User creation form & show it.
             UserCreationForm UC = new UserCreationForm();
-            UC.Show();
+            UC.ShowDialog();
+            currentUserS = UC.user1;
+            if (currentUserS != null)
+            {
+                UserMgmt.AddUserToDB(currentUserS, database);
+                this.OpenFitThisHub();
+            }
+
         }
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-            // When the sign in form loads, we create a new instance of the 
-            // FitThis hub form so we can connect to the program database.
-            FitThisHUB FB = new FitThisHUB();
-            FB.CreateConnection();
-            // Set all users login value to false
-            string sqlCurrentUserReset = "Update User Set CurrentUser = 0";
-            SQLiteCommand command = new SQLiteCommand(sqlCurrentUserReset, FB.database);
-            command.ExecuteNonQuery();
+            // Connect to the database when the form loads.
+            //this.CreateConnection();
 
-            // Create a query to select the list of user names from the database.
-            String selectUsers = "Select Fname, LName, UserID from USER Order by LastLogin DESC";
-
-            // Send the query to the database & execute.
-            command = new SQLiteCommand(selectUsers, FB.database);
-
-            // SQL query results returned to the reader.
-            SQLiteDataReader reader = command.ExecuteReader();
-
-            // For each of the results, add the first name and last name as a string
-            // to a user list.
-            while (reader.Read())
-            {
-                string Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
-                this.UserList.Add(Name);
-                this.UserIDList.Add(reader.GetInt32(2));
-            }
-
-            // Close the reader
-            reader.Close();
+            DBManagement DB = new DBManagement();
+            this.database = DB.checkForFiles();
+            UserMgmt.FillLists(database);
 
             // For each user name in the list, add it as an option to the 
             // combobox dropdown selection menu on the sign in form.
-            foreach (string u in this.UserList)
+            foreach (string s in UserMgmt.UserList)
             {
-                this.cmbUser.Items.Add(u);
+                this.cmbUser.Items.Add(s);
             }
 
             // Have the last user logged in as the default value in the combobox
-            this.cmbUser.SelectedItem = this.UserList[0];
+            this.cmbUser.SelectedItem = UserMgmt.UserList[0];
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -76,27 +83,8 @@ namespace FitThis
             // Check if there's a value in the user combo box
             if (this.cmbUser.Text != null)
             {
-                FitThisHUB FB = new FitThisHUB();
-                FB.CreateConnection();
-
-                int index = this.UserList.IndexOf(this.cmbUser.Text);
-                int currentUserID = this.UserIDList.ElementAt(index);
-
-                // once we have the correct user ID & corresponding primary
-                // key in the table, we can update our current user field.
-                // This will allow us to reference the current user from the Fit this Hub.
-
-                string sqlUpdateCurrentUserField = "Update User Set CurrentUser = 1 Where UserID =" + currentUserID;
-                SQLiteCommand command = new SQLiteCommand(sqlUpdateCurrentUserField, FB.database);
-                command.ExecuteNonQuery();
-
-                // Update last login time field 
-                // TODO (this should be a separate method somewhere)
-                DateTime loginTime = DateTime.Now;
-                string loginTimeString = loginTime.ToShortDateString();
-                string updateLastLogin = "Update User Set LastLogin ='" + loginTimeString +"'Where UserID =" + currentUserID;
-                command = new SQLiteCommand(updateLastLogin, FB.database);
-                command.ExecuteNonQuery();
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text, this.database);
+                this.OpenFitThisHub();
             }
         }
     }

@@ -11,6 +11,7 @@
     using System.Windows.Forms;
     public partial class UserCreationForm : Form
     {
+        public User user1;
         public UserCreationForm()
         {
             InitializeComponent();
@@ -18,8 +19,8 @@
 
         private void createProfileButton_Click(object sender, EventArgs e)
         {
+            user1 = null;
             // Need to do data validation & pass values onto User class
-
             // Variables to hold user entered values
             string ucfName = "";
             string ucLName = "";
@@ -143,9 +144,8 @@
             }
             else
             {
-                User user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
+                user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
                     ucGender, ucActivityLevel);
-                user1.AddUsertoDB();
                 this.Close();
             }
 
