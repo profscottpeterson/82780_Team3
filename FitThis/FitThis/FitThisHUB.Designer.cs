@@ -63,7 +63,6 @@
             this.btnCreateTestTable = new System.Windows.Forms.Button();
             this.CreateConnectDb = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnRyanTest = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,28 +88,28 @@
             // tabDash
             // 
             this.tabDash.BackColor = System.Drawing.Color.Lime;
-            this.tabDash.Location = new System.Drawing.Point(4, 27);
+            this.tabDash.Location = new System.Drawing.Point(4, 35);
             this.tabDash.Name = "tabDash";
             this.tabDash.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDash.Size = new System.Drawing.Size(792, 580);
+            this.tabDash.Size = new System.Drawing.Size(792, 572);
             this.tabDash.TabIndex = 4;
             this.tabDash.Text = "Dashboard";
             // 
             // tabWeight
             // 
             this.tabWeight.BackColor = System.Drawing.Color.Lime;
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
+            this.tabWeight.Location = new System.Drawing.Point(4, 35);
             this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(792, 580);
+            this.tabWeight.Size = new System.Drawing.Size(792, 572);
             this.tabWeight.TabIndex = 2;
             this.tabWeight.Text = "Weight Log";
             // 
             // tabFood
             // 
             this.tabFood.BackColor = System.Drawing.Color.Lime;
-            this.tabFood.Location = new System.Drawing.Point(4, 27);
+            this.tabFood.Location = new System.Drawing.Point(4, 35);
             this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(792, 580);
+            this.tabFood.Size = new System.Drawing.Size(792, 572);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food Log";
             // 
@@ -127,10 +126,10 @@
             this.tabPersonal.Controls.Add(this.txtActLvl);
             this.tabPersonal.Controls.Add(this.lblName);
             this.tabPersonal.Controls.Add(this.txtName);
-            this.tabPersonal.Location = new System.Drawing.Point(4, 27);
+            this.tabPersonal.Location = new System.Drawing.Point(4, 35);
             this.tabPersonal.Name = "tabPersonal";
             this.tabPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPersonal.Size = new System.Drawing.Size(792, 580);
+            this.tabPersonal.Size = new System.Drawing.Size(792, 572);
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
             // 
@@ -148,7 +147,7 @@
             this.txtStrtWght.Enabled = false;
             this.txtStrtWght.Location = new System.Drawing.Point(227, 105);
             this.txtStrtWght.Name = "txtStrtWght";
-            this.txtStrtWght.Size = new System.Drawing.Size(100, 23);
+            this.txtStrtWght.Size = new System.Drawing.Size(100, 30);
             this.txtStrtWght.TabIndex = 7;
             // 
             // lblStrtWght
@@ -157,7 +156,7 @@
             this.lblStrtWght.BackColor = System.Drawing.Color.Orange;
             this.lblStrtWght.Location = new System.Drawing.Point(18, 108);
             this.lblStrtWght.Name = "lblStrtWght";
-            this.lblStrtWght.Size = new System.Drawing.Size(109, 18);
+            this.lblStrtWght.Size = new System.Drawing.Size(165, 26);
             this.lblStrtWght.TabIndex = 6;
             this.lblStrtWght.Text = "Starting Weight:";
             // 
@@ -167,7 +166,7 @@
             this.lblHeight.BackColor = System.Drawing.Color.Orange;
             this.lblHeight.Location = new System.Drawing.Point(18, 54);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(53, 18);
+            this.lblHeight.Size = new System.Drawing.Size(81, 26);
             this.lblHeight.TabIndex = 5;
             this.lblHeight.Text = "Height:";
             // 
@@ -176,7 +175,7 @@
             this.txtHeight.Enabled = false;
             this.txtHeight.Location = new System.Drawing.Point(227, 49);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 23);
+            this.txtHeight.Size = new System.Drawing.Size(100, 30);
             this.txtHeight.TabIndex = 4;
             // 
             // lblActivity
@@ -185,7 +184,7 @@
             this.lblActivity.BackColor = System.Drawing.Color.Orange;
             this.lblActivity.Location = new System.Drawing.Point(18, 80);
             this.lblActivity.Name = "lblActivity";
-            this.lblActivity.Size = new System.Drawing.Size(198, 18);
+            this.lblActivity.Size = new System.Drawing.Size(305, 26);
             this.lblActivity.TabIndex = 3;
             this.lblActivity.Text = "Usual Activity Level (in hours):";
             // 
@@ -194,7 +193,7 @@
             this.txtActLvl.Enabled = false;
             this.txtActLvl.Location = new System.Drawing.Point(227, 78);
             this.txtActLvl.Name = "txtActLvl";
-            this.txtActLvl.Size = new System.Drawing.Size(100, 23);
+            this.txtActLvl.Size = new System.Drawing.Size(100, 30);
             this.txtActLvl.TabIndex = 2;
             // 
             // lblName
@@ -203,7 +202,7 @@
             this.lblName.BackColor = System.Drawing.Color.Orange;
             this.lblName.Location = new System.Drawing.Point(18, 25);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 18);
+            this.lblName.Size = new System.Drawing.Size(72, 26);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name:";
             // 
@@ -212,7 +211,7 @@
             this.txtName.Enabled = false;
             this.txtName.Location = new System.Drawing.Point(227, 20);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 23);
+            this.txtName.Size = new System.Drawing.Size(100, 30);
             this.txtName.TabIndex = 0;
             // 
             // tabActivity
@@ -226,10 +225,10 @@
             this.tabActivity.Controls.Add(this.combActivities);
             this.tabActivity.Controls.Add(this.btnClearActivity);
             this.tabActivity.Controls.Add(this.btnAddActivity);
-            this.tabActivity.Location = new System.Drawing.Point(4, 27);
+            this.tabActivity.Location = new System.Drawing.Point(4, 35);
             this.tabActivity.Name = "tabActivity";
             this.tabActivity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabActivity.Size = new System.Drawing.Size(792, 580);
+            this.tabActivity.Size = new System.Drawing.Size(792, 572);
             this.tabActivity.TabIndex = 5;
             this.tabActivity.Text = "Activity";
             // 
@@ -238,7 +237,7 @@
             this.lblCaloriesBurnedDisplay.AutoSize = true;
             this.lblCaloriesBurnedDisplay.Location = new System.Drawing.Point(227, 261);
             this.lblCaloriesBurnedDisplay.Name = "lblCaloriesBurnedDisplay";
-            this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 18);
+            this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 26);
             this.lblCaloriesBurnedDisplay.TabIndex = 7;
             // 
             // lblCaloriesBurned
@@ -246,7 +245,7 @@
             this.lblCaloriesBurned.AutoSize = true;
             this.lblCaloriesBurned.Location = new System.Drawing.Point(32, 257);
             this.lblCaloriesBurned.Name = "lblCaloriesBurned";
-            this.lblCaloriesBurned.Size = new System.Drawing.Size(148, 18);
+            this.lblCaloriesBurned.Size = new System.Drawing.Size(227, 26);
             this.lblCaloriesBurned.TabIndex = 6;
             this.lblCaloriesBurned.Text = "Total Calories Burned: ";
             // 
@@ -254,7 +253,7 @@
             // 
             this.tbxDuration.Location = new System.Drawing.Point(183, 166);
             this.tbxDuration.Name = "tbxDuration";
-            this.tbxDuration.Size = new System.Drawing.Size(100, 23);
+            this.tbxDuration.Size = new System.Drawing.Size(100, 30);
             this.tbxDuration.TabIndex = 5;
             // 
             // lblSelectDuration
@@ -262,7 +261,7 @@
             this.lblSelectDuration.AutoSize = true;
             this.lblSelectDuration.Location = new System.Drawing.Point(32, 166);
             this.lblSelectDuration.Name = "lblSelectDuration";
-            this.lblSelectDuration.Size = new System.Drawing.Size(124, 18);
+            this.lblSelectDuration.Size = new System.Drawing.Size(189, 26);
             this.lblSelectDuration.TabIndex = 4;
             this.lblSelectDuration.Text = "Duration (minutes)";
             // 
@@ -271,7 +270,7 @@
             this.lblSelectActivity.AutoSize = true;
             this.lblSelectActivity.Location = new System.Drawing.Point(32, 120);
             this.lblSelectActivity.Name = "lblSelectActivity";
-            this.lblSelectActivity.Size = new System.Drawing.Size(95, 18);
+            this.lblSelectActivity.Size = new System.Drawing.Size(149, 26);
             this.lblSelectActivity.TabIndex = 3;
             this.lblSelectActivity.Text = "Select Activity";
             // 
@@ -287,7 +286,7 @@
             ""});
             this.combActivities.Location = new System.Drawing.Point(183, 120);
             this.combActivities.Name = "combActivities";
-            this.combActivities.Size = new System.Drawing.Size(121, 26);
+            this.combActivities.Size = new System.Drawing.Size(121, 34);
             this.combActivities.TabIndex = 2;
             // 
             // btnClearActivity
@@ -313,7 +312,6 @@
             // SQLTest
             // 
             this.SQLTest.BackColor = System.Drawing.Color.Lime;
-            this.SQLTest.Controls.Add(this.btnRyanTest);
             this.SQLTest.Controls.Add(this.btnViewFood);
             this.SQLTest.Controls.Add(this.btnViewUser);
             this.SQLTest.Controls.Add(this.btnInsertData);
@@ -323,9 +321,9 @@
             this.SQLTest.Controls.Add(this.btnViewData);
             this.SQLTest.Controls.Add(this.btnCreateTestTable);
             this.SQLTest.Controls.Add(this.CreateConnectDb);
-            this.SQLTest.Location = new System.Drawing.Point(4, 27);
+            this.SQLTest.Location = new System.Drawing.Point(4, 35);
             this.SQLTest.Name = "SQLTest";
-            this.SQLTest.Size = new System.Drawing.Size(792, 580);
+            this.SQLTest.Size = new System.Drawing.Size(792, 572);
             this.SQLTest.TabIndex = 5;
             this.SQLTest.Text = "SQLTest";
             // 
@@ -428,19 +426,9 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // btnRyanTest
-            // 
-            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
-            this.btnRyanTest.Name = "btnRyanTest";
-            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
-            this.btnRyanTest.TabIndex = 8;
-            this.btnRyanTest.Text = "Ryan\'s Test Data";
-            this.btnRyanTest.UseVisualStyleBackColor = true;
-            this.btnRyanTest.Click += new System.EventHandler(this.btnRyanTest_Click);
-            // 
             // FitThisHUB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -452,6 +440,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
+            this.Load += new System.EventHandler(this.FitThisHUB_Load);
             this.tabConsole1.ResumeLayout(false);
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();

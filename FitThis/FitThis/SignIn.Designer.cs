@@ -41,9 +41,10 @@
             this.lblUser.BackColor = System.Drawing.Color.Orange;
             this.lblUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblUser.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(41, 29);
+            this.lblUser.Location = new System.Drawing.Point(62, 45);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(87, 22);
+            this.lblUser.Size = new System.Drawing.Size(130, 30);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "Username:";
             // 
@@ -51,9 +52,10 @@
             // 
             this.btnCreate.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnCreate.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(34, 207);
+            this.btnCreate.Location = new System.Drawing.Point(51, 318);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(89, 27);
+            this.btnCreate.Size = new System.Drawing.Size(134, 42);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create User";
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -63,38 +65,44 @@
             // 
             this.btnSignIn.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnSignIn.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignIn.Location = new System.Drawing.Point(161, 207);
+            this.btnSignIn.Location = new System.Drawing.Point(242, 318);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(89, 27);
+            this.btnSignIn.Size = new System.Drawing.Size(134, 42);
             this.btnSignIn.TabIndex = 5;
             this.btnSignIn.Text = "Sign In";
             this.btnSignIn.UseVisualStyleBackColor = false;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
             // 
             // cmbUser
             // 
             this.cmbUser.BackColor = System.Drawing.Color.Lime;
+            this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(129, 29);
+            this.cmbUser.Location = new System.Drawing.Point(194, 45);
+            this.cmbUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbUser.Name = "cmbUser";
-            this.cmbUser.Size = new System.Drawing.Size(121, 21);
+            this.cmbUser.Size = new System.Drawing.Size(180, 28);
             this.cmbUser.TabIndex = 6;
             // 
             // SignIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(294, 265);
+            this.ClientSize = new System.Drawing.Size(441, 408);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblUser);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SignIn";
             this.Text = "FitThis - Sign In";
+            this.Load += new System.EventHandler(this.SignIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

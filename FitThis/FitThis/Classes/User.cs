@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Data.SQLite;
     using System.Text;
     using System.Threading.Tasks;
 
@@ -12,60 +13,16 @@
     public class User
     {
         // Private fields to hold user information, as entered on the create new user form.
-
-        /// <summary>
-        /// Integer to hold a created userID, for program and database reference
-        /// </summary>
         private int userID;
-
-        /// <summary>
-        /// String to hold the user's first name
-        /// </summary>
         private string fName;
-
-        /// <summary>
-        /// String to hold the user's last name
-        /// </summary>
         private string lName;
-
-        /// <summary>
-        /// String to hold the user's gender
-        /// </summary>
         private string gender;
-
-        /// <summary>
-        /// String to hold the user's activity level
-        /// </summary>
         private string activityLevel;
-
-        /// <summary>
-        /// Double to hold the user's height, in inches.
-        /// </summary>
         private double height;
-
-        /// <summary>
-        /// Double to hold the user's starting weight
-        /// </summary>
         private double startingWeight;
-
-        /// <summary>
-        /// Double to hold the user's goal weight
-        /// </summary>
         private double goalWeight;
-
-        /// <summary>
-        ///  Double to hold the user's current weight
-        /// </summary>
         private double currentWeight;
-
-        /// <summary>
-        /// Integer to hold the user's age
-        /// </summary>
         private int age;
-
-        /// <summary>
-        /// Integer to hold the user's recommended daily calorie intake.
-        /// </summary>
         private int recommendIntake;
 
         /// <summary>
@@ -98,6 +55,11 @@
             this.goalWeight = goalWeight1;
             this.gender = gender1;
             this.activityLevel = actlevel1;
+        }
+
+        public User()
+        {
+            // default constructor
         }
 
         /// <summary>
@@ -361,25 +323,9 @@
 
         public int CalculateTargetCalorieIntake()
         {
-            // Need the code to calculate this.
-            int calorieIntakegoal = 0;
+            // TODO Need the code to calculate this.
+            int calorieIntakegoal = 2000;
             return calorieIntakegoal;
-        }
-
-        /// <summary>
-        /// Method to execute events when a user is logged in.
-        /// </summary>
-        public void Login()
-        {
-            // Code here
-        }
-
-        /// <summary>
-        /// Method to execute events when a user logs out.
-        /// </summary>
-        public void Logout()
-        {
-            // Code here
         }
     }
 }
