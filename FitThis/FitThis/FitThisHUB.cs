@@ -112,5 +112,10 @@ namespace FitThis
             this.database = DB.ConnectDB(database);
             this.CreateConnection();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
