@@ -217,7 +217,34 @@ namespace FitThis
             cmdtestfood.ExecuteNonQuery();
         }
 
-        private void tabActivity_Click(object sender, EventArgs e)
+
+        private void importDataActivity_Click(object sender, EventArgs e)
+        {
+
+            // Makes the X value of type date so that dates are shown instead of numbers
+            chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+
+            // Populate the data grid, and the chart
+            //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
+            string sql = "select * from Activity Where Fk_userID = 1 order by Date";
+            SQLiteCommand command = new SQLiteCommand(sql, database);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                //Adds data to the rows
+                dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+
+                // Converts database date to c# date?
+                DateTime date = reader.GetDateTime(4).Date;
+
+                //Adds the date to the chart
+                chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
+
+            }
+
+        }
+
+        private void FitThisHUB_Load(object sender, EventArgs e)
         {
 
         }

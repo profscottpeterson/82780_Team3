@@ -28,6 +28,9 @@ namespace FitThis.Classes
         // The sql insert text
         string sqlInsert = "";
 
+        // Temporary date incrementor
+        int dateInt = 0;
+
         // Fills the dictionary
         private void fillDictionary()
         {
@@ -99,9 +102,17 @@ namespace FitThis.Classes
         // Inserts the data into the database table Activity
         public void sqlDataInsert(ComboBox combo, SQLiteConfig sqlcmd, System.Data.SQLite.SQLiteConnection database)
         {
+
+            // Random number for activity ID;
+            Random rand = new Random();
+
+            dateInt++;
+            string dateStr = dateInt.ToString();
+
+            // Activity ID was changed from combo.selectedindex +1 to a random number becuase activity IDs have to be unique.
             sqlInsert = ("Insert into Activity (ActivityID, Name, Duration, CaloriesBurned, Date, FK_USERID) " +
-                    "values (" + (combo.SelectedIndex + 1) + ", '" + activityName + "', "
-                    + duration + ", " + totalCalories + ", date('now')" + ", " + 1 + ")");
+                    "values (" + rand.Next(6, 200) + ", '" + activityName + "', "
+                    + duration + ", " + totalCalories + ", date('now', '+" + 2 + " day')" + ", " + 1 + ")");
             MessageBox.Show(sqlInsert);
             sqlcmd.InsertUpdateDeleteData(database, sqlInsert);
         }
