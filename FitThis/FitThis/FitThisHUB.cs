@@ -22,51 +22,21 @@ namespace FitThis
         
 
         public FitThisHUB()
-        {
-            
+        {     
             InitializeComponent();
-            
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
+            //Initialize activity class
             Activity active = new Activity();
-            string act = "";
-            int duration = 0;
-            int cals;
-            string sqlInsert;
-            
 
-            if(combActivities.SelectedIndex == -1)
+            // Validate the data entered
+            if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
-                MessageBox.Show("YOu MUST SELECT A WORKOUT!!!!!!!!!!!!");
-                combActivities.Focus();
+                active.sqlDataInsert(combActivities, sqlcmd, database);
+                lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
-            else
-            {
-                act = combActivities.GetItemText(this.combActivities.SelectedItem);
-                //MessageBox.Show(act);
-
-                if (tbxDuration.Text.All(char.IsDigit))
-                {
-                    Int32.TryParse(tbxDuration.Text, out duration);
-                }
-                cals = active.CaloriesPerHour(act);
-
-                double total;
-                total = active.CaloriesBurned(duration, cals);
-                lblCaloriesBurnedDisplay.Text = total.ToString();
-
-//Location of Database file: C:\Users\origi\source\repos\profscottpeterson\82780_Team3\FitThis\FitThis\bin\Debug\fitThis.sqlite
-
-                sqlInsert = ("Insert into Activity (ActivityID, Name, Duration, CaloriesBurned, Date, FK_USERID) " +
-                    "values (" + (combActivities.SelectedIndex + 1) + ", '" + act + "', "
-                    + duration + ", " + total + ", date('now')" + ", " + 1 + ")");
-                MessageBox.Show(sqlInsert);
-                sqlcmd.InsertUpdateDeleteData(database, sqlInsert);
-            }
-
-            
 
         }
 
@@ -245,6 +215,11 @@ namespace FitThis
                           " values (2, 2018-10-21, 190, 0)";
             cmdtestfood = new SQLiteCommand(sqltestfood, database);
             cmdtestfood.ExecuteNonQuery();
+        }
+
+        private void tabActivity_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
