@@ -59,7 +59,7 @@
 
         public User()
         {
-
+            // default constructor
         }
 
         /// <summary>

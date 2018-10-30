@@ -55,11 +55,16 @@ namespace FitThis
                 UserMgmt.AddUserToDB(currentUserS, database);
                 this.OpenFitThisHub();
             }
-
+            // So program doesn't break if UC form closed
+            else
+            {
+                currentUserS = new User();
+            }
         }
 
         private void SignIn_Load(object sender, EventArgs e)
         {
+
             // Connect to the database when the form loads.
             //this.CreateConnection();
 

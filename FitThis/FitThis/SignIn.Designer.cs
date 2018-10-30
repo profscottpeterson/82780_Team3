@@ -77,6 +77,7 @@
             // cmbUser
             // 
             this.cmbUser.BackColor = System.Drawing.Color.Lime;
+            this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUser.FormattingEnabled = true;
             this.cmbUser.Location = new System.Drawing.Point(194, 45);
             this.cmbUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

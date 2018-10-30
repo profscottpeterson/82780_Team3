@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Data;
+    using System.Data.SQLite;
     using System.Drawing;
     using System.Linq;
     using System.Text;
@@ -12,6 +13,10 @@
     public partial class UserCreationForm : Form
     {
         public User user1;
+        private SQLiteConnection database = new SQLiteConnection();
+        private DBManagement DB = new DBManagement();
+        private List<string> activityLevel = new List<string>();
+        
         public UserCreationForm()
         {
             InitializeComponent();
@@ -144,9 +149,25 @@
             }
             else
             {
-                user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
+                string sqlCheckName = "Select * from User where FName = '" +
+                    ucfName + "' and LName = '" + ucLName + "'";
+                database = DB.ConnectDB(database);
+                SQLiteCommand command = new SQLiteCommand(sqlCheckName, database);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    MessageBox.Show("User already exists.  Log in or change name.");
+                    fNameTxtBox.Enabled = true;
+                    lNameTxtBox.Enabled = true;
+                    reader.Close();
+                }
+                else
+                {
+                    user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
                     ucGender, ucActivityLevel);
-                this.Close();
+                    this.Close();
+                }
+                
             }
 
         }
@@ -155,6 +176,21 @@
         {
             // Close the form.
             this.Close();
+        }
+
+        private void UserCreationForm_Load(object sender, EventArgs e)
+        {
+            this.activityLevel.Add("Sedentary");
+            this.activityLevel.Add("Lightly Active");
+            this.activityLevel.Add("Moderately Active");
+            this.activityLevel.Add("Highly Active");
+            this.activityLevel.Add("Extra Active");
+            foreach (string s in this.activityLevel)
+            {
+                this.activityComboBox.Items.Add(s);
+            }
+            activityComboBox.SelectedIndex = 0;
+
         }
     }
 }

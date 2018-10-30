@@ -74,7 +74,7 @@ namespace FitThis
         {
 
             DateTime loginTime = DateTime.Now;
-            string loginTimeString = loginTime.ToShortDateString();
+            string loginTimeString = loginTime.ToString();
             string updateLastLogin = "Update User Set LastLogin ='" + loginTimeString + "'Where UserID =" + user1.UserID;
             command = new SQLiteCommand(updateLastLogin, db);
             command.ExecuteNonQuery();
