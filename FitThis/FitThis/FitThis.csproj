@@ -87,12 +87,6 @@
     <Compile Include="UserCreation.Designer.cs">
       <DependentUpon>UserCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NewUser.Designer.cs">
-      <DependentUpon>NewUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,9 +97,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FitThisHUB.resx">
       <DependentUpon>FitThisHUB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NewUser.resx">
-      <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserCreation.resx">
       <DependentUpon>UserCreation.cs</DependentUpon>
