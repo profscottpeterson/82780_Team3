@@ -224,7 +224,7 @@ namespace FitThis
             // Makes the X value of type date so that dates are shown instead of numbers
             chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
-            // Populate the data grid, and the chart
+            // Populate the data grid
             //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
             string sql = "select * from Activity Where Fk_userID = 1 order by Date";
             SQLiteCommand command = new SQLiteCommand(sql, database);
@@ -234,11 +234,20 @@ namespace FitThis
                 //Adds data to the rows
                 dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
 
+            }
+
+            // FIll the chart with data
+            //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
+            string sqlChart = "select Date, SUM(Duration) from Activity Where Fk_userID = 1 group by Date";
+            SQLiteCommand commandChart = new SQLiteCommand(sqlChart, database);
+            SQLiteDataReader reader2 = commandChart.ExecuteReader();
+            while (reader2.Read())
+            {
                 // Converts database date to c# date?
-                DateTime date = reader.GetDateTime(4).Date;
+                DateTime date = reader2.GetDateTime(0).Date;
 
                 //Adds the date to the chart
-                chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
+                chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader2["Sum(Duration)"]);
 
             }
 
