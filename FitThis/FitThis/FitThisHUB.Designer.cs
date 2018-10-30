@@ -216,6 +216,7 @@
             this.tabFood.Size = new System.Drawing.Size(792, 580);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food Log";
+            this.tabFood.Click += new System.EventHandler(this.tabFood_Click);
             // 
             // tabPersonal
             // 

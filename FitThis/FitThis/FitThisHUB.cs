@@ -28,27 +28,25 @@ namespace FitThis
             //load current user
             //TODO Currently hard coded to grab user 0
             database = sqlcmd.DatabaseConnection();
+            //CreateTestData();
             SQLiteCommand usercmd = new SQLiteCommand("Select * From User Where UserID = 0", database);
             SQLiteDataReader userReader = usercmd.ExecuteReader();
             
             if (userReader.Read())
             {
-                //TODO Syntax error in SQL
-                /*CurrentUser = new User(userReader["FName"].ToString(), userReader["LName"].ToString(), 
-                    int.Parse(userReader["Age"].ToString()), int.Parse(userReader["Height"].ToString()), 
-                    int.Parse(userReader["Weight"].ToString()), int.Parse(userReader["GoalWeight"].ToString()), 
-                    userReader["Gender"].ToString(), "Sedentary");
-                    */                    
                 CurrentUser = new User();
                 CurrentUser.UserID = int.Parse(userReader["UserID"].ToString());
                 CurrentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
-
             }
             
 
-            CurrentUser = new User();
+
+
+
+            /*CurrentUser = new User();
             CurrentUser.UserID = 0;
             CurrentUser.GoalWeight = 175;
+            */
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -286,6 +284,11 @@ namespace FitThis
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tabFood_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
