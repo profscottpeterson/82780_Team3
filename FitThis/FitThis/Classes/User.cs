@@ -258,7 +258,7 @@
                 bmr = 66 + (6.23 * this.currentWeight) + (12.7 * this.height) - (6.8 * this.age);
             }
 
-            double activityLevelAdjustment = 0; // Holds the actvity level adjustment for BMR
+            double activityLevelAdjustment = 0; // Holds the ACTIVITY level adjustment for BMR
             
             // Case/Switch statement to determine BMR adjustment based on activity level.
             switch (this.activityLevel)

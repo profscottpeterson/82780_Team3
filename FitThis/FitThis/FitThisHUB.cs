@@ -48,13 +48,6 @@ namespace FitThis
                 active.sqlDataInsert(combActivities, sqlcmd, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
-
-        }
-
-                double total;
-                total = active.CaloriesBurned(duration, cals);
-                lblCaloriesBurnedDisplay.Text = total.ToString();
-            }
         }
 
         private void btnClearActivity_Click(object sender, EventArgs e)
@@ -146,7 +139,7 @@ namespace FitThis
 
         }
 
-        private void FitThisHUB_Load(object sender, EventArgs e)
+        private void CreateConnectDb_Click_1(object sender, EventArgs e)
         {
 
         }

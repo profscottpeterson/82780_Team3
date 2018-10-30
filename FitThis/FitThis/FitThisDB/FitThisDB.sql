@@ -6,10 +6,10 @@
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- Table: ACTVITY
-DROP TABLE IF EXISTS ACTVITY;
+-- Table: ACTIVITY
+DROP TABLE IF EXISTS ACTIVITY;
 
-CREATE TABLE ACTVITY (
+CREATE TABLE ACTIVITY (
     ActivityID     INTEGER      PRIMARY KEY AUTOINCREMENT,
     Name           VARCHAR (20),
     Duration       INT,
@@ -22,7 +22,7 @@ CREATE TABLE ACTVITY (
     REFERENCES User (UserID) 
 );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -39,7 +39,7 @@ INSERT INTO ACTVITY (
                         1
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -56,7 +56,7 @@ INSERT INTO ACTVITY (
                         1
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -73,7 +73,7 @@ INSERT INTO ACTVITY (
                         2
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
