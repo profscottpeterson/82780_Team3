@@ -71,7 +71,7 @@
             "Moderately Active",
             "Very Active",
             "Extra Active"});
-            this.activityComboBox.Location = new System.Drawing.Point(261, 389);
+            this.activityComboBox.Location = new System.Drawing.Point(261, 369);
             this.activityComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.activityComboBox.Name = "activityComboBox";
             this.activityComboBox.Size = new System.Drawing.Size(121, 24);
@@ -92,7 +92,7 @@
             // 
             this.fNameTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.fNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fNameTxtBox.Location = new System.Drawing.Point(260, 92);
+            this.fNameTxtBox.Location = new System.Drawing.Point(260, 72);
             this.fNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fNameTxtBox.Name = "fNameTxtBox";
             this.fNameTxtBox.Size = new System.Drawing.Size(100, 22);
@@ -104,7 +104,7 @@
             this.fNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.fNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fNameLabel.Location = new System.Drawing.Point(172, 93);
+            this.fNameLabel.Location = new System.Drawing.Point(172, 73);
             this.fNameLabel.Name = "fNameLabel";
             this.fNameLabel.Size = new System.Drawing.Size(82, 20);
             this.fNameLabel.TabIndex = 2;
@@ -116,7 +116,7 @@
             this.lNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.lNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameLabel.Location = new System.Drawing.Point(174, 141);
+            this.lNameLabel.Location = new System.Drawing.Point(174, 121);
             this.lNameLabel.Name = "lNameLabel";
             this.lNameLabel.Size = new System.Drawing.Size(78, 20);
             this.lNameLabel.TabIndex = 4;
@@ -126,7 +126,7 @@
             // 
             this.lNameTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.lNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameTxtBox.Location = new System.Drawing.Point(260, 140);
+            this.lNameTxtBox.Location = new System.Drawing.Point(260, 120);
             this.lNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lNameTxtBox.Name = "lNameTxtBox";
             this.lNameTxtBox.Size = new System.Drawing.Size(100, 22);
@@ -138,7 +138,7 @@
             this.ageLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.ageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ageLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageLabel.Location = new System.Drawing.Point(158, 189);
+            this.ageLabel.Location = new System.Drawing.Point(158, 169);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(100, 20);
             this.ageLabel.TabIndex = 6;
@@ -148,7 +148,7 @@
             // 
             this.ageTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.ageTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageTxtBox.Location = new System.Drawing.Point(260, 190);
+            this.ageTxtBox.Location = new System.Drawing.Point(260, 170);
             this.ageTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ageTxtBox.Name = "ageTxtBox";
             this.ageTxtBox.Size = new System.Drawing.Size(100, 22);
@@ -160,17 +160,17 @@
             this.weightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.weightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.weightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightLabel.Location = new System.Drawing.Point(125, 241);
+            this.weightLabel.Location = new System.Drawing.Point(125, 221);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(132, 20);
+            this.weightLabel.Size = new System.Drawing.Size(133, 20);
             this.weightLabel.TabIndex = 8;
-            this.weightLabel.Text = "Weight (In Pounds):";
+            this.weightLabel.Text = "Weight (In pounds):";
             // 
             // weightTxtBox
             // 
             this.weightTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.weightTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxtBox.Location = new System.Drawing.Point(260, 240);
+            this.weightTxtBox.Location = new System.Drawing.Point(260, 220);
             this.weightTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weightTxtBox.Name = "weightTxtBox";
             this.weightTxtBox.Size = new System.Drawing.Size(100, 22);
@@ -182,7 +182,7 @@
             this.heightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.heightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.heightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heightLabel.Location = new System.Drawing.Point(199, 291);
+            this.heightLabel.Location = new System.Drawing.Point(199, 271);
             this.heightLabel.Name = "heightLabel";
             this.heightLabel.Size = new System.Drawing.Size(55, 20);
             this.heightLabel.TabIndex = 10;
@@ -192,7 +192,7 @@
             // 
             this.heigtFtTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.heigtFtTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heigtFtTxtBox.Location = new System.Drawing.Point(260, 290);
+            this.heigtFtTxtBox.Location = new System.Drawing.Point(260, 270);
             this.heigtFtTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.heigtFtTxtBox.Name = "heigtFtTxtBox";
             this.heigtFtTxtBox.Size = new System.Drawing.Size(44, 22);
@@ -204,7 +204,7 @@
             this.ftLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.ftLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ftLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ftLabel.Location = new System.Drawing.Point(310, 291);
+            this.ftLabel.Location = new System.Drawing.Point(310, 271);
             this.ftLabel.Name = "ftLabel";
             this.ftLabel.Size = new System.Drawing.Size(23, 20);
             this.ftLabel.TabIndex = 11;
@@ -216,7 +216,7 @@
             this.inchesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.inchesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.inchesLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inchesLabel.Location = new System.Drawing.Point(385, 291);
+            this.inchesLabel.Location = new System.Drawing.Point(385, 271);
             this.inchesLabel.Name = "inchesLabel";
             this.inchesLabel.Size = new System.Drawing.Size(50, 20);
             this.inchesLabel.TabIndex = 13;
@@ -226,7 +226,7 @@
             // 
             this.heightInchTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.heightInchTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heightInchTxtBox.Location = new System.Drawing.Point(335, 290);
+            this.heightInchTxtBox.Location = new System.Drawing.Point(335, 270);
             this.heightInchTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.heightInchTxtBox.Name = "heightInchTxtBox";
             this.heightInchTxtBox.Size = new System.Drawing.Size(44, 22);
@@ -237,7 +237,7 @@
             this.maleRadioButton.AutoSize = true;
             this.maleRadioButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.maleRadioButton.Checked = true;
-            this.maleRadioButton.Location = new System.Drawing.Point(258, 350);
+            this.maleRadioButton.Location = new System.Drawing.Point(258, 330);
             this.maleRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maleRadioButton.Name = "maleRadioButton";
             this.maleRadioButton.Size = new System.Drawing.Size(48, 20);
@@ -250,7 +250,7 @@
             // 
             this.FeamlerRadioButton.AutoSize = true;
             this.FeamlerRadioButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
-            this.FeamlerRadioButton.Location = new System.Drawing.Point(320, 350);
+            this.FeamlerRadioButton.Location = new System.Drawing.Point(320, 330);
             this.FeamlerRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FeamlerRadioButton.Name = "FeamlerRadioButton";
             this.FeamlerRadioButton.Size = new System.Drawing.Size(60, 20);
@@ -264,7 +264,7 @@
             this.genderLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.genderLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.genderLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(194, 346);
+            this.genderLabel.Location = new System.Drawing.Point(194, 326);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(60, 20);
             this.genderLabel.TabIndex = 16;
@@ -276,7 +276,7 @@
             this.activityLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.activityLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.activityLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activityLabel.Location = new System.Drawing.Point(109, 392);
+            this.activityLabel.Location = new System.Drawing.Point(109, 372);
             this.activityLabel.Name = "activityLabel";
             this.activityLabel.Size = new System.Drawing.Size(149, 20);
             this.activityLabel.TabIndex = 18;
@@ -288,7 +288,7 @@
             this.goalWeightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.goalWeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.goalWeightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goalWeightLabel.Location = new System.Drawing.Point(165, 438);
+            this.goalWeightLabel.Location = new System.Drawing.Point(165, 418);
             this.goalWeightLabel.Name = "goalWeightLabel";
             this.goalWeightLabel.Size = new System.Drawing.Size(89, 20);
             this.goalWeightLabel.TabIndex = 20;
@@ -298,7 +298,7 @@
             // 
             this.goalWeightTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.goalWeightTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goalWeightTxtBox.Location = new System.Drawing.Point(260, 437);
+            this.goalWeightTxtBox.Location = new System.Drawing.Point(260, 417);
             this.goalWeightTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.goalWeightTxtBox.Name = "goalWeightTxtBox";
             this.goalWeightTxtBox.Size = new System.Drawing.Size(100, 22);
