@@ -6,8 +6,8 @@
 PRAGMA foreign_keys = off;
 BEGIN TRANSACTION;
 
--- Table: ACTVITY
-DROP TABLE IF EXISTS ACTVITY;
+-- Table: ACTIVITY
+DROP TABLE IF EXISTS ACTIVITY;
 
 CREATE TABLE ACTIVITY (
     ActivityID     INTEGER      PRIMARY KEY AUTOINCREMENT,
@@ -32,7 +32,7 @@ INSERT INTO ACTIVITY (
                     )
                     VALUES (
                         1,
-                        'Walk',
+                        'Walking',
                         60,
                         350,
                         date('now'),
@@ -49,14 +49,14 @@ INSERT INTO ACTIVITY (
                     )
                     VALUES (
                         2,
-                        'Run',
+                        'Running',
                         60,
                         750,
                         date('now'),
                         1
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -66,14 +66,14 @@ INSERT INTO ACTVITY (
                     )
                     VALUES (
                         3,
-                        'Walk',
+                        'Walking',
                         30,
                         150,
                         date('now'),
                         2
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -83,7 +83,7 @@ INSERT INTO ACTVITY (
                     )
                     VALUES (
                         4,
-                        'Run',
+                        'Running',
                         40,
                         400,
                         date('now'),
