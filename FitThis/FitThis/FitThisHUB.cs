@@ -39,30 +39,16 @@ namespace FitThis
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
+            //Initialize activity class
             Activity active = new Activity();
-            string act = "";
-            int duration = 0;
 
-            if(combActivities.SelectedIndex == -1)
+            // Validate the data entered
+            if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
-                MessageBox.Show("YOu MUST SELECT A WORKOUT!!!!!!!!!!!!");
-                combActivities.Focus();
+                active.sqlDataInsert(combActivities, sqlcmd, database);
+                lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
-            else
-            {
-                act = combActivities.GetItemText(this.combActivities.SelectedItem);
-                MessageBox.Show(act);
 
-                if (tbxDuration.Text.All(char.IsDigit))
-                {
-                    Int32.TryParse(tbxDuration.Text, out duration);
-                }
-                int cals = active.CaloriesPerHour(act);
-
-                double total;
-                total = active.CaloriesBurned(duration, cals);
-                lblCaloriesBurnedDisplay.Text = total.ToString();
-            }
         }
 
         private void btnClearActivity_Click(object sender, EventArgs e)
@@ -82,6 +68,38 @@ namespace FitThis
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
             this.CreateConnection();
+        }
+
+
+        private void importDataActivity_Click(object sender, EventArgs e)
+        {
+
+            // Makes the X value of type date so that dates are shown instead of numbers
+            chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+
+            // Populate the data grid, and the chart
+            //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
+            string sql = "select * from Activity Where Fk_userID = 1 order by Date";
+            SQLiteCommand command = new SQLiteCommand(sql, database);
+            SQLiteDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                //Adds data to the rows
+                dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+
+                // Converts database date to c# date?
+                DateTime date = reader.GetDateTime(4).Date;
+
+                //Adds the date to the chart
+                chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
+
+            }
+
+        }
+
+        private void FitThisHUB_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
