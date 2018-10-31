@@ -112,7 +112,7 @@ namespace FitThis.Classes
             // Activity ID was changed from combo.selectedindex +1 to a random number becuase activity IDs have to be unique.
             sqlInsert = ("Insert into Activity (ActivityID, Name, Duration, CaloriesBurned, Date, FK_USERID) " +
                     "values (" + rand.Next(6, 200) + ", '" + activityName + "', "
-                    + duration + ", " + totalCalories + ", date('now', '+" + 2 + " day')" + ", " + 1 + ")");
+                    + duration + ", " + totalCalories + ", date('now')" + ", " + 1 + ")");
             MessageBox.Show(sqlInsert);
             sqlcmd.InsertUpdateDeleteData(database, sqlInsert);
         }
