@@ -9,7 +9,7 @@ BEGIN TRANSACTION;
 -- Table: ACTVITY
 DROP TABLE IF EXISTS ACTVITY;
 
-CREATE TABLE ACTVITY (
+CREATE TABLE ACTIVITY (
     ActivityID     INTEGER      PRIMARY KEY AUTOINCREMENT,
     Name           VARCHAR (20),
     Duration       INT,
@@ -22,7 +22,7 @@ CREATE TABLE ACTVITY (
     REFERENCES User (UserID) 
 );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -35,11 +35,11 @@ INSERT INTO ACTVITY (
                         'Walk',
                         60,
                         350,
-                        '10/21/2018',
+                        date('now'),
                         1
                     );
 
-INSERT INTO ACTVITY (
+INSERT INTO ACTIVITY (
                         ActivityID,
                         Name,
                         Duration,
@@ -52,7 +52,7 @@ INSERT INTO ACTVITY (
                         'Run',
                         60,
                         750,
-                        '10/20/2018',
+                        date('now'),
                         1
                     );
 
@@ -69,7 +69,7 @@ INSERT INTO ACTVITY (
                         'Walk',
                         30,
                         150,
-                        '10/20/2018',
+                        date('now'),
                         2
                     );
 
@@ -86,7 +86,7 @@ INSERT INTO ACTVITY (
                         'Run',
                         40,
                         400,
-                        '10/21/2018',
+                        date('now'),
                         3
                     );
 
