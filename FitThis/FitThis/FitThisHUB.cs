@@ -70,35 +70,6 @@ namespace FitThis
             combActivities.SelectedIndex = -1;
             tbxDuration.Clear();
         }
-        //TODO These buttons can go now that we have working test data.
-        private void CreateConnectDb_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnCreateTestTable_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnViewData_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnInsertTestData_Click(object sender, EventArgs e)
-        {
-        }
-        private void btnCreateTables_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnInsertData_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void btnViewUser_Click(object sender, EventArgs e)
-        {
-       
-        }
-        private void btnViewFood_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// On fit this hub load, establish database connection.

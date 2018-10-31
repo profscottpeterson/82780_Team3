@@ -14,7 +14,6 @@ namespace FitThis.Classes
 
         public int CaloriesPerHour(string activity)
         {
-
             int cals = 0;
 
             Dictionary<string, int> workouts =
