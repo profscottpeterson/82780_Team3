@@ -36,7 +36,11 @@ namespace FitThis
 
         public void InsertUpdateDeleteData(SQLiteConnection db, string sql)
         {
-            var cmd = new SQLiteCommand(sql,db);
+            int xyz = 1;
+           //SQLiteCommand createTables = new SQLiteCommand(sql, database);
+            //createTables.ExecuteNonQuery();
+
+            SQLiteCommand cmd = new SQLiteCommand(sql,db);
             cmd.ExecuteNonQuery();
         }
 

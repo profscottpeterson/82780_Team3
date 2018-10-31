@@ -68,7 +68,6 @@
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
-            this.SQLTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             this.SuspendLayout();
@@ -407,15 +406,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
-            this.Load += new System.EventHandler(this.FitThisHUB_Load);
+//            this.Load += new System.EventHandler(this.FitThisHUB_Load);
             this.tabConsole1.ResumeLayout(false);
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabActivity.ResumeLayout(false);
             this.tabActivity.PerformLayout();
-            this.SQLTest.ResumeLayout(false);
-            this.SQLTest.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
             this.ResumeLayout(false);

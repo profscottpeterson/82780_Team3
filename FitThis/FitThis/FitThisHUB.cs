@@ -45,6 +45,8 @@ namespace FitThis
             // Validate the data entered
             if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
+                database = new SQLiteConnection("Data Source=FitThis.sqlite");
+                database.Open();
                 active.sqlDataInsert(combActivities, sqlcmd, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
@@ -80,6 +82,11 @@ namespace FitThis
             // Populate the data grid, and the chart
             //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
             string sql = "select * from Activity Where Fk_userID = 1 order by Date";
+
+            //Open the database
+            database = new SQLiteConnection("Data Source=FitThis.sqlite");
+            database.Open();
+
             SQLiteCommand command = new SQLiteCommand(sql, database);
             SQLiteDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -94,11 +101,6 @@ namespace FitThis
                 chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
 
             }
-
-        }
-
-        private void FitThisHUB_Load(object sender, EventArgs e)
-        {
 
         }
     }
