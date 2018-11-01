@@ -17,7 +17,8 @@ namespace FitThis
     public partial class FitThisHUB : Form 
     {
         // varaible to hold the current user
-        User currentUser;
+        User currentUser = new User();
+        
 
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
@@ -78,9 +79,8 @@ namespace FitThis
             // Makes the X value of type date so that dates are shown instead of numbers
             chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
-            // Populate the data grid, and the chart
-            //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
-            string sql = "select * from Activity Where Fk_userID = 1 order by Date";
+            // Populate the data grid
+            string sql = ("select * from Activity Where Fk_userID = " + 1 + " order by Date");
 
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
@@ -91,33 +91,28 @@ namespace FitThis
                     {
                         //Adds data to the rows
                         dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+                    }
+                }
+            }
 
+            //filling in the chart
+            string sqlChart = ("select Date, sum(duration) from Activity Where Fk_userID = " + currentUser.UserID + " group by Date");
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlChart, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        
                         // Converts database date to c# date?
-                        DateTime date = reader.GetDateTime(4).Date;
+                        DateTime date = reader.GetDateTime(0).Date;
 
                         //Adds the date to the chart
                         chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
 
                     }
                 }
-            }
-
-            //Open the database
-            database = new SQLiteConnection("Data Source=FitThis.sqlite");
-
-            SQLiteCommand command = new SQLiteCommand(sql, database);
-            SQLiteDataReader reader1 = command.ExecuteReader();
-            while (reader1.Read())
-            {
-                //Adds data to the rows
-                dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
-
-                // Converts database date to c# date?
-                DateTime date = reader.GetDateTime(4).Date;
-
-                //Adds the date to the chart
-                chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
-
             }
 
         }
