@@ -91,7 +91,7 @@ namespace FitThis
             // Check if there's a value in the user combo box
             if (this.cmbUser.Text != null)
             {
-                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text, this.database);
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
                 
                 this.OpenFitThisHub();
             }

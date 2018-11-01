@@ -42,7 +42,7 @@ namespace FitThis
 
         }
 
-        public User LoadUser(User user1, string userName, SQLiteConnection db)
+        public User LoadUser(User user1, string userName)
         {
             // Find the user ID, given a user name.
             int userID = 0;
