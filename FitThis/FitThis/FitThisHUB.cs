@@ -80,7 +80,7 @@ namespace FitThis
             chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
             // Populate the data grid
-            string sql = ("select * from Activity Where Fk_userID = " + 1 + " order by Date");
+            string sql = ("select * from Activity Where Fk_userID = " + 0 + " order by Date");
 
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
@@ -89,14 +89,18 @@ namespace FitThis
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        //Adds data to the rows
-                        dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+                        while (reader.Read())
+                        {
+                            //Adds data to the rows
+                            dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+
+                        }
                     }
                 }
             }
 
             //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity Where Fk_userID = " + currentUser.UserID + " group by Date");
+            string sqlChart = ("select Date, sum(duration) from Activity Where Fk_userID = " + 0 + " group by Date");
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 c.Open();
@@ -104,12 +108,16 @@ namespace FitThis
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
-                        
-                        // Converts database date to c# date?
-                        DateTime date = reader.GetDateTime(0).Date;
+                        while (reader.Read())
+                        {
+                            // Converts database date to c# date?
+                            DateTime date = reader.GetDateTime(0).Date;
+                            var dur = reader[1];
 
-                        //Adds the date to the chart
-                        chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
+                            //Adds the date to the chart
+                            chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["sum(duration)"]);
+                        }
+
 
                     }
                 }
