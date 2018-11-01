@@ -31,6 +31,10 @@ namespace FitThis.Classes
         // Temporary date incrementor
         int dateInt = 0;
 
+        User user = new User();
+
+        DBManagement dbm = new DBManagement();
+
         // Fills the dictionary
         private void fillDictionary()
         {
@@ -100,7 +104,7 @@ namespace FitThis.Classes
         }
 
         // Inserts the data into the database table Activity
-        public void sqlDataInsert(ComboBox combo, SQLiteConfig sqlcmd, System.Data.SQLite.SQLiteConnection database)
+        public void sqlDataInsert(ComboBox combo, System.Data.SQLite.SQLiteConnection db)
         {
 
             // Random number for activity ID;
@@ -110,11 +114,12 @@ namespace FitThis.Classes
             string dateStr = dateInt.ToString();
 
             // Activity ID was changed from combo.selectedindex +1 to a random number becuase activity IDs have to be unique.
-            sqlInsert = ("Insert into Activity (ActivityID, Name, Duration, CaloriesBurned, Date, FK_USERID) " +
-                    "values (" + rand.Next(6, 200) + ", '" + activityName + "', "
-                    + duration + ", " + totalCalories + ", date('now')" + ", " + 1 + ")");
+            sqlInsert = ("Insert into Activity (Name, Duration, CaloriesBurned, Date, FK_USERID) " +
+                    "values (" + activityName + ", "
+                    + duration + ", " + totalCalories + ", date('now')" + ", " + user.UserID + ")");
             MessageBox.Show(sqlInsert);
-            sqlcmd.InsertUpdateDeleteData(database, sqlInsert);
+            dbm.ExecuteNonQuery(sqlInsert, db);
+            
         }
 
     }

@@ -13,29 +13,29 @@ namespace FitThis
         SQLiteDataReader reader = null;
         public List<string> UserList = new List<string>();
         public List<int> UserIDList = new List<int>();
+        DBManagement dbm = new DBManagement();
 
-        public void FillLists(SQLiteConnection db)
+        public void FillLists()
         {
             // Create a query to select the list of user names from the database.
             String selectUsers = "Select Fname, LName, UserID from USER Order by LastLogin DESC";
 
-            // Send the query to the database & execute.
-            command = new SQLiteCommand(selectUsers, db);
-
-            // SQL query results returned to the reader.
-            reader = command.ExecuteReader();
-
-            // For each of the results, add the first name and last name as a string
-            // to a user list and the userID to the ID list.
-            while (reader.Read())
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
-                string Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
-                this.UserList.Add(Name);
-                this.UserIDList.Add(reader.GetInt32(2));
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(selectUsers, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
+                            this.UserList.Add(Name);
+                            this.UserIDList.Add(reader.GetInt32(2));
+                        }
+                    }
+                }
             }
-
-            // Close the reader
-            reader.Close();
 
         }
 
@@ -54,20 +54,27 @@ namespace FitThis
 
             // Need command and reader to find object
             string sqlFindUser = "SELECT * FROM USER WHERE UserID =" + userID.ToString();
-            command = new SQLiteCommand(sqlFindUser, db);
-            reader = command.ExecuteReader();
 
-            // Obtain & fill user fields user information from database.
-            reader.Read();
-            user1.UserID = reader.GetInt32(0);
-            user1.FName = reader.GetString(1);
-            user1.LName = reader.GetString(2);
-            user1.StartingWeight = reader.GetInt32(3);
-            user1.GoalWeight = reader.GetInt32(4);
-            user1.Age = reader.GetInt32(5);
-            user1.RecommendIntake = reader.GetInt32(6);
-            this.UpdateLastLogin(db, user1);
-            return user1;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFindUser, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        reader.Read();
+                        user1.UserID = reader.GetInt32(0);
+                        user1.FName = reader.GetString(1);
+                        user1.LName = reader.GetString(2);
+                        user1.StartingWeight = reader.GetInt32(3);
+                        user1.GoalWeight = reader.GetInt32(4);
+                        user1.Age = reader.GetInt32(5);
+                        user1.RecommendIntake = reader.GetInt32(6);
+                        this.UpdateLastLogin(c, user1);
+                        return user1;
+                    }
+                }
+            }
         }
 
         public void UpdateLastLogin(SQLiteConnection db, User user1)
@@ -75,9 +82,8 @@ namespace FitThis
 
             DateTime loginTime = DateTime.Now;
             string loginTimeString = loginTime.ToString();
-            string updateLastLogin = "Update User Set LastLogin ='" + loginTimeString + "'Where UserID =" + user1.UserID;
-            command = new SQLiteCommand(updateLastLogin, db);
-            command.ExecuteNonQuery();
+            string updateLastLogin = "Update User Set LastLogin = '" + loginTimeString + "' Where UserID = " + user1.UserID;
+            dbm.ExecuteNonQuery(updateLastLogin, db);
 
         }
 
@@ -97,8 +103,7 @@ namespace FitThis
                 + user1.RecommendIntake + ")";
 
             // Open the databse & send the sql command.
-            command = new SQLiteCommand(sqlUserInsert, db);
-            command.ExecuteNonQuery();
+            dbm.ExecuteNonQuery(sqlUserInsert, db);
             this.UpdateLastLogin(db, user1);
         }
         /// <summary>
@@ -112,8 +117,5 @@ namespace FitThis
             user1 = null;
             return user1;
         }
-
-
-        
     }
 }

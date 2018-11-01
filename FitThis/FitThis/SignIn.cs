@@ -52,6 +52,7 @@ namespace FitThis
             currentUserS = UC.user1;
             if (currentUserS != null)
             {
+                database = new SQLiteConnection("Data Source=FitThis.sqlite");
                 UserMgmt.AddUserToDB(currentUserS, database);
                 this.OpenFitThisHub();
             }
@@ -69,8 +70,11 @@ namespace FitThis
             //this.CreateConnection();
 
             DBManagement DB = new DBManagement();
-            this.database = DB.checkForFiles();
-            UserMgmt.FillLists(database);
+            DB.checkForFiles();
+            
+            UserMgmt.FillLists();
+            
+            
 
             // For each user name in the list, add it as an option to the 
             // combobox dropdown selection menu on the sign in form.
@@ -80,7 +84,7 @@ namespace FitThis
             }
 
             // Have the last user logged in as the default value in the combobox
-            this.cmbUser.SelectedItem = UserMgmt.UserList[0];
+            //this.cmbUser.SelectedItem = UserMgmt.UserList[0];
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)

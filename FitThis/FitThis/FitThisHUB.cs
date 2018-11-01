@@ -46,8 +46,7 @@ namespace FitThis
             if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
                 database = new SQLiteConnection("Data Source=FitThis.sqlite");
-                database.Open();
-                active.sqlDataInsert(combActivities, sqlcmd, database);
+                active.sqlDataInsert(combActivities, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
 
@@ -83,13 +82,32 @@ namespace FitThis
             //TODO Make sure the FK_UserID references the current user classes ID!!!!!!!
             string sql = "select * from Activity Where Fk_userID = 1 order by Date";
 
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        //Adds data to the rows
+                        dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+
+                        // Converts database date to c# date?
+                        DateTime date = reader.GetDateTime(4).Date;
+
+                        //Adds the date to the chart
+                        chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["Duration"]);
+
+                    }
+                }
+            }
+
             //Open the database
             database = new SQLiteConnection("Data Source=FitThis.sqlite");
-            database.Open();
 
             SQLiteCommand command = new SQLiteCommand(sql, database);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            SQLiteDataReader reader1 = command.ExecuteReader();
+            while (reader1.Read())
             {
                 //Adds data to the rows
                 dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);

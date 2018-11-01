@@ -18,7 +18,6 @@ namespace FitThis
         public SQLiteConnection ConnectDB(SQLiteConnection DB)
         {
             SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite");
-            data.Open();
             return data;
          
         }
@@ -29,8 +28,9 @@ namespace FitThis
         /// up, & test data is inserted.S
         /// </summary>
         /// <returns></returns>
-        public SQLiteConnection checkForFiles()
+        public void checkForFiles()
         {
+            bool verdict = false;
             SQLiteConnection database = null; 
             // Check if the file exists
             if (!(File.Exists("FitThis.sqlite")))
@@ -38,7 +38,6 @@ namespace FitThis
                 // Creates the sql file in the bin & add in data
                 SQLiteConnection.CreateFile("FitThis.sqlite");
                 database = new SQLiteConnection("Data Source=FitThis.sqlite");
-                database.Open();
 
                 // Grab a file containing template database
                 FileInfo file = new FileInfo("..\\..\\FitThisDB\\FitThisDB.sql");
@@ -46,16 +45,27 @@ namespace FitThis
 
                 // Create the tables in the file, if they don't exist.
                 SQLiteCommand createTables = new SQLiteCommand(sql, database);
-                createTables.ExecuteNonQuery();
+                ExecuteNonQuery(sql, database);
 
             }
-            else
+        }
+
+        public void ExecuteNonQuery(string queryString, SQLiteConnection db)
+        {
+            using (db)
             {
-                database = new SQLiteConnection("Data Source=FitThis.sqlite");
-                database.Open();
+                using (SQLiteCommand command = new SQLiteCommand(queryString, db))
+                {
+                    if (db.State == System.Data.ConnectionState.Closed)
+                    {
+                        db.Open();
+                    }
+
+                    command.ExecuteNonQuery();
+                }
             }
-          
-            return database;
+
+
         }
     }
 }
