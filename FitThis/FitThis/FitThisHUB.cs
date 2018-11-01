@@ -29,7 +29,6 @@ namespace FitThis
             database = sqlcmd.DatabaseConnection();
         }
 
-
         public FitThisHUB(User currentUser1)
         {
             
@@ -40,9 +39,11 @@ namespace FitThis
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
+            dataGridActivity.Rows.Clear();
+            dataGridActivity.Refresh();
+            chartActivity.Series[0].Points.Clear();
             //Initialize activity class
             Activity active = new Activity();
-
             // Validate the data entered
             if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
@@ -50,7 +51,7 @@ namespace FitThis
                 active.sqlDataInsert(combActivities, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
-
+            active.ImportData(dataGridActivity, chartActivity);
         }
 
         private void btnClearActivity_Click(object sender, EventArgs e)
@@ -75,53 +76,19 @@ namespace FitThis
 
         private void importDataActivity_Click(object sender, EventArgs e)
         {
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
 
-            // Makes the X value of type date so that dates are shown instead of numbers
-            chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+        }
 
-            // Populate the data grid
-            string sql = ("select * from Activity Where Fk_userID = " + 0 + " order by Date");
-
-            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
-            {
-                c.Open();
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, c))
-                {
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            //Adds data to the rows
-                            dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
-
-                        }
-                    }
-                }
-            }
-
-            //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity Where Fk_userID = " + 0 + " group by Date");
-            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
-            {
-                c.Open();
-                using (SQLiteCommand cmd = new SQLiteCommand(sqlChart, c))
-                {
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Converts database date to c# date?
-                            DateTime date = reader.GetDateTime(0).Date;
-                            var dur = reader[1];
-
-                            //Adds the date to the chart
-                            chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["sum(duration)"]);
-                        }
-
-
-                    }
-                }
-            }
+        private void FitThisHUB_Load_1(object sender, EventArgs e)
+        {
+            // Load and connect to the DB when the form loads.
+            DBManagement DB = new DBManagement();
+            this.database = DB.ConnectDB(database);
+            this.CreateConnection();
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
 
         }
     }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.SQLite;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FitThis.Classes
+namespace FitThis
 {
     public class Activity
     {
@@ -31,9 +32,14 @@ namespace FitThis.Classes
         // Temporary date incrementor
         int dateInt = 0;
 
-        User user = new User();
+        public static int userNum;
 
         DBManagement dbm = new DBManagement();
+
+        public void setUserId(int x)
+        {
+            userNum = x;
+        }
 
         // Fills the dictionary
         private void fillDictionary()
@@ -116,10 +122,59 @@ namespace FitThis.Classes
             // Activity ID was changed from combo.selectedindex +1 to a random number becuase activity IDs have to be unique.
             sqlInsert = ("Insert into Activity (Name, Duration, CaloriesBurned, Date, FK_USERID) " +
                     "values ('" + activityName + "', "
-                    + duration + ", " + totalCalories + ", date('now')" + ", " + user.UserID + ")");
-            MessageBox.Show(sqlInsert);
+                    + duration + ", " + totalCalories + ", date('now')" + ", " + userNum.ToString() + ")");
             dbm.ExecuteNonQuery(sqlInsert, db);
             
+        }
+
+        public void ImportData(DataGridView dataGridActivity, System.Windows.Forms.DataVisualization.Charting.Chart chartActivity)
+        {
+            // Makes the X value of type date so that dates are shown instead of numbers
+            chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+
+            // Populate the data grid
+            string sql = ("select * from Activity where FK_userID = " + userNum + " order by Date");
+
+            using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                data.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, data))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            //Adds data to the rows
+                            dataGridActivity.Rows.Add(reader["Date"], reader["Name"], reader["Duration"], reader["CaloriesBurned"]);
+
+                        }
+                    }
+                }
+            }
+
+            //filling in the chart
+            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date");
+            using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                data.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlChart, data))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Converts database date to c# date?
+                            DateTime date = reader.GetDateTime(0).Date;
+                            var dur = reader[1];
+
+                            //Adds the date to the chart
+                            chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["sum(duration)"]);
+                        }
+
+
+                    }
+                }
+            }
         }
 
     }

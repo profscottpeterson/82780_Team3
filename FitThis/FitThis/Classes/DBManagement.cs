@@ -10,6 +10,9 @@ namespace FitThis
 {
     public class DBManagement
     {
+        
+
+        SQLiteConnection db = new SQLiteConnection();
         /// <summary>
         /// Method to connect a database, given a connection object
         /// </summary>
@@ -18,6 +21,7 @@ namespace FitThis
         public SQLiteConnection ConnectDB(SQLiteConnection DB)
         {
             SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite");
+            db = data;
             return data;
          
         }
@@ -44,7 +48,6 @@ namespace FitThis
                 string sql = file.OpenText().ReadToEnd();
 
                 // Create the tables in the file, if they don't exist.
-                SQLiteCommand createTables = new SQLiteCommand(sql, database);
                 ExecuteNonQuery(sql, database);
 
             }

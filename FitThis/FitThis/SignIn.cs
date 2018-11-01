@@ -52,8 +52,7 @@ namespace FitThis
             currentUserS = UC.user1;
             if (currentUserS != null)
             {
-                database = new SQLiteConnection("Data Source=FitThis.sqlite");
-                UserMgmt.AddUserToDB(currentUserS, database);
+                UserMgmt.AddUserToDB(currentUserS);
                 this.OpenFitThisHub();
             }
             // So program doesn't break if UC form closed
@@ -93,6 +92,7 @@ namespace FitThis
             if (this.cmbUser.Text != null)
             {
                 UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text, this.database);
+                
                 this.OpenFitThisHub();
             }
         }

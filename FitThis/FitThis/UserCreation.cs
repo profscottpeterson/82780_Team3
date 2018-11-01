@@ -149,8 +149,12 @@
             }
             else
             {
+
+                //COMEHITHER
+                
                 string sqlCheckName = "Select * from User where FName = '" +
                     ucfName + "' and LName = '" + ucLName + "'";
+                /*
                 database = DB.ConnectDB(database);
                 SQLiteCommand command = new SQLiteCommand(sqlCheckName, database);
                 SQLiteDataReader reader = command.ExecuteReader();
@@ -167,7 +171,34 @@
                     ucGender, ucActivityLevel);
                     this.Close();
                 }
-                
+                */
+
+                using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+                {
+                    c.Open();
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCheckName, c))
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                MessageBox.Show("User already exists.  Log in or change name.");
+                                fNameTxtBox.Enabled = true;
+                                lNameTxtBox.Enabled = true;
+                                reader.Close();
+                            }
+                            else
+                            {
+                                user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
+                                ucGender, ucActivityLevel);
+                                this.Close();
+                            }
+
+
+                        }
+                    }
+                }
+
             }
 
         }

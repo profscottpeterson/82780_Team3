@@ -14,6 +14,8 @@ namespace FitThis
         public List<string> UserList = new List<string>();
         public List<int> UserIDList = new List<int>();
         DBManagement dbm = new DBManagement();
+        Activity active = new Activity();
+        public int UserNum;
 
         public void FillLists()
         {
@@ -36,6 +38,7 @@ namespace FitThis
                     }
                 }
             }
+            
 
         }
 
@@ -70,24 +73,24 @@ namespace FitThis
                         user1.GoalWeight = reader.GetInt32(4);
                         user1.Age = reader.GetInt32(5);
                         user1.RecommendIntake = reader.GetInt32(6);
-                        this.UpdateLastLogin(c, user1);
-                        return user1;
+                        
                     }
                 }
             }
+            this.UpdateLastLogin(user1);
+            active.setUserId(user1.UserID);
+            return user1;
         }
 
-        public void UpdateLastLogin(SQLiteConnection db, User user1)
+        public void UpdateLastLogin(User user1)
         {
-
-            DateTime loginTime = DateTime.Now;
-            string loginTimeString = loginTime.ToString();
-            string updateLastLogin = "Update User Set LastLogin = '" + loginTimeString + "' Where UserID = " + user1.UserID;
+            string updateLastLogin = "Update User Set LastLogin = date('now') Where UserID = " + user1.UserID;
+            SQLiteConnection db = new SQLiteConnection("Data Source=FitThis.sqlite");
             dbm.ExecuteNonQuery(updateLastLogin, db);
 
         }
 
-        public void AddUserToDB(User user1, SQLiteConnection db)
+        public void AddUserToDB(User user1)
         {
             string sqlUserInsert = "INSERT INTO USER" +
                 "(FName, LName, Height, StartingWeight, GoalWeight, Age, Gender," +
@@ -101,10 +104,13 @@ namespace FitThis
                 + user1.Gender + "','"
                 + user1.ActivityLevel + "',"
                 + user1.RecommendIntake + ")";
-
+            SQLiteConnection db = new SQLiteConnection("Data Source=FitThis.sqlite");
             // Open the databse & send the sql command.
             dbm.ExecuteNonQuery(sqlUserInsert, db);
-            this.UpdateLastLogin(db, user1);
+
+            //Must send new connection becuase old one is sent for the trash after
+            //it has been opened
+            this.UpdateLastLogin(user1);
         }
         /// <summary>
         /// Set the given user instance to null 

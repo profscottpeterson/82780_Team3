@@ -48,6 +48,12 @@
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.tabActivity = new System.Windows.Forms.TabPage();
+            this.dataGridActivity = new System.Windows.Forms.DataGridView();
+            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCalories = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chartActivity = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblCaloriesBurnedDisplay = new System.Windows.Forms.Label();
             this.lblCaloriesBurned = new System.Windows.Forms.Label();
             this.tbxDuration = new System.Windows.Forms.TextBox();
@@ -57,19 +63,12 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.importDataActivity = new System.Windows.Forms.Button();
-            this.chartActivity = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dataGridActivity = new System.Windows.Forms.DataGridView();
-            this.ColDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCalories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
             this.SuspendLayout();
             // 
             // tabConsole1
@@ -220,7 +219,6 @@
             this.tabActivity.BackColor = System.Drawing.Color.Lime;
             this.tabActivity.Controls.Add(this.dataGridActivity);
             this.tabActivity.Controls.Add(this.chartActivity);
-            this.tabActivity.Controls.Add(this.importDataActivity);
             this.tabActivity.Controls.Add(this.lblCaloriesBurnedDisplay);
             this.tabActivity.Controls.Add(this.lblCaloriesBurned);
             this.tabActivity.Controls.Add(this.tbxDuration);
@@ -235,6 +233,64 @@
             this.tabActivity.Size = new System.Drawing.Size(792, 580);
             this.tabActivity.TabIndex = 5;
             this.tabActivity.Text = "Activity";
+            // 
+            // dataGridActivity
+            // 
+            this.dataGridActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridActivity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColDate,
+            this.ColActivity,
+            this.ColDuration,
+            this.ColCalories});
+            this.dataGridActivity.Location = new System.Drawing.Point(317, 393);
+            this.dataGridActivity.Name = "dataGridActivity";
+            this.dataGridActivity.ReadOnly = true;
+            this.dataGridActivity.Size = new System.Drawing.Size(445, 150);
+            this.dataGridActivity.TabIndex = 10;
+            // 
+            // ColDate
+            // 
+            this.ColDate.HeaderText = "Date";
+            this.ColDate.Name = "ColDate";
+            this.ColDate.ReadOnly = true;
+            // 
+            // ColActivity
+            // 
+            this.ColActivity.HeaderText = "Activity";
+            this.ColActivity.Name = "ColActivity";
+            this.ColActivity.ReadOnly = true;
+            // 
+            // ColDuration
+            // 
+            this.ColDuration.HeaderText = "Duration";
+            this.ColDuration.Name = "ColDuration";
+            this.ColDuration.ReadOnly = true;
+            // 
+            // ColCalories
+            // 
+            this.ColCalories.HeaderText = "Calories";
+            this.ColCalories.Name = "ColCalories";
+            this.ColCalories.ReadOnly = true;
+            // 
+            // chartActivity
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartActivity.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartActivity.Legends.Add(legend1);
+            this.chartActivity.Location = new System.Drawing.Point(378, 3);
+            this.chartActivity.Name = "chartActivity";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Minutes";
+            this.chartActivity.Series.Add(series1);
+            this.chartActivity.Size = new System.Drawing.Size(300, 300);
+            this.chartActivity.TabIndex = 9;
+            this.chartActivity.Text = "chart1";
+            title1.Name = "Testing";
+            title1.Text = "Activity (minutes)";
+            this.chartActivity.Titles.Add(title1);
             // 
             // lblCaloriesBurnedDisplay
             // 
@@ -324,74 +380,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // importDataActivity
-            // 
-            this.importDataActivity.Location = new System.Drawing.Point(111, 488);
-            this.importDataActivity.Name = "importDataActivity";
-            this.importDataActivity.Size = new System.Drawing.Size(106, 32);
-            this.importDataActivity.TabIndex = 8;
-            this.importDataActivity.Text = "Import data";
-            this.importDataActivity.UseVisualStyleBackColor = true;
-            this.importDataActivity.Click += new System.EventHandler(this.importDataActivity_Click);
-            // 
-            // chartActivity
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartActivity.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartActivity.Legends.Add(legend1);
-            this.chartActivity.Location = new System.Drawing.Point(378, 3);
-            this.chartActivity.Name = "chartActivity";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Minutes";
-            this.chartActivity.Series.Add(series1);
-            this.chartActivity.Size = new System.Drawing.Size(300, 300);
-            this.chartActivity.TabIndex = 9;
-            this.chartActivity.Text = "chart1";
-            title1.Name = "Testing";
-            title1.Text = "Activity (minutes)";
-            this.chartActivity.Titles.Add(title1);
-            // 
-            // dataGridActivity
-            // 
-            this.dataGridActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridActivity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColDate,
-            this.ColActivity,
-            this.ColDuration,
-            this.ColCalories});
-            this.dataGridActivity.Location = new System.Drawing.Point(317, 393);
-            this.dataGridActivity.Name = "dataGridActivity";
-            this.dataGridActivity.ReadOnly = true;
-            this.dataGridActivity.Size = new System.Drawing.Size(445, 150);
-            this.dataGridActivity.TabIndex = 10;
-            // 
-            // ColDate
-            // 
-            this.ColDate.HeaderText = "Date";
-            this.ColDate.Name = "ColDate";
-            this.ColDate.ReadOnly = true;
-            // 
-            // ColActivity
-            // 
-            this.ColActivity.HeaderText = "Activity";
-            this.ColActivity.Name = "ColActivity";
-            this.ColActivity.ReadOnly = true;
-            // 
-            // ColDuration
-            // 
-            this.ColDuration.HeaderText = "Duration";
-            this.ColDuration.Name = "ColDuration";
-            this.ColDuration.ReadOnly = true;
-            // 
-            // ColCalories
-            // 
-            this.ColCalories.HeaderText = "Calories";
-            this.ColCalories.Name = "ColCalories";
-            this.ColCalories.ReadOnly = true;
-            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -406,15 +394,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
-//            this.Load += new System.EventHandler(this.FitThisHUB_Load);
+            this.Load += new System.EventHandler(this.FitThisHUB_Load_1);
             this.tabConsole1.ResumeLayout(false);
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabActivity.ResumeLayout(false);
             this.tabActivity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -447,7 +435,6 @@
         public System.Windows.Forms.ComboBox combActivities;
         private System.Windows.Forms.Button btnRyanTest;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartActivity;
-        private System.Windows.Forms.Button importDataActivity;
         private System.Windows.Forms.DataGridView dataGridActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColActivity;
