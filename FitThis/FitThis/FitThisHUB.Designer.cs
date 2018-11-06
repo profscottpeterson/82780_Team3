@@ -280,6 +280,7 @@
             this.chartActivity.Legends.Add(legend1);
             this.chartActivity.Location = new System.Drawing.Point(378, 3);
             this.chartActivity.Name = "chartActivity";
+            series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";

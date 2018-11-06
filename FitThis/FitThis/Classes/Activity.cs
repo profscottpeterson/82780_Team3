@@ -153,7 +153,7 @@ namespace FitThis
             }
 
             //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date");
+            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 2");
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 data.Open();
@@ -165,10 +165,9 @@ namespace FitThis
                         {
                             // Converts database date to c# date?
                             DateTime date = reader.GetDateTime(0).Date;
-                            var dur = reader[1];
 
                             //Adds the date to the chart
-                            chartActivity.Series["Minutes"].Points.AddXY(date.ToOADate(), reader["sum(duration)"]);
+                            chartActivity.Series["Minutes"].Points.AddXY(date, reader["sum(duration)"]);
                         }
 
 
