@@ -73,9 +73,8 @@ namespace FitThis
         public void UpdateLastLogin(SQLiteConnection db, User user1)
         {
 
-            DateTime loginTime = DateTime.Now;
-            string loginTimeString = loginTime.ToString();
-            string updateLastLogin = "Update User Set LastLogin ='" + loginTimeString + "'Where UserID =" + user1.UserID;
+         
+            string updateLastLogin = "Update User Set LastLogin = Date('now') where userid = " +  user1.UserID;
             command = new SQLiteCommand(updateLastLogin, db);
             command.ExecuteNonQuery();
 

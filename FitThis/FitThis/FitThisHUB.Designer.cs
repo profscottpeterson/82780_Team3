@@ -31,10 +31,32 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
             this.tabConsole1 = new System.Windows.Forms.TabControl();
             this.tabDash = new System.Windows.Forms.TabPage();
+            this.grpbxDashBtns = new System.Windows.Forms.GroupBox();
+            this.btnDashActive = new System.Windows.Forms.Button();
+            this.btnDashPersonal = new System.Windows.Forms.Button();
+            this.btnDashFood = new System.Windows.Forms.Button();
+            this.btnDashWeight = new System.Windows.Forms.Button();
+            this.grpbxDashCharts = new System.Windows.Forms.GroupBox();
+            this.chartFood = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDashAct = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartWeight = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.tabPersonal = new System.Windows.Forms.TabPage();
@@ -76,6 +98,13 @@
             this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
+            this.tabDash.SuspendLayout();
+            this.grpbxDashBtns.SuspendLayout();
+            this.grpbxDashCharts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
@@ -102,12 +131,152 @@
             // tabDash
             // 
             this.tabDash.BackColor = System.Drawing.Color.Lime;
+            this.tabDash.Controls.Add(this.grpbxDashBtns);
+            this.tabDash.Controls.Add(this.grpbxDashCharts);
             this.tabDash.Location = new System.Drawing.Point(4, 27);
             this.tabDash.Name = "tabDash";
             this.tabDash.Padding = new System.Windows.Forms.Padding(3);
             this.tabDash.Size = new System.Drawing.Size(792, 580);
             this.tabDash.TabIndex = 4;
             this.tabDash.Text = "Dashboard";
+            // 
+            // grpbxDashBtns
+            // 
+            this.grpbxDashBtns.Controls.Add(this.btnDashActive);
+            this.grpbxDashBtns.Controls.Add(this.btnDashPersonal);
+            this.grpbxDashBtns.Controls.Add(this.btnDashFood);
+            this.grpbxDashBtns.Controls.Add(this.btnDashWeight);
+            this.grpbxDashBtns.Location = new System.Drawing.Point(28, 274);
+            this.grpbxDashBtns.Name = "grpbxDashBtns";
+            this.grpbxDashBtns.Size = new System.Drawing.Size(127, 255);
+            this.grpbxDashBtns.TabIndex = 1;
+            this.grpbxDashBtns.TabStop = false;
+            this.grpbxDashBtns.Text = "Quick Navigation";
+            // 
+            // btnDashActive
+            // 
+            this.btnDashActive.Location = new System.Drawing.Point(6, 213);
+            this.btnDashActive.Name = "btnDashActive";
+            this.btnDashActive.Size = new System.Drawing.Size(115, 28);
+            this.btnDashActive.TabIndex = 3;
+            this.btnDashActive.Text = "Activity";
+            this.btnDashActive.UseVisualStyleBackColor = true;
+            this.btnDashActive.Click += new System.EventHandler(this.btnDashActive_Click);
+            // 
+            // btnDashPersonal
+            // 
+            this.btnDashPersonal.Location = new System.Drawing.Point(6, 154);
+            this.btnDashPersonal.Name = "btnDashPersonal";
+            this.btnDashPersonal.Size = new System.Drawing.Size(115, 28);
+            this.btnDashPersonal.TabIndex = 2;
+            this.btnDashPersonal.Text = "Personal Info";
+            this.btnDashPersonal.UseVisualStyleBackColor = true;
+            this.btnDashPersonal.Click += new System.EventHandler(this.btnDashPersonal_Click);
+            // 
+            // btnDashFood
+            // 
+            this.btnDashFood.Location = new System.Drawing.Point(6, 95);
+            this.btnDashFood.Name = "btnDashFood";
+            this.btnDashFood.Size = new System.Drawing.Size(115, 28);
+            this.btnDashFood.TabIndex = 1;
+            this.btnDashFood.Text = "Food";
+            this.btnDashFood.UseVisualStyleBackColor = true;
+            this.btnDashFood.Click += new System.EventHandler(this.btnDashFood_Click);
+            // 
+            // btnDashWeight
+            // 
+            this.btnDashWeight.Location = new System.Drawing.Point(6, 36);
+            this.btnDashWeight.Name = "btnDashWeight";
+            this.btnDashWeight.Size = new System.Drawing.Size(115, 28);
+            this.btnDashWeight.TabIndex = 0;
+            this.btnDashWeight.Text = "Weight";
+            this.btnDashWeight.UseVisualStyleBackColor = true;
+            this.btnDashWeight.Click += new System.EventHandler(this.btnDashWeight_Click);
+            // 
+            // grpbxDashCharts
+            // 
+            this.grpbxDashCharts.Controls.Add(this.chartFood);
+            this.grpbxDashCharts.Controls.Add(this.chart1);
+            this.grpbxDashCharts.Controls.Add(this.chartDashAct);
+            this.grpbxDashCharts.Controls.Add(this.chartWeight);
+            this.grpbxDashCharts.Location = new System.Drawing.Point(28, 20);
+            this.grpbxDashCharts.Name = "grpbxDashCharts";
+            this.grpbxDashCharts.Size = new System.Drawing.Size(723, 225);
+            this.grpbxDashCharts.TabIndex = 0;
+            this.grpbxDashCharts.TabStop = false;
+            this.grpbxDashCharts.Text = "General Overlook";
+            // 
+            // chartFood
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartFood.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartFood.Legends.Add(legend1);
+            this.chartFood.Location = new System.Drawing.Point(486, 34);
+            this.chartFood.Name = "chartFood";
+            this.chartFood.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Food";
+            this.chartFood.Series.Add(series1);
+            this.chartFood.Size = new System.Drawing.Size(218, 176);
+            this.chartFood.TabIndex = 3;
+            this.chartFood.Text = "chartFood";
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(561, 85);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(0, 0);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            // 
+            // chartDashAct
+            // 
+            this.chartDashAct.BorderlineWidth = 3;
+            chartArea3.Name = "ChartArea1";
+            this.chartDashAct.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartDashAct.Legends.Add(legend3);
+            this.chartDashAct.Location = new System.Drawing.Point(254, 34);
+            this.chartDashAct.Name = "chartDashAct";
+            this.chartDashAct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Activity";
+            this.chartDashAct.Series.Add(series3);
+            this.chartDashAct.Size = new System.Drawing.Size(218, 176);
+            this.chartDashAct.TabIndex = 1;
+            this.chartDashAct.Text = "chart1";
+            // 
+            // chartWeight
+            // 
+            this.chartWeight.BorderlineWidth = 3;
+            chartArea4.Name = "ChartArea1";
+            this.chartWeight.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartWeight.Legends.Add(legend4);
+            this.chartWeight.Location = new System.Drawing.Point(21, 34);
+            this.chartWeight.Name = "chartWeight";
+            this.chartWeight.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Weight";
+            this.chartWeight.Series.Add(series4);
+            this.chartWeight.Size = new System.Drawing.Size(218, 176);
+            this.chartWeight.TabIndex = 0;
             // 
             // tabWeight
             // 
@@ -116,7 +285,7 @@
             this.tabWeight.Name = "tabWeight";
             this.tabWeight.Size = new System.Drawing.Size(792, 580);
             this.tabWeight.TabIndex = 2;
-            this.tabWeight.Text = "Weight Log";
+            this.tabWeight.Text = "Weight";
             // 
             // tabFood
             // 
@@ -125,7 +294,7 @@
             this.tabFood.Name = "tabFood";
             this.tabFood.Size = new System.Drawing.Size(792, 580);
             this.tabFood.TabIndex = 3;
-            this.tabFood.Text = "Food Log";
+            this.tabFood.Text = "Food";
             // 
             // tabPersonal
             // 
@@ -289,17 +458,17 @@
             // 
             // chartActivity
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartActivity.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartActivity.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chartActivity.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartActivity.Legends.Add(legend5);
             this.chartActivity.Location = new System.Drawing.Point(378, 3);
             this.chartActivity.Name = "chartActivity";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Minutes";
-            this.chartActivity.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Minutes";
+            this.chartActivity.Series.Add(series5);
             this.chartActivity.Size = new System.Drawing.Size(300, 300);
             this.chartActivity.TabIndex = 9;
             this.chartActivity.Text = "chart1";
@@ -504,12 +673,13 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnClose.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(26, 677);
+            this.btnClose.Location = new System.Drawing.Point(867, 674);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(104, 27);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FitThisHUB
             // 
@@ -526,7 +696,15 @@
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
             this.Load += new System.EventHandler(this.FitThisHUB_Load);
+            this.Click += new System.EventHandler(this.btnClose_Click);
             this.tabConsole1.ResumeLayout(false);
+            this.tabDash.ResumeLayout(false);
+            this.grpbxDashBtns.ResumeLayout(false);
+            this.grpbxDashCharts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -584,5 +762,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDuration;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCalories;
+        private System.Windows.Forms.GroupBox grpbxDashBtns;
+        private System.Windows.Forms.Button btnDashPersonal;
+        private System.Windows.Forms.Button btnDashFood;
+        private System.Windows.Forms.Button btnDashWeight;
+        private System.Windows.Forms.GroupBox grpbxDashCharts;
+        private System.Windows.Forms.Button btnDashActive;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartWeight;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDashAct;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFood;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
