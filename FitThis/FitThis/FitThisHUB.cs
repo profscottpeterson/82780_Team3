@@ -24,10 +24,6 @@ namespace FitThis
         public SQLiteConnection database = new SQLiteConnection();
 
         public SQLiteConfig sqlcmd = new SQLiteConfig();
-        public void CreateConnection()
-        {
-            database = sqlcmd.DatabaseConnection();
-        }
 
         public FitThisHUB(User currentUser1)
         {
@@ -54,11 +50,7 @@ namespace FitThis
             active.ImportData(dataGridActivity, chartActivity);
         }
 
-        private void btnClearActivity_Click(object sender, EventArgs e)
-        {
-            combActivities.SelectedIndex = -1;
-            tbxDuration.Clear();
-        }
+       
 
         /// <summary>
         /// On fit this hub load, establish database connection.
@@ -68,21 +60,92 @@ namespace FitThis
         private void FitThisHUB_Load(object sender, EventArgs e)
         {
             // Load and connect to the DB when the form loads.
-            DBManagement DB = new DBManagement();
-            this.database = DB.ConnectDB(database);
-            this.CreateConnection();
+            string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlweight, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            DateTime date = rdr.GetDateTime(1).Date;
+                            chartWeight.Series["Weight"].Points.AddXY(date, rdr["avg(weightrecorded)"]);
+
+                        }
+                    }
+                }
+            }
+
+            string sqlActivity = "Select date, sum(duration) from activity where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlActivity, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            DateTime date = rdr.GetDateTime(0).Date;
+                            chartDashAct.Series["Activity"].Points.AddXY(date, rdr["Sum(duration)"]);
+                        }
+                    }
+                }
+            }
+
+            string sqlFood = "Select dateadded, sum(calories) from food where fk_USERID =" + "2 " + "group by dateadded limit 5"; //currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFood, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            DateTime date = rdr.GetDateTime(0).Date;
+                            chartFood.Series["Food"].Points.AddXY(date, rdr["Sum(calories)"]);
+                        }
+                    }
+                }
+            }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
-        private void importDataActivity_Click(object sender, EventArgs e)
+        private void CreateConnectDb_Click_1(object sender, EventArgs e)
         {
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 
         }
 
-        private void FitThisHUB_Load_1(object sender, EventArgs e)
+        private void btnDashWeight_Click(object sender, EventArgs e)
         {
+            tabConsole1.SelectedTab = tabWeight;
+        }
+
+        private void btnDashFood_Click(object sender, EventArgs e)
+        {
+            tabConsole1.SelectedTab = tabFood;
+        }
+
+        private void btnDashActive_Click(object sender, EventArgs e)
+        {
+            tabConsole1.SelectedTab = tabActivity;
+        }
+
+        private void btnDashPersonal_Click(object sender, EventArgs e)
+        {
+            tabConsole1.SelectedTab = tabPersonal;
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
