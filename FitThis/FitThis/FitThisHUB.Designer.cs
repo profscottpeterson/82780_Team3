@@ -76,7 +76,6 @@
             this.ColDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCalories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chartActivity = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.importDataActivity = new System.Windows.Forms.Button();
             this.lblCaloriesBurnedDisplay = new System.Windows.Forms.Label();
             this.lblCaloriesBurned = new System.Windows.Forms.Label();
             this.tbxDuration = new System.Windows.Forms.TextBox();
@@ -85,17 +84,6 @@
             this.combActivities = new System.Windows.Forms.ComboBox();
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
-            this.SQLTest = new System.Windows.Forms.TabPage();
-            this.btnViewFood = new System.Windows.Forms.Button();
-            this.btnViewUser = new System.Windows.Forms.Button();
-            this.btnInsertData = new System.Windows.Forms.Button();
-            this.btnCreateTables = new System.Windows.Forms.Button();
-            this.btnInsertTestData = new System.Windows.Forms.Button();
-            this.txbResults = new System.Windows.Forms.TextBox();
-            this.btnViewData = new System.Windows.Forms.Button();
-            this.btnCreateTestTable = new System.Windows.Forms.Button();
-            this.CreateConnectDb = new System.Windows.Forms.Button();
-            this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabDash.SuspendLayout();
@@ -110,7 +98,6 @@
             this.tabActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
-            this.SQLTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabConsole1
@@ -120,7 +107,6 @@
             this.tabConsole1.Controls.Add(this.tabFood);
             this.tabConsole1.Controls.Add(this.tabPersonal);
             this.tabConsole1.Controls.Add(this.tabActivity);
-            this.tabConsole1.Controls.Add(this.SQLTest);
             this.tabConsole1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabConsole1.Location = new System.Drawing.Point(196, 12);
             this.tabConsole1.Name = "tabConsole1";
@@ -402,7 +388,6 @@
             this.tabActivity.BackColor = System.Drawing.Color.Lime;
             this.tabActivity.Controls.Add(this.dataGridActivity);
             this.tabActivity.Controls.Add(this.chartActivity);
-            this.tabActivity.Controls.Add(this.importDataActivity);
             this.tabActivity.Controls.Add(this.lblCaloriesBurnedDisplay);
             this.tabActivity.Controls.Add(this.lblCaloriesBurned);
             this.tabActivity.Controls.Add(this.tbxDuration);
@@ -469,21 +454,18 @@
             series5.Legend = "Legend1";
             series5.Name = "Minutes";
             this.chartActivity.Series.Add(series5);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Minutes";
+            this.chartActivity.Series.Add(series1);
             this.chartActivity.Size = new System.Drawing.Size(300, 300);
             this.chartActivity.TabIndex = 9;
             this.chartActivity.Text = "chart1";
             title1.Name = "Testing";
             title1.Text = "Activity (minutes)";
             this.chartActivity.Titles.Add(title1);
-            // 
-            // importDataActivity
-            // 
-            this.importDataActivity.Location = new System.Drawing.Point(111, 488);
-            this.importDataActivity.Name = "importDataActivity";
-            this.importDataActivity.Size = new System.Drawing.Size(106, 32);
-            this.importDataActivity.TabIndex = 8;
-            this.importDataActivity.Text = "Import data";
-            this.importDataActivity.UseVisualStyleBackColor = true;
             // 
             // lblCaloriesBurnedDisplay
             // 
@@ -550,6 +532,7 @@
             this.btnClearActivity.TabIndex = 1;
             this.btnClearActivity.Text = "Clear";
             this.btnClearActivity.UseVisualStyleBackColor = true;
+            this.btnClearActivity.Click += new System.EventHandler(this.btnClearActivity_Click);
             // 
             // btnAddActivity
             // 
@@ -560,114 +543,6 @@
             this.btnAddActivity.Text = "Add Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
             this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
-            // 
-            // SQLTest
-            // 
-            this.SQLTest.BackColor = System.Drawing.Color.Lime;
-            this.SQLTest.Controls.Add(this.btnViewFood);
-            this.SQLTest.Controls.Add(this.btnViewUser);
-            this.SQLTest.Controls.Add(this.btnInsertData);
-            this.SQLTest.Controls.Add(this.btnCreateTables);
-            this.SQLTest.Controls.Add(this.btnInsertTestData);
-            this.SQLTest.Controls.Add(this.txbResults);
-            this.SQLTest.Controls.Add(this.btnViewData);
-            this.SQLTest.Controls.Add(this.btnCreateTestTable);
-            this.SQLTest.Controls.Add(this.CreateConnectDb);
-            this.SQLTest.Location = new System.Drawing.Point(4, 27);
-            this.SQLTest.Name = "SQLTest";
-            this.SQLTest.Size = new System.Drawing.Size(792, 580);
-            this.SQLTest.TabIndex = 5;
-            this.SQLTest.Text = "SQLTest";
-            // 
-            // btnViewFood
-            // 
-            this.btnViewFood.Location = new System.Drawing.Point(15, 444);
-            this.btnViewFood.Name = "btnViewFood";
-            this.btnViewFood.Size = new System.Drawing.Size(110, 30);
-            this.btnViewFood.TabIndex = 2;
-            this.btnViewFood.Text = "View Food";
-            this.btnViewFood.UseVisualStyleBackColor = true;
-            // 
-            // btnViewUser
-            // 
-            this.btnViewUser.Location = new System.Drawing.Point(15, 403);
-            this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(122, 23);
-            this.btnViewUser.TabIndex = 7;
-            this.btnViewUser.Text = "View User";
-            this.btnViewUser.UseVisualStyleBackColor = true;
-            // 
-            // btnInsertData
-            // 
-            this.btnInsertData.Location = new System.Drawing.Point(20, 346);
-            this.btnInsertData.Name = "btnInsertData";
-            this.btnInsertData.Size = new System.Drawing.Size(158, 36);
-            this.btnInsertData.TabIndex = 6;
-            this.btnInsertData.Text = "Insert testing data";
-            this.btnInsertData.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateTables
-            // 
-            this.btnCreateTables.Location = new System.Drawing.Point(0, 297);
-            this.btnCreateTables.Name = "btnCreateTables";
-            this.btnCreateTables.Size = new System.Drawing.Size(125, 24);
-            this.btnCreateTables.TabIndex = 5;
-            this.btnCreateTables.Text = "Create Tables 2";
-            this.btnCreateTables.UseVisualStyleBackColor = true;
-            // 
-            // btnInsertTestData
-            // 
-            this.btnInsertTestData.Location = new System.Drawing.Point(3, 129);
-            this.btnInsertTestData.Name = "btnInsertTestData";
-            this.btnInsertTestData.Size = new System.Drawing.Size(149, 60);
-            this.btnInsertTestData.TabIndex = 4;
-            this.btnInsertTestData.Text = "Insert Test Data";
-            this.btnInsertTestData.UseVisualStyleBackColor = true;
-            // 
-            // txbResults
-            // 
-            this.txbResults.Location = new System.Drawing.Point(344, 95);
-            this.txbResults.Multiline = true;
-            this.txbResults.Name = "txbResults";
-            this.txbResults.Size = new System.Drawing.Size(393, 420);
-            this.txbResults.TabIndex = 3;
-            // 
-            // btnViewData
-            // 
-            this.btnViewData.Location = new System.Drawing.Point(3, 195);
-            this.btnViewData.Name = "btnViewData";
-            this.btnViewData.Size = new System.Drawing.Size(163, 40);
-            this.btnViewData.TabIndex = 2;
-            this.btnViewData.Text = "View Data";
-            this.btnViewData.UseVisualStyleBackColor = true;
-            // 
-            // btnCreateTestTable
-            // 
-            this.btnCreateTestTable.Location = new System.Drawing.Point(3, 92);
-            this.btnCreateTestTable.Name = "btnCreateTestTable";
-            this.btnCreateTestTable.Size = new System.Drawing.Size(184, 31);
-            this.btnCreateTestTable.TabIndex = 1;
-            this.btnCreateTestTable.Text = "Create Test Table";
-            this.btnCreateTestTable.UseVisualStyleBackColor = true;
-            // 
-            // CreateConnectDb
-            // 
-            this.CreateConnectDb.Location = new System.Drawing.Point(3, 52);
-            this.CreateConnectDb.Name = "CreateConnectDb";
-            this.CreateConnectDb.Size = new System.Drawing.Size(222, 34);
-            this.CreateConnectDb.TabIndex = 0;
-            this.CreateConnectDb.Text = "Create and collect Database 1";
-            this.CreateConnectDb.UseVisualStyleBackColor = true;
-            this.CreateConnectDb.Click += new System.EventHandler(this.CreateConnectDb_Click_1);
-            // 
-            // btnRyanTest
-            // 
-            this.btnRyanTest.Location = new System.Drawing.Point(194, 297);
-            this.btnRyanTest.Name = "btnRyanTest";
-            this.btnRyanTest.Size = new System.Drawing.Size(123, 66);
-            this.btnRyanTest.TabIndex = 8;
-            this.btnRyanTest.Text = "Ryan\'s Test Data";
-            this.btnRyanTest.UseVisualStyleBackColor = true;
             // 
             // btnClose
             // 
@@ -697,6 +572,7 @@
             this.Text = "FitThis - Hub";
             this.Load += new System.EventHandler(this.FitThisHUB_Load);
             this.Click += new System.EventHandler(this.btnClose_Click);
+            this.Load += new System.EventHandler(this.FitThisHUB_Load_1);
             this.tabConsole1.ResumeLayout(false);
             this.tabDash.ResumeLayout(false);
             this.grpbxDashBtns.ResumeLayout(false);
@@ -712,8 +588,6 @@
             this.tabActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
-            this.SQLTest.ResumeLayout(false);
-            this.SQLTest.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -735,16 +609,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TabPage tabDash;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TabPage SQLTest;
-        private System.Windows.Forms.Button CreateConnectDb;
-        private System.Windows.Forms.Button btnViewData;
-        private System.Windows.Forms.Button btnCreateTestTable;
-        private System.Windows.Forms.TextBox txbResults;
-        private System.Windows.Forms.Button btnInsertTestData;
-        private System.Windows.Forms.Button btnViewFood;
-        private System.Windows.Forms.Button btnViewUser;
-        private System.Windows.Forms.Button btnInsertData;
-        private System.Windows.Forms.Button btnCreateTables;
         private System.Windows.Forms.TabPage tabActivity;
         private System.Windows.Forms.Label lblSelectActivity;
         private System.Windows.Forms.Button btnClearActivity;
@@ -756,7 +620,6 @@
         public System.Windows.Forms.ComboBox combActivities;
         private System.Windows.Forms.Button btnRyanTest;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartActivity;
-        private System.Windows.Forms.Button importDataActivity;
         private System.Windows.Forms.DataGridView dataGridActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColActivity;

@@ -14,10 +14,24 @@ namespace FitThis
         /// <returns>SQLiteConnection to FitThis.sqlite</returns>
         public SQLiteConnection DatabaseConnection()
         {
-          
             SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite");
-            data.Open();
             return data;
+        }
+
+        private static void ExecuteNonQuery(string queryString, SQLiteConnection db)
+        {
+            using (db)
+            {
+                using (SQLiteCommand command = new SQLiteCommand(queryString, db))
+                {
+                    if (db.State == System.Data.ConnectionState.Closed)
+                    {
+                        db.Open();
+                    }
+                    
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -29,15 +43,17 @@ namespace FitThis
         public SQLiteConnection CreateTable(SQLiteConnection data, string sql)
         {
             SQLiteCommand createcommand = new SQLiteCommand(sql, data);
-            createcommand.ExecuteNonQuery();
+            ExecuteNonQuery(sql, data);
             return data;
         }
 
 
         public void InsertUpdateDeleteData(SQLiteConnection db, string sql)
         {
-            var cmd = new SQLiteCommand(sql,db);
-            cmd.ExecuteNonQuery();
+            int xyz = 1;
+
+            SQLiteCommand cmd = new SQLiteCommand(sql,db);
+            ExecuteNonQuery(sql, db);
         }
 
         public SQLiteDataReader SelectData(SQLiteConnection db, string sql)

@@ -17,7 +17,8 @@ namespace FitThis
     public partial class FitThisHUB : Form 
     {
         // varaible to hold the current user
-        User currentUser;
+        User currentUser = new User();
+        
 
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
@@ -34,15 +35,19 @@ namespace FitThis
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
+            dataGridActivity.Rows.Clear();
+            dataGridActivity.Refresh();
+            chartActivity.Series[0].Points.Clear();
             //Initialize activity class
             Activity active = new Activity();
-
             // Validate the data entered
             if(active.ValidateActivtyInput(combActivities, tbxDuration))
             {
-                active.sqlDataInsert(combActivities, sqlcmd, database);
+                database = new SQLiteConnection("Data Source=FitThis.sqlite");
+                active.sqlDataInsert(combActivities, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
+            active.ImportData(dataGridActivity, chartActivity);
         }
 
        
@@ -77,6 +82,9 @@ namespace FitThis
             string sqlActivity = "Select date, sum(duration) from activity where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
+            combActivities.SelectedIndex = -1;
+            tbxDuration.Clear();
+        }
 
                 c.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand(sqlActivity, c))
@@ -118,6 +126,8 @@ namespace FitThis
 
         private void CreateConnectDb_Click_1(object sender, EventArgs e)
         {
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
 
         }
 
@@ -138,6 +148,13 @@ namespace FitThis
 
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
+            // Load and connect to the DB when the form loads.
+            DBManagement DB = new DBManagement();
+            this.database = DB.ConnectDB(database);
+            this.CreateConnection();
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
+
             tabConsole1.SelectedTab = tabPersonal;
         }
     }
