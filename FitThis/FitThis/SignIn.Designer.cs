@@ -38,9 +38,10 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.BackColor = System.Drawing.Color.Orange;
+            this.lblUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
             this.lblUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblUser.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(41, 36);
             this.lblUser.Location = new System.Drawing.Point(62, 45);
             this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
@@ -50,11 +51,14 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(172)))), ((int)(((byte)(86)))));
             this.btnCreate.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Location = new System.Drawing.Point(34, 255);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCreate.Location = new System.Drawing.Point(51, 318);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(89, 33);
             this.btnCreate.Size = new System.Drawing.Size(134, 42);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create User";
@@ -63,11 +67,14 @@
             // 
             // btnSignIn
             // 
-            this.btnSignIn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(172)))), ((int)(((byte)(86)))));
             this.btnSignIn.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.Location = new System.Drawing.Point(161, 255);
+            this.btnSignIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSignIn.Location = new System.Drawing.Point(242, 318);
             this.btnSignIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(89, 33);
             this.btnSignIn.Size = new System.Drawing.Size(134, 42);
             this.btnSignIn.TabIndex = 5;
             this.btnSignIn.Text = "Sign In";
@@ -76,29 +83,37 @@
             // 
             // cmbUser
             // 
+            this.cmbUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.cmbUser.BackColor = System.Drawing.Color.Lime;
             this.cmbUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUser.FormattingEnabled = true;
+            this.cmbUser.Location = new System.Drawing.Point(129, 36);
+            this.cmbUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbUser.Location = new System.Drawing.Point(194, 45);
             this.cmbUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbUser.Name = "cmbUser";
+            this.cmbUser.Size = new System.Drawing.Size(121, 24);
             this.cmbUser.Size = new System.Drawing.Size(180, 28);
             this.cmbUser.TabIndex = 6;
             // 
             // SignIn
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(138)))), ((int)(((byte)(46)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(290, 302);
             this.ClientSize = new System.Drawing.Size(441, 408);
             this.Controls.Add(this.cmbUser);
             this.Controls.Add(this.btnSignIn);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblUser);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SignIn";
             this.Text = "FitThis - Sign In";

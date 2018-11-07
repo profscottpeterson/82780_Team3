@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserCreationForm));
             this.activityComboBox = new System.Windows.Forms.ComboBox();
             this.UCTitleLabel = new System.Windows.Forms.Label();
             this.fNameTxtBox = new System.Windows.Forms.TextBox();
@@ -61,252 +62,284 @@
             "\"Lightly Active\"",
             "\"Moderatly Active\"",
             "\"Highly Active\""});
+            this.activityComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.activityComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.activityComboBox.FormattingEnabled = true;
             this.activityComboBox.Location = new System.Drawing.Point(237, 502);
             this.activityComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.activityComboBox.Items.AddRange(new object[] {
+            "Sedentary",
+            "Lightly Active",
+            "Moderately Active",
+            "Very Active",
+            "Extra Active"});
+            this.activityComboBox.Location = new System.Drawing.Point(261, 369);
+            this.activityComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.activityComboBox.Name = "activityComboBox";
-            this.activityComboBox.Size = new System.Drawing.Size(180, 33);
+            this.activityComboBox.Size = new System.Drawing.Size(121, 24);
             this.activityComboBox.TabIndex = 21;
             // 
             // UCTitleLabel
             // 
             this.UCTitleLabel.AutoSize = true;
-            this.UCTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UCTitleLabel.Location = new System.Drawing.Point(248, 54);
-            this.UCTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UCTitleLabel.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UCTitleLabel.Location = new System.Drawing.Point(183, 32);
             this.UCTitleLabel.Name = "UCTitleLabel";
-            this.UCTitleLabel.Size = new System.Drawing.Size(256, 32);
+            this.UCTitleLabel.Size = new System.Drawing.Size(183, 24);
             this.UCTitleLabel.TabIndex = 0;
             this.UCTitleLabel.Text = "Create Your Profile";
             // 
             // fNameTxtBox
             // 
+            this.fNameTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.fNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fNameTxtBox.Location = new System.Drawing.Point(236, 131);
-            this.fNameTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.fNameTxtBox.Location = new System.Drawing.Point(260, 72);
+            this.fNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fNameTxtBox.Name = "fNameTxtBox";
-            this.fNameTxtBox.Size = new System.Drawing.Size(148, 30);
+            this.fNameTxtBox.Size = new System.Drawing.Size(100, 22);
             this.fNameTxtBox.TabIndex = 1;
             // 
             // fNameLabel
             // 
             this.fNameLabel.AutoSize = true;
-            this.fNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fNameLabel.Location = new System.Drawing.Point(112, 137);
-            this.fNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.fNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fNameLabel.Location = new System.Drawing.Point(172, 73);
             this.fNameLabel.Name = "fNameLabel";
-            this.fNameLabel.Size = new System.Drawing.Size(112, 25);
+            this.fNameLabel.Size = new System.Drawing.Size(82, 20);
             this.fNameLabel.TabIndex = 2;
             this.fNameLabel.Text = "First Name:";
             // 
             // lNameLabel
             // 
             this.lNameLabel.AutoSize = true;
-            this.lNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameLabel.Location = new System.Drawing.Point(112, 197);
-            this.lNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lNameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.lNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNameLabel.Location = new System.Drawing.Point(174, 121);
             this.lNameLabel.Name = "lNameLabel";
-            this.lNameLabel.Size = new System.Drawing.Size(112, 25);
+            this.lNameLabel.Size = new System.Drawing.Size(78, 20);
             this.lNameLabel.TabIndex = 4;
             this.lNameLabel.Text = "Last Name:";
             // 
             // lNameTxtBox
             // 
+            this.lNameTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.lNameTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameTxtBox.Location = new System.Drawing.Point(236, 191);
-            this.lNameTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lNameTxtBox.Location = new System.Drawing.Point(260, 120);
+            this.lNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lNameTxtBox.Name = "lNameTxtBox";
-            this.lNameTxtBox.Size = new System.Drawing.Size(148, 30);
+            this.lNameTxtBox.Size = new System.Drawing.Size(100, 22);
             this.lNameTxtBox.TabIndex = 3;
             // 
             // ageLabel
             // 
             this.ageLabel.AutoSize = true;
-            this.ageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageLabel.Location = new System.Drawing.Point(88, 257);
-            this.ageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ageLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.ageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ageLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ageLabel.Location = new System.Drawing.Point(158, 169);
             this.ageLabel.Name = "ageLabel";
-            this.ageLabel.Size = new System.Drawing.Size(136, 25);
+            this.ageLabel.Size = new System.Drawing.Size(100, 20);
             this.ageLabel.TabIndex = 6;
-            this.ageLabel.Text = "Age (In years)";
+            this.ageLabel.Text = "Age (In years):";
             // 
             // ageTxtBox
             // 
+            this.ageTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.ageTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageTxtBox.Location = new System.Drawing.Point(236, 252);
-            this.ageTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ageTxtBox.Location = new System.Drawing.Point(260, 170);
+            this.ageTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ageTxtBox.Name = "ageTxtBox";
-            this.ageTxtBox.Size = new System.Drawing.Size(148, 30);
+            this.ageTxtBox.Size = new System.Drawing.Size(100, 22);
             this.ageTxtBox.TabIndex = 5;
             // 
             // weightLabel
             // 
             this.weightLabel.AutoSize = true;
-            this.weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightLabel.Location = new System.Drawing.Point(57, 320);
-            this.weightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.weightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.weightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.weightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightLabel.Location = new System.Drawing.Point(125, 221);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(170, 25);
+            this.weightLabel.Size = new System.Drawing.Size(133, 20);
             this.weightLabel.TabIndex = 8;
-            this.weightLabel.Text = "Weight (In Ponds)";
+            this.weightLabel.Text = "Weight (In pounds):";
             // 
             // weightTxtBox
             // 
+            this.weightTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.weightTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightTxtBox.Location = new System.Drawing.Point(236, 315);
-            this.weightTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.weightTxtBox.Location = new System.Drawing.Point(260, 220);
+            this.weightTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weightTxtBox.Name = "weightTxtBox";
-            this.weightTxtBox.Size = new System.Drawing.Size(148, 30);
+            this.weightTxtBox.Size = new System.Drawing.Size(100, 22);
             this.weightTxtBox.TabIndex = 7;
             // 
             // heightLabel
             // 
             this.heightLabel.AutoSize = true;
-            this.heightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heightLabel.Location = new System.Drawing.Point(129, 385);
-            this.heightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.heightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.heightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.heightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heightLabel.Location = new System.Drawing.Point(199, 271);
             this.heightLabel.Name = "heightLabel";
-            this.heightLabel.Size = new System.Drawing.Size(68, 25);
+            this.heightLabel.Size = new System.Drawing.Size(55, 20);
             this.heightLabel.TabIndex = 10;
-            this.heightLabel.Text = "Height";
+            this.heightLabel.Text = "Height:";
             // 
             // heigtFtTxtBox
             // 
+            this.heigtFtTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.heigtFtTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heigtFtTxtBox.Location = new System.Drawing.Point(236, 378);
-            this.heigtFtTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.heigtFtTxtBox.Location = new System.Drawing.Point(260, 270);
+            this.heigtFtTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.heigtFtTxtBox.Name = "heigtFtTxtBox";
-            this.heigtFtTxtBox.Size = new System.Drawing.Size(64, 30);
+            this.heigtFtTxtBox.Size = new System.Drawing.Size(44, 22);
             this.heigtFtTxtBox.TabIndex = 9;
             // 
             // ftLabel
             // 
             this.ftLabel.AutoSize = true;
-            this.ftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ftLabel.Location = new System.Drawing.Point(310, 385);
-            this.ftLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ftLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.ftLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ftLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ftLabel.Location = new System.Drawing.Point(310, 271);
             this.ftLabel.Name = "ftLabel";
-            this.ftLabel.Size = new System.Drawing.Size(29, 25);
+            this.ftLabel.Size = new System.Drawing.Size(23, 20);
             this.ftLabel.TabIndex = 11;
             this.ftLabel.Text = "Ft";
             // 
             // inchesLabel
             // 
             this.inchesLabel.AutoSize = true;
-            this.inchesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inchesLabel.Location = new System.Drawing.Point(423, 385);
-            this.inchesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.inchesLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.inchesLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inchesLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inchesLabel.Location = new System.Drawing.Point(385, 271);
             this.inchesLabel.Name = "inchesLabel";
-            this.inchesLabel.Size = new System.Drawing.Size(70, 25);
+            this.inchesLabel.Size = new System.Drawing.Size(50, 20);
             this.inchesLabel.TabIndex = 13;
             this.inchesLabel.Text = "Inches";
             // 
             // heightInchTxtBox
             // 
+            this.heightInchTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.heightInchTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heightInchTxtBox.Location = new System.Drawing.Point(348, 378);
-            this.heightInchTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.heightInchTxtBox.Location = new System.Drawing.Point(335, 270);
+            this.heightInchTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.heightInchTxtBox.Name = "heightInchTxtBox";
-            this.heightInchTxtBox.Size = new System.Drawing.Size(64, 30);
+            this.heightInchTxtBox.Size = new System.Drawing.Size(44, 22);
             this.heightInchTxtBox.TabIndex = 12;
             // 
             // maleRadioButton
             // 
             this.maleRadioButton.AutoSize = true;
+            this.maleRadioButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.maleRadioButton.Checked = true;
-            this.maleRadioButton.Location = new System.Drawing.Point(232, 452);
-            this.maleRadioButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.maleRadioButton.Location = new System.Drawing.Point(258, 330);
+            this.maleRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.maleRadioButton.Name = "maleRadioButton";
-            this.maleRadioButton.Size = new System.Drawing.Size(68, 24);
+            this.maleRadioButton.Size = new System.Drawing.Size(48, 20);
             this.maleRadioButton.TabIndex = 14;
             this.maleRadioButton.TabStop = true;
             this.maleRadioButton.Text = "Male";
-            this.maleRadioButton.UseVisualStyleBackColor = true;
+            this.maleRadioButton.UseVisualStyleBackColor = false;
             // 
             // FeamlerRadioButton
             // 
             this.FeamlerRadioButton.AutoSize = true;
-            this.FeamlerRadioButton.Location = new System.Drawing.Point(326, 452);
-            this.FeamlerRadioButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FeamlerRadioButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.FeamlerRadioButton.Location = new System.Drawing.Point(320, 330);
+            this.FeamlerRadioButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FeamlerRadioButton.Name = "FeamlerRadioButton";
-            this.FeamlerRadioButton.Size = new System.Drawing.Size(87, 24);
+            this.FeamlerRadioButton.Size = new System.Drawing.Size(60, 20);
             this.FeamlerRadioButton.TabIndex = 15;
             this.FeamlerRadioButton.Text = "Female";
-            this.FeamlerRadioButton.UseVisualStyleBackColor = true;
+            this.FeamlerRadioButton.UseVisualStyleBackColor = false;
             // 
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genderLabel.Location = new System.Drawing.Point(129, 452);
-            this.genderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genderLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.genderLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.genderLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genderLabel.Location = new System.Drawing.Point(194, 326);
             this.genderLabel.Name = "genderLabel";
-            this.genderLabel.Size = new System.Drawing.Size(77, 25);
+            this.genderLabel.Size = new System.Drawing.Size(60, 20);
             this.genderLabel.TabIndex = 16;
-            this.genderLabel.Text = "Gender";
+            this.genderLabel.Text = "Gender:";
             // 
             // activityLabel
             // 
             this.activityLabel.AutoSize = true;
-            this.activityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activityLabel.Location = new System.Drawing.Point(30, 511);
-            this.activityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.activityLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.activityLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.activityLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activityLabel.Location = new System.Drawing.Point(109, 372);
             this.activityLabel.Name = "activityLabel";
-            this.activityLabel.Size = new System.Drawing.Size(196, 25);
+            this.activityLabel.Size = new System.Drawing.Size(149, 20);
             this.activityLabel.TabIndex = 18;
-            this.activityLabel.Text = "Current Activity Level";
+            this.activityLabel.Text = "Current Activity Level:";
             // 
             // goalWeightLabel
             // 
             this.goalWeightLabel.AutoSize = true;
-            this.goalWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goalWeightLabel.Location = new System.Drawing.Point(30, 566);
-            this.goalWeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.goalWeightLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(103)))), ((int)(((byte)(17)))));
+            this.goalWeightLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.goalWeightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goalWeightLabel.Location = new System.Drawing.Point(165, 418);
             this.goalWeightLabel.Name = "goalWeightLabel";
-            this.goalWeightLabel.Size = new System.Drawing.Size(126, 25);
+            this.goalWeightLabel.Size = new System.Drawing.Size(89, 20);
             this.goalWeightLabel.TabIndex = 20;
             this.goalWeightLabel.Text = "Goal Weight:";
             // 
             // goalWeightTxtBox
             // 
+            this.goalWeightTxtBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.goalWeightTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goalWeightTxtBox.Location = new System.Drawing.Point(236, 562);
-            this.goalWeightTxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.goalWeightTxtBox.Location = new System.Drawing.Point(260, 417);
+            this.goalWeightTxtBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.goalWeightTxtBox.Name = "goalWeightTxtBox";
-            this.goalWeightTxtBox.Size = new System.Drawing.Size(148, 30);
+            this.goalWeightTxtBox.Size = new System.Drawing.Size(100, 22);
             this.goalWeightTxtBox.TabIndex = 19;
             // 
             // createProfileButton
             // 
-            this.createProfileButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createProfileButton.Location = new System.Drawing.Point(194, 646);
-            this.createProfileButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.createProfileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(172)))), ((int)(((byte)(86)))));
+            this.createProfileButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createProfileButton.Location = new System.Drawing.Point(71, 467);
+            this.createProfileButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.createProfileButton.Name = "createProfileButton";
-            this.createProfileButton.Size = new System.Drawing.Size(162, 35);
+            this.createProfileButton.Size = new System.Drawing.Size(108, 28);
             this.createProfileButton.TabIndex = 22;
             this.createProfileButton.Text = "Create Profile";
-            this.createProfileButton.UseVisualStyleBackColor = true;
+            this.createProfileButton.UseVisualStyleBackColor = false;
             this.createProfileButton.Click += new System.EventHandler(this.createProfileButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.Location = new System.Drawing.Point(380, 646);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(172)))), ((int)(((byte)(86)))));
+            this.cancelButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(258, 467);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(162, 35);
+            this.cancelButton.Size = new System.Drawing.Size(108, 28);
             this.cancelButton.TabIndex = 23;
             this.cancelButton.Text = "Cancel ";
-            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // UserCreationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 700);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(138)))), ((int)(((byte)(46)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(445, 509);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.createProfileButton);
             this.Controls.Add(this.activityComboBox);
@@ -330,8 +363,11 @@
             this.Controls.Add(this.fNameLabel);
             this.Controls.Add(this.fNameTxtBox);
             this.Controls.Add(this.UCTitleLabel);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserCreationForm";
+            this.Text = "FitThis - User Creation";
             this.Text = "User Creation";
             this.Load += new System.EventHandler(this.UserCreationForm_Load);
             this.ResumeLayout(false);

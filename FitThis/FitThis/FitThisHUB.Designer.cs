@@ -44,6 +44,9 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
             this.tabConsole1 = new System.Windows.Forms.TabControl();
             this.tabDash = new System.Windows.Forms.TabPage();
@@ -59,6 +62,8 @@
             this.chartWeight = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.btnCalCalc = new System.Windows.Forms.Button();
+            this.chartCal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPersonal = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
@@ -86,6 +91,8 @@
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
+            this.tabFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).BeginInit();
             this.tabDash.SuspendLayout();
             this.grpbxDashBtns.SuspendLayout();
             this.grpbxDashCharts.SuspendLayout();
@@ -102,27 +109,33 @@
             // 
             // tabConsole1
             // 
+            this.tabConsole1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabConsole1.Controls.Add(this.tabDash);
             this.tabConsole1.Controls.Add(this.tabWeight);
             this.tabConsole1.Controls.Add(this.tabFood);
             this.tabConsole1.Controls.Add(this.tabPersonal);
             this.tabConsole1.Controls.Add(this.tabActivity);
             this.tabConsole1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabConsole1.Location = new System.Drawing.Point(196, 12);
+            this.tabConsole1.Location = new System.Drawing.Point(168, 15);
+            this.tabConsole1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabConsole1.Name = "tabConsole1";
             this.tabConsole1.SelectedIndex = 0;
-            this.tabConsole1.Size = new System.Drawing.Size(800, 611);
+            this.tabConsole1.Size = new System.Drawing.Size(686, 721);
             this.tabConsole1.TabIndex = 0;
             // 
             // tabDash
             // 
+            this.tabDash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.tabDash.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabDash.Location = new System.Drawing.Point(4, 30);
+            this.tabDash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabDash.BackColor = System.Drawing.Color.Lime;
             this.tabDash.Controls.Add(this.grpbxDashBtns);
             this.tabDash.Controls.Add(this.grpbxDashCharts);
             this.tabDash.Location = new System.Drawing.Point(4, 27);
             this.tabDash.Name = "tabDash";
-            this.tabDash.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDash.Size = new System.Drawing.Size(792, 580);
+            this.tabDash.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabDash.Size = new System.Drawing.Size(678, 687);
             this.tabDash.TabIndex = 4;
             this.tabDash.Text = "Dashboard";
             // 
@@ -266,25 +279,64 @@
             // 
             // tabWeight
             // 
-            this.tabWeight.BackColor = System.Drawing.Color.Lime;
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
+            this.tabWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.tabWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabWeight.Location = new System.Drawing.Point(4, 30);
+            this.tabWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(792, 580);
+            this.tabWeight.Size = new System.Drawing.Size(678, 687);
             this.tabWeight.TabIndex = 2;
             this.tabWeight.Text = "Weight";
             // 
             // tabFood
             // 
-            this.tabFood.BackColor = System.Drawing.Color.Lime;
-            this.tabFood.Location = new System.Drawing.Point(4, 27);
+            this.tabFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.btnCalCalc);
+            this.tabFood.Controls.Add(this.chartCal);
+            this.tabFood.Location = new System.Drawing.Point(4, 30);
+            this.tabFood.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(792, 580);
+            this.tabFood.Size = new System.Drawing.Size(678, 687);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food";
             // 
+            // btnCalCalc
+            // 
+            this.btnCalCalc.Location = new System.Drawing.Point(206, 644);
+            this.btnCalCalc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCalCalc.Name = "btnCalCalc";
+            this.btnCalCalc.Size = new System.Drawing.Size(64, 28);
+            this.btnCalCalc.TabIndex = 2;
+            this.btnCalCalc.Text = "ChartCalc";
+            this.btnCalCalc.UseVisualStyleBackColor = true;
+            this.btnCalCalc.Click += new System.EventHandler(this.btnCalCalc_Click);
+            // 
+            // chartCal
+            // 
+            this.chartCal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.chartCal.BorderlineColor = System.Drawing.Color.Black;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.Name = "ChartArea1";
+            this.chartCal.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartCal.Legends.Add(legend1);
+            this.chartCal.Location = new System.Drawing.Point(290, 303);
+            this.chartCal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chartCal.Name = "chartCal";
+            this.chartCal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Legend = "Legend1";
+            series1.Name = "Cals";
+            this.chartCal.Series.Add(series1);
+            this.chartCal.Size = new System.Drawing.Size(375, 369);
+            this.chartCal.TabIndex = 0;
+            // 
             // tabPersonal
             // 
-            this.tabPersonal.BackColor = System.Drawing.Color.Lime;
+            this.tabPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPersonal.Controls.Add(this.pictureBox1);
             this.tabPersonal.Controls.Add(this.txtStrtWght);
@@ -295,35 +347,38 @@
             this.tabPersonal.Controls.Add(this.txtActLvl);
             this.tabPersonal.Controls.Add(this.lblName);
             this.tabPersonal.Controls.Add(this.txtName);
-            this.tabPersonal.Location = new System.Drawing.Point(4, 27);
+            this.tabPersonal.Location = new System.Drawing.Point(4, 30);
+            this.tabPersonal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPersonal.Name = "tabPersonal";
-            this.tabPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPersonal.Size = new System.Drawing.Size(792, 580);
+            this.tabPersonal.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPersonal.Size = new System.Drawing.Size(678, 687);
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
-            this.pictureBox1.Location = new System.Drawing.Point(136, 148);
+            this.pictureBox1.Location = new System.Drawing.Point(117, 182);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 93);
+            this.pictureBox1.Size = new System.Drawing.Size(86, 114);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
             // txtStrtWght
             // 
             this.txtStrtWght.Enabled = false;
-            this.txtStrtWght.Location = new System.Drawing.Point(227, 105);
+            this.txtStrtWght.Location = new System.Drawing.Point(195, 129);
+            this.txtStrtWght.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStrtWght.Name = "txtStrtWght";
-            this.txtStrtWght.Size = new System.Drawing.Size(100, 23);
+            this.txtStrtWght.Size = new System.Drawing.Size(86, 23);
             this.txtStrtWght.TabIndex = 7;
             // 
             // lblStrtWght
             // 
             this.lblStrtWght.AutoSize = true;
             this.lblStrtWght.BackColor = System.Drawing.Color.Orange;
-            this.lblStrtWght.Location = new System.Drawing.Point(18, 108);
+            this.lblStrtWght.Location = new System.Drawing.Point(15, 133);
             this.lblStrtWght.Name = "lblStrtWght";
             this.lblStrtWght.Size = new System.Drawing.Size(109, 18);
             this.lblStrtWght.TabIndex = 6;
@@ -333,7 +388,7 @@
             // 
             this.lblHeight.AutoSize = true;
             this.lblHeight.BackColor = System.Drawing.Color.Orange;
-            this.lblHeight.Location = new System.Drawing.Point(18, 54);
+            this.lblHeight.Location = new System.Drawing.Point(15, 66);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(53, 18);
             this.lblHeight.TabIndex = 5;
@@ -342,16 +397,17 @@
             // txtHeight
             // 
             this.txtHeight.Enabled = false;
-            this.txtHeight.Location = new System.Drawing.Point(227, 49);
+            this.txtHeight.Location = new System.Drawing.Point(195, 60);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 23);
+            this.txtHeight.Size = new System.Drawing.Size(86, 23);
             this.txtHeight.TabIndex = 4;
             // 
             // lblActivity
             // 
             this.lblActivity.AutoSize = true;
             this.lblActivity.BackColor = System.Drawing.Color.Orange;
-            this.lblActivity.Location = new System.Drawing.Point(18, 80);
+            this.lblActivity.Location = new System.Drawing.Point(15, 98);
             this.lblActivity.Name = "lblActivity";
             this.lblActivity.Size = new System.Drawing.Size(198, 18);
             this.lblActivity.TabIndex = 3;
@@ -360,16 +416,17 @@
             // txtActLvl
             // 
             this.txtActLvl.Enabled = false;
-            this.txtActLvl.Location = new System.Drawing.Point(227, 78);
+            this.txtActLvl.Location = new System.Drawing.Point(195, 96);
+            this.txtActLvl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActLvl.Name = "txtActLvl";
-            this.txtActLvl.Size = new System.Drawing.Size(100, 23);
+            this.txtActLvl.Size = new System.Drawing.Size(86, 23);
             this.txtActLvl.TabIndex = 2;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Orange;
-            this.lblName.Location = new System.Drawing.Point(18, 25);
+            this.lblName.Location = new System.Drawing.Point(15, 31);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(47, 18);
             this.lblName.TabIndex = 1;
@@ -378,9 +435,10 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(227, 20);
+            this.txtName.Location = new System.Drawing.Point(195, 25);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 23);
+            this.txtName.Size = new System.Drawing.Size(86, 23);
             this.txtName.TabIndex = 0;
             // 
             // tabActivity
@@ -388,6 +446,8 @@
             this.tabActivity.BackColor = System.Drawing.Color.Lime;
             this.tabActivity.Controls.Add(this.dataGridActivity);
             this.tabActivity.Controls.Add(this.chartActivity);
+            this.tabActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
+            this.tabActivity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabActivity.Controls.Add(this.lblCaloriesBurnedDisplay);
             this.tabActivity.Controls.Add(this.lblCaloriesBurned);
             this.tabActivity.Controls.Add(this.tbxDuration);
@@ -396,10 +456,11 @@
             this.tabActivity.Controls.Add(this.combActivities);
             this.tabActivity.Controls.Add(this.btnClearActivity);
             this.tabActivity.Controls.Add(this.btnAddActivity);
-            this.tabActivity.Location = new System.Drawing.Point(4, 27);
+            this.tabActivity.Location = new System.Drawing.Point(4, 30);
+            this.tabActivity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabActivity.Name = "tabActivity";
-            this.tabActivity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabActivity.Size = new System.Drawing.Size(792, 580);
+            this.tabActivity.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabActivity.Size = new System.Drawing.Size(678, 687);
             this.tabActivity.TabIndex = 5;
             this.tabActivity.Text = "Activity";
             // 
@@ -465,7 +526,7 @@
             // lblCaloriesBurnedDisplay
             // 
             this.lblCaloriesBurnedDisplay.AutoSize = true;
-            this.lblCaloriesBurnedDisplay.Location = new System.Drawing.Point(227, 261);
+            this.lblCaloriesBurnedDisplay.Location = new System.Drawing.Point(195, 321);
             this.lblCaloriesBurnedDisplay.Name = "lblCaloriesBurnedDisplay";
             this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 18);
             this.lblCaloriesBurnedDisplay.TabIndex = 7;
@@ -473,7 +534,7 @@
             // lblCaloriesBurned
             // 
             this.lblCaloriesBurned.AutoSize = true;
-            this.lblCaloriesBurned.Location = new System.Drawing.Point(32, 257);
+            this.lblCaloriesBurned.Location = new System.Drawing.Point(27, 316);
             this.lblCaloriesBurned.Name = "lblCaloriesBurned";
             this.lblCaloriesBurned.Size = new System.Drawing.Size(148, 18);
             this.lblCaloriesBurned.TabIndex = 6;
@@ -481,15 +542,16 @@
             // 
             // tbxDuration
             // 
-            this.tbxDuration.Location = new System.Drawing.Point(183, 166);
+            this.tbxDuration.Location = new System.Drawing.Point(157, 204);
+            this.tbxDuration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDuration.Name = "tbxDuration";
-            this.tbxDuration.Size = new System.Drawing.Size(100, 23);
+            this.tbxDuration.Size = new System.Drawing.Size(86, 23);
             this.tbxDuration.TabIndex = 5;
             // 
             // lblSelectDuration
             // 
             this.lblSelectDuration.AutoSize = true;
-            this.lblSelectDuration.Location = new System.Drawing.Point(32, 166);
+            this.lblSelectDuration.Location = new System.Drawing.Point(27, 204);
             this.lblSelectDuration.Name = "lblSelectDuration";
             this.lblSelectDuration.Size = new System.Drawing.Size(124, 18);
             this.lblSelectDuration.TabIndex = 4;
@@ -498,7 +560,7 @@
             // lblSelectActivity
             // 
             this.lblSelectActivity.AutoSize = true;
-            this.lblSelectActivity.Location = new System.Drawing.Point(32, 120);
+            this.lblSelectActivity.Location = new System.Drawing.Point(27, 148);
             this.lblSelectActivity.Name = "lblSelectActivity";
             this.lblSelectActivity.Size = new System.Drawing.Size(95, 18);
             this.lblSelectActivity.TabIndex = 3;
@@ -514,25 +576,28 @@
             "Biking",
             "Eliptical",
             ""});
-            this.combActivities.Location = new System.Drawing.Point(183, 120);
+            this.combActivities.Location = new System.Drawing.Point(157, 148);
+            this.combActivities.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combActivities.Name = "combActivities";
-            this.combActivities.Size = new System.Drawing.Size(121, 26);
+            this.combActivities.Size = new System.Drawing.Size(104, 26);
             this.combActivities.TabIndex = 2;
             // 
             // btnClearActivity
             // 
-            this.btnClearActivity.Location = new System.Drawing.Point(201, 384);
+            this.btnClearActivity.Location = new System.Drawing.Point(172, 473);
+            this.btnClearActivity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClearActivity.Name = "btnClearActivity";
-            this.btnClearActivity.Size = new System.Drawing.Size(75, 23);
+            this.btnClearActivity.Size = new System.Drawing.Size(64, 28);
             this.btnClearActivity.TabIndex = 1;
             this.btnClearActivity.Text = "Clear";
             this.btnClearActivity.UseVisualStyleBackColor = true;
             // 
             // btnAddActivity
             // 
-            this.btnAddActivity.Location = new System.Drawing.Point(91, 384);
+            this.btnAddActivity.Location = new System.Drawing.Point(78, 473);
+            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddActivity.Name = "btnAddActivity";
-            this.btnAddActivity.Size = new System.Drawing.Size(75, 23);
+            this.btnAddActivity.Size = new System.Drawing.Size(64, 28);
             this.btnAddActivity.TabIndex = 0;
             this.btnAddActivity.Text = "Add Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
@@ -542,9 +607,11 @@
             // 
             this.btnClose.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnClose.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(22, 833);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Location = new System.Drawing.Point(867, 674);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(104, 27);
+            this.btnClose.Size = new System.Drawing.Size(89, 33);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -552,16 +619,17 @@
             // 
             // FitThisHUB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(138)))), ((int)(((byte)(46)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(864, 749);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabConsole1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FitThisHUB";
             this.Text = "FitThis - Hub";
             this.Load += new System.EventHandler(this.FitThisHUB_Load);
@@ -574,6 +642,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
+            this.tabFood.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).EndInit();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -628,5 +698,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDashAct;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartFood;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCal;
+        private System.Windows.Forms.Button btnCalCalc;
     }
 }
