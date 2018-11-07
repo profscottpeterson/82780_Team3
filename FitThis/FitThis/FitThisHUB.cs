@@ -60,6 +60,12 @@ namespace FitThis
         private void FitThisHUB_Load(object sender, EventArgs e)
         {
             // Load and connect to the DB when the form loads.
+            DBManagement DB = new DBManagement();
+            this.database = DB.ConnectDB(database);
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
+
+            // Load and connect to the DB when the form loads.
             string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
