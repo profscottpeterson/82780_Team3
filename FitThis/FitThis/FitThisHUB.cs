@@ -149,7 +149,7 @@ namespace FitThis
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
-            this.CreateConnection();
+            //this.CreateConnection();
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 

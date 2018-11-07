@@ -527,7 +527,6 @@
             this.btnClearActivity.TabIndex = 1;
             this.btnClearActivity.Text = "Clear";
             this.btnClearActivity.UseVisualStyleBackColor = true;
-            this.btnClearActivity.Click += new System.EventHandler(this.btnClearActivity_Click);
             // 
             // btnAddActivity
             // 
