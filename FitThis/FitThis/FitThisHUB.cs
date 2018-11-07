@@ -109,7 +109,7 @@ namespace FitThis
                         while (rdr.Read())
                         {
                             DateTime date = rdr.GetDateTime(0).Date;
-                            chartFood.Series["Food"].Points.AddXY(date, rdr["Sum(calories)"]);
+                            //chartFood.Series["Food"].Points.AddXY(date, rdr["Sum(calories)"]);
                         }
                     }
                 }
