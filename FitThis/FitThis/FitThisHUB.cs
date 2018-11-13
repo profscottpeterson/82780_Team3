@@ -52,7 +52,7 @@ namespace FitThis
             active.ImportData(dataGridActivity, chartActivity);
         }
 
-       
+
 
         /// <summary>
         /// On fit this hub load, establish database connection.
@@ -61,14 +61,30 @@ namespace FitThis
         /// <param name="e"></param>
         private void FitThisHUB_Load(object sender, EventArgs e)
         {
+            int allWeights = 0;
+            int allFoods = 0;
+            int allActivities = 0;
+            int allFoodCalories=0;
+            int allBurnedCalories=0;
+            double LowestWeight = 0;
+            double HighestWeight = 0;
+            double ChangedWeight =0;
+            int LowestCaloriesBurned = 0;
+            int HighestCaloriesBurned = 0;
+            double AverageMealCalories = 0;
+            int MostMealCalories = 0;
+            int LeastMealCalories = 0;
+
             // Load and connect to the DB when the form loads.
+            string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" + currentUser.UserID +
+                               " group by date limit 5";
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 
             // Load and connect to the DB when the form loads.
-            string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
+            
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -81,13 +97,13 @@ namespace FitThis
                         {
                             DateTime date = rdr.GetDateTime(1).Date;
                             chartWeight.Series["Weight"].Points.AddXY(date, rdr["avg(weightrecorded)"]);
-
                         }
                     }
                 }
             }
 
-            string sqlActivity = "Select date, sum(duration) from activity where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
+            string sqlActivity = "Select date, sum(duration) from activity where fk_USERID =" + currentUser.UserID +
+                                 " group by date limit 5";
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
 
@@ -105,7 +121,8 @@ namespace FitThis
                 }
             }
 
-            string sqlFood = "Select dateadded, sum(calories) from food where fk_USERID =" + "2 " + "group by dateadded limit 5"; //currentUser.UserID;
+            string sqlFood = "Select dateadded, sum(calories) from food where fk_USERID =" + currentUser.UserID +
+                             " group by dateadded limit 5";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -122,7 +139,179 @@ namespace FitThis
                     }
                 }
             }
+
+            string sqlFoodAll = "Select foodid, Sum(Calories) from food where fk_USERID =" + currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFoodAll, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            allFoods++;
+                            allFoodCalories = rdr.GetInt32(1);
+                        }
+                    }
+                }
+            }
+
+            string sqlFoodCalsLowest = "Select calories from food where fk_USERID =" + currentUser.UserID + " order by calories asc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFoodCalsLowest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.NextResult())
+                        {
+                            LeastMealCalories = rdr.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            string sqlFoodCalsHighest = "Select calories from food where fk_USERID =" + currentUser.UserID + " order by calories desc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFoodCalsHighest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.NextResult())
+                        {
+                            MostMealCalories = rdr.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            string sqlWeightAll = "Select * from weight where fk_USERID =" + currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlWeightAll, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            allWeights++;
+                        }
+                    }
+                }
+            }
+
+            string sqlWeightLowest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID + " order by weightrecorded asc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlWeightLowest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.NextResult())
+                        {
+                            LowestWeight = rdr.GetDouble(0);
+                        }
+                    }
+                }
+            }
+
+            string sqlWeightHighest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID + " order by weightrecorded desc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlWeightHighest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            HighestWeight = rdr.GetDouble(0);
+                        }
+                    }
+                }
+            }
+
+
+            string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID + " order by Caloriesburned asc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlActivitiesHighest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            HighestCaloriesBurned = rdr.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            string sqlActivitiesLowest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID + " order by Caloriesburned desc limit 1";
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlActivitiesHighest, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            LowestCaloriesBurned = rdr.GetInt32(0);
+                        }
+                    }
+                }
+            }
+
+            string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" + currentUser.UserID;
+            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
+            {
+
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlActivitiesAll, c))
+                {
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            allActivities++;
+                            allBurnedCalories = rdr.GetInt32(1);
+                        }
+                    }
+                }
+            }
+
+            ChangedWeight = Math.Abs(HighestWeight - LowestWeight);
+            lblNumWeights.Text = allWeights.ToString();
+            lblLowestWeight.Text = LowestWeight.ToString();
+            lblHighest.Text = HighestWeight.ToString();
+            lblChanged.Text = ChangedWeight + "lbs";
+            lblActivitiesNum.Text = allActivities.ToString();
+            lblTotalCalsBurned.Text = allBurnedCalories.ToString();
+            lblHighestCalsBurned.Text = HighestCaloriesBurned.ToString();
+            lblLeastCalsBurned.Text = LowestCaloriesBurned.ToString();
+            lblMealsNum.Text = allFoods.ToString();
+            lblTotalCals.Text = allFoodCalories.ToString();
+            lblHighestMealCals.Text = MostMealCalories.ToString();
+            lblLeastMealCals.Text = LeastMealCalories.ToString();
         }
+
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Activity.cs" />
+    <Compile Include="Classes\Dashboard.cs" />
     <Compile Include="Classes\DBManagement.cs" />
     <Compile Include="Classes\Food.cs" />
     <Compile Include="Classes\UserManagement.cs" />
