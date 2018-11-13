@@ -402,12 +402,12 @@ namespace FitThis
             calLeft = calAllowance - calorieIntake;
 
             //adds title to chart
-            chartCal.Titles.Add("Calories");
+            //chartCal.Titles.Add("Calories");
 
             //gives label and values to chart
             //random text
-            chartCal.Series["Cals"].Points.AddXY("Calories Consumed", calorieIntake.ToString());
-            chartCal.Series["Cals"].Points.AddXY("Calories Available", calLeft.ToString());
+            //chartCal.Series["Cals"].Points.AddXY("Calories Consumed", calorieIntake.ToString());
+            //chartCal.Series["Cals"].Points.AddXY("Calories Available", calLeft.ToString());
         }
     }
 }

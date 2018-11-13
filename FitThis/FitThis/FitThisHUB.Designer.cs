@@ -59,8 +59,8 @@
             this.chartWeight = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
-            this.btnCalCalc = new System.Windows.Forms.Button();
-            this.chartCal = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            //this.btnCalCalc = new System.Windows.Forms.Button();
+            //this.chartCal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPersonal = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
@@ -123,13 +123,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
             this.tabFood.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.chartCal)).BeginInit();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
-            this.SQLTest.SuspendLayout();
             this.gpbxDashWeight.SuspendLayout();
             this.gpbxDashAct.SuspendLayout();
             this.gpboxDashFood.SuspendLayout();
@@ -322,47 +321,12 @@
             // 
             this.tabFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabFood.Controls.Add(this.btnCalCalc);
-            this.tabFood.Controls.Add(this.chartCal);
             this.tabFood.Location = new System.Drawing.Point(4, 30);
             this.tabFood.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabFood.Name = "tabFood";
             this.tabFood.Size = new System.Drawing.Size(678, 687);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food";
-            // 
-            // btnCalCalc
-            // 
-            this.btnCalCalc.Location = new System.Drawing.Point(206, 644);
-            this.btnCalCalc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCalCalc.Name = "btnCalCalc";
-            this.btnCalCalc.Size = new System.Drawing.Size(64, 28);
-            this.btnCalCalc.TabIndex = 2;
-            this.btnCalCalc.Text = "ChartCalc";
-            this.btnCalCalc.UseVisualStyleBackColor = true;
-            this.btnCalCalc.Click += new System.EventHandler(this.btnCalCalc_Click);
-            // 
-            // chartCal
-            // 
-            this.chartCal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
-            this.chartCal.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.Area3DStyle.Enable3D = true;
-            chartArea1.Name = "ChartArea1";
-            this.chartCal.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartCal.Legends.Add(legend1);
-            this.chartCal.Location = new System.Drawing.Point(290, 303);
-            this.chartCal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chartCal.Name = "chartCal";
-            this.chartCal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "Cals";
-            this.chartCal.Series.Add(series1);
-            this.chartCal.Size = new System.Drawing.Size(375, 369);
-            this.chartCal.TabIndex = 0;
             // 
             // tabPersonal
             // 
@@ -936,7 +900,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
             this.tabFood.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartCal)).EndInit();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -944,8 +907,6 @@
             this.tabActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
-            this.SQLTest.ResumeLayout(false);
-            this.SQLTest.PerformLayout();
             this.gpbxDashWeight.ResumeLayout(false);
             this.gpbxDashWeight.PerformLayout();
             this.gpbxDashAct.ResumeLayout(false);
