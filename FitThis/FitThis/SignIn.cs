@@ -15,7 +15,7 @@ namespace FitThis
     public partial class SignIn : Form
     {
         // User object to store the current user
-        public User currentUserS = new User(); // a current user object
+        User currentUserS = new User(); // a current user object
 
         // User Management object
         UserManagement UserMgmt = new UserManagement();
@@ -25,17 +25,17 @@ namespace FitThis
 
         public void OpenFitThisHub()
         {
-            //FitThisHUB FB = new FitThisHUB(this.currentUserS);
-            //FB.Show();
+            FitThisHUB FB = new FitThisHUB(this.currentUserS);
+            FB.Show();
             this.Close();
         }
       
         // Instantiation of the form, accepts a user object from the program class.
-        public SignIn()
+        public SignIn(User user1)
         {
             InitializeComponent();
             // Sets passes in user to current user.
-           // user1 = this.currentUserS;
+            user1 = this.currentUserS;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace FitThis
             // Check if there's a value in the user combo box
             if (this.cmbUser.Text != null)
             {
-               currentUserS =  UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
                 
                 this.OpenFitThisHub();
             }

@@ -27,10 +27,12 @@ namespace FitThis
 
         public SQLiteConfig sqlcmd = new SQLiteConfig();
 
-        public FitThisHUB()
-        {       
+        public FitThisHUB(User currentUser1)
+        {
+            
             InitializeComponent();
-                   
+            this.currentUser = currentUser1;
+            
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -62,9 +64,6 @@ namespace FitThis
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
-            SignIn si = new SignIn();
-            si.ShowDialog();
-           this.currentUser = si.currentUserS;
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 
