@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using FitThis.Classes;
 
 
@@ -25,12 +27,10 @@ namespace FitThis
 
         public SQLiteConfig sqlcmd = new SQLiteConfig();
 
-        public FitThisHUB(User currentUser1)
-        {
-            
+        public FitThisHUB()
+        {       
             InitializeComponent();
-            this.currentUser = currentUser1;
-            
+                   
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -60,6 +60,15 @@ namespace FitThis
         private void FitThisHUB_Load(object sender, EventArgs e)
         {
             // Load and connect to the DB when the form loads.
+            DBManagement DB = new DBManagement();
+            this.database = DB.ConnectDB(database);
+            SignIn si = new SignIn();
+            si.ShowDialog();
+           this.currentUser = si.currentUserS;
+            Activity active = new Activity();
+            active.ImportData(dataGridActivity, chartActivity);
+
+            // Load and connect to the DB when the form loads.
             string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
@@ -82,9 +91,6 @@ namespace FitThis
             string sqlActivity = "Select date, sum(duration) from activity where fk_USERID =" + "2 " + "group by date limit 5"; //currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
-            combActivities.SelectedIndex = -1;
-            tbxDuration.Clear();
-        }
 
                 c.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand(sqlActivity, c))
@@ -112,7 +118,7 @@ namespace FitThis
                         while (rdr.Read())
                         {
                             DateTime date = rdr.GetDateTime(0).Date;
-                            chartFood.Series["Food"].Points.AddXY(date, rdr["Sum(calories)"]);
+                            //chartFood.Series["Food"].Points.AddXY(date, rdr["Sum(calories)"]);
                         }
                     }
                 }
@@ -148,14 +154,72 @@ namespace FitThis
 
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
+            tabConsole1.SelectedTab = tabPersonal;
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
-            this.CreateConnection();
+            //this.CreateConnection();
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 
-            tabConsole1.SelectedTab = tabPersonal;
+        }
+
+        private void btnCalCalc_Click(object sender, EventArgs e)
+        {
+            //variable to hold total number of calories consumed
+            int calorieIntake = 0;
+
+            //vairable for total number of callories recommended for the day
+            int calAllowance = 0;
+
+            //variable for the calories left for the day after eating
+            int calLeft = 0;
+
+            //opens connection to database
+            database = sqlcmd.DatabaseConnection();
+
+            //create reader to collect calories consumed
+            SQLiteDataReader intakeReader = new SQLiteCommand("Select CALORIES from FOOD", database).ExecuteReader();
+
+            //while there is a next record in the database
+            //find the number of calories for each meal
+            //then add them into the calorie intake variable
+            while (intakeReader.Read())
+            {
+
+                for (int i = 0; i < intakeReader.FieldCount; i++)
+                {
+                    calorieIntake += intakeReader.GetInt32(i);
+                }
+
+            }
+
+            //create reader to collect the user's calorie allowance
+            SQLiteDataReader allowanceReader = new SQLiteCommand(
+                "Select RECOMMENDINTAKE from USER where USERID = 1", database).ExecuteReader();
+
+            //finds the user's calorie allowance and places it in the variable
+            while (allowanceReader.Read())
+            {
+
+                for (int i = 0; i < allowanceReader.FieldCount; i++)
+                {
+                    calAllowance += allowanceReader.GetInt32(i);
+                }
+
+            }
+
+            //subtracts the allowance from the intake to get the calories 
+            //that can be consumed
+            calLeft = calAllowance - calorieIntake;
+
+            //adds title to chart
+            chartCal.Titles.Add("Calories");
+
+            //gives label and values to chart
+            //random text
+            chartCal.Series["Cals"].Points.AddXY("Calories Consumed", calorieIntake.ToString());
+            chartCal.Series["Cals"].Points.AddXY("Calories Available", calLeft.ToString());
         }
     }
 }
