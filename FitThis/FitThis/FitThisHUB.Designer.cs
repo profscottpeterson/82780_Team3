@@ -97,6 +97,33 @@
             this.CreateConnectDb = new System.Windows.Forms.Button();
             this.btnRyanTest = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.gpbxDashWeight = new System.Windows.Forms.GroupBox();
+            this.gpbxDashAct = new System.Windows.Forms.GroupBox();
+            this.gpboxDashFood = new System.Windows.Forms.GroupBox();
+            this.lblgpbxDashWeightLabel = new System.Windows.Forms.Label();
+            this.lblNumWeights = new System.Windows.Forms.Label();
+            this.gpbxDashLowestLabel = new System.Windows.Forms.Label();
+            this.lblLowestWeight = new System.Windows.Forms.Label();
+            this.gpbxDashHighestLabel = new System.Windows.Forms.Label();
+            this.lblHighest = new System.Windows.Forms.Label();
+            this.gpbxDashChangedLabel = new System.Windows.Forms.Label();
+            this.lblChanged = new System.Windows.Forms.Label();
+            this.lblgpbxDashNumActivitiesLabel = new System.Windows.Forms.Label();
+            this.lblgpbxDashTotalCalsLabel = new System.Windows.Forms.Label();
+            this.lblActivitiesNum = new System.Windows.Forms.Label();
+            this.lblTotalCalsBurned = new System.Windows.Forms.Label();
+            this.lblHighestCalsBurned = new System.Windows.Forms.Label();
+            this.lblgpbxDashHighestCals = new System.Windows.Forms.Label();
+            this.lblLeastCalsBurned = new System.Windows.Forms.Label();
+            this.lblgpbxDashLeastCalsBurned = new System.Windows.Forms.Label();
+            this.lblMealsNum = new System.Windows.Forms.Label();
+            this.lblgpbxDashFoodNum = new System.Windows.Forms.Label();
+            this.lblTotalCals = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblHighestMealCals = new System.Windows.Forms.Label();
+            this.lblgpbxDashHighMealCals = new System.Windows.Forms.Label();
+            this.lblLeastMealCals = new System.Windows.Forms.Label();
+            this.lblgpbxDashMealLeastCals = new System.Windows.Forms.Label();
             this.tabConsole1.SuspendLayout();
             this.tabDash.SuspendLayout();
             this.grpbxDashBtns.SuspendLayout();
@@ -111,6 +138,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
             this.SQLTest.SuspendLayout();
+            this.gpbxDashWeight.SuspendLayout();
+            this.gpbxDashAct.SuspendLayout();
+            this.gpboxDashFood.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabConsole1
@@ -131,6 +161,9 @@
             // tabDash
             // 
             this.tabDash.BackColor = System.Drawing.Color.Lime;
+            this.tabDash.Controls.Add(this.gpboxDashFood);
+            this.tabDash.Controls.Add(this.gpbxDashAct);
+            this.tabDash.Controls.Add(this.gpbxDashWeight);
             this.tabDash.Controls.Add(this.grpbxDashBtns);
             this.tabDash.Controls.Add(this.grpbxDashCharts);
             this.tabDash.Location = new System.Drawing.Point(4, 27);
@@ -681,6 +714,273 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // gpbxDashWeight
+            // 
+            this.gpbxDashWeight.Controls.Add(this.lblChanged);
+            this.gpbxDashWeight.Controls.Add(this.gpbxDashChangedLabel);
+            this.gpbxDashWeight.Controls.Add(this.lblHighest);
+            this.gpbxDashWeight.Controls.Add(this.gpbxDashHighestLabel);
+            this.gpbxDashWeight.Controls.Add(this.lblLowestWeight);
+            this.gpbxDashWeight.Controls.Add(this.gpbxDashLowestLabel);
+            this.gpbxDashWeight.Controls.Add(this.lblNumWeights);
+            this.gpbxDashWeight.Controls.Add(this.lblgpbxDashWeightLabel);
+            this.gpbxDashWeight.Location = new System.Drawing.Point(183, 274);
+            this.gpbxDashWeight.Name = "gpbxDashWeight";
+            this.gpbxDashWeight.Size = new System.Drawing.Size(160, 255);
+            this.gpbxDashWeight.TabIndex = 2;
+            this.gpbxDashWeight.TabStop = false;
+            this.gpbxDashWeight.Text = "Weight";
+            // 
+            // gpbxDashAct
+            // 
+            this.gpbxDashAct.Controls.Add(this.lblLeastCalsBurned);
+            this.gpbxDashAct.Controls.Add(this.lblgpbxDashLeastCalsBurned);
+            this.gpbxDashAct.Controls.Add(this.lblHighestCalsBurned);
+            this.gpbxDashAct.Controls.Add(this.lblgpbxDashHighestCals);
+            this.gpbxDashAct.Controls.Add(this.lblTotalCalsBurned);
+            this.gpbxDashAct.Controls.Add(this.lblActivitiesNum);
+            this.gpbxDashAct.Controls.Add(this.lblgpbxDashTotalCalsLabel);
+            this.gpbxDashAct.Controls.Add(this.lblgpbxDashNumActivitiesLabel);
+            this.gpbxDashAct.Location = new System.Drawing.Point(386, 274);
+            this.gpbxDashAct.Name = "gpbxDashAct";
+            this.gpbxDashAct.Size = new System.Drawing.Size(160, 255);
+            this.gpbxDashAct.TabIndex = 3;
+            this.gpbxDashAct.TabStop = false;
+            this.gpbxDashAct.Text = "Activity";
+            // 
+            // gpboxDashFood
+            // 
+            this.gpboxDashFood.Controls.Add(this.lblLeastMealCals);
+            this.gpboxDashFood.Controls.Add(this.lblgpbxDashMealLeastCals);
+            this.gpboxDashFood.Controls.Add(this.lblHighestMealCals);
+            this.gpboxDashFood.Controls.Add(this.lblgpbxDashHighMealCals);
+            this.gpboxDashFood.Controls.Add(this.lblTotalCals);
+            this.gpboxDashFood.Controls.Add(this.label4);
+            this.gpboxDashFood.Controls.Add(this.lblMealsNum);
+            this.gpboxDashFood.Controls.Add(this.lblgpbxDashFoodNum);
+            this.gpboxDashFood.Location = new System.Drawing.Point(591, 274);
+            this.gpboxDashFood.Name = "gpboxDashFood";
+            this.gpboxDashFood.Size = new System.Drawing.Size(160, 255);
+            this.gpboxDashFood.TabIndex = 4;
+            this.gpboxDashFood.TabStop = false;
+            this.gpboxDashFood.Text = "Food";
+            // 
+            // lblgpbxDashWeightLabel
+            // 
+            this.lblgpbxDashWeightLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashWeightLabel.Location = new System.Drawing.Point(5, 36);
+            this.lblgpbxDashWeightLabel.Name = "lblgpbxDashWeightLabel";
+            this.lblgpbxDashWeightLabel.Size = new System.Drawing.Size(151, 59);
+            this.lblgpbxDashWeightLabel.TabIndex = 0;
+            this.lblgpbxDashWeightLabel.Text = "Number of weights logged:";
+            // 
+            // lblNumWeights
+            // 
+            this.lblNumWeights.AutoSize = true;
+            this.lblNumWeights.Location = new System.Drawing.Point(60, 55);
+            this.lblNumWeights.Name = "lblNumWeights";
+            this.lblNumWeights.Size = new System.Drawing.Size(36, 18);
+            this.lblNumWeights.TabIndex = 1;
+            this.lblNumWeights.Text = "Num";
+            // 
+            // gpbxDashLowestLabel
+            // 
+            this.gpbxDashLowestLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbxDashLowestLabel.Location = new System.Drawing.Point(5, 81);
+            this.gpbxDashLowestLabel.Name = "gpbxDashLowestLabel";
+            this.gpbxDashLowestLabel.Size = new System.Drawing.Size(133, 59);
+            this.gpbxDashLowestLabel.TabIndex = 2;
+            this.gpbxDashLowestLabel.Text = "Lowest weight logged:";
+            // 
+            // lblLowestWeight
+            // 
+            this.lblLowestWeight.AutoSize = true;
+            this.lblLowestWeight.Location = new System.Drawing.Point(60, 100);
+            this.lblLowestWeight.Name = "lblLowestWeight";
+            this.lblLowestWeight.Size = new System.Drawing.Size(50, 18);
+            this.lblLowestWeight.TabIndex = 3;
+            this.lblLowestWeight.Text = "Lowest";
+            // 
+            // gpbxDashHighestLabel
+            // 
+            this.gpbxDashHighestLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbxDashHighestLabel.Location = new System.Drawing.Point(5, 132);
+            this.gpbxDashHighestLabel.Name = "gpbxDashHighestLabel";
+            this.gpbxDashHighestLabel.Size = new System.Drawing.Size(133, 59);
+            this.gpbxDashHighestLabel.TabIndex = 4;
+            this.gpbxDashHighestLabel.Text = "Highest weight logged:";
+            // 
+            // lblHighest
+            // 
+            this.lblHighest.AutoSize = true;
+            this.lblHighest.Location = new System.Drawing.Point(61, 150);
+            this.lblHighest.Name = "lblHighest";
+            this.lblHighest.Size = new System.Drawing.Size(54, 18);
+            this.lblHighest.TabIndex = 5;
+            this.lblHighest.Text = "Highest";
+            // 
+            // gpbxDashChangedLabel
+            // 
+            this.gpbxDashChangedLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbxDashChangedLabel.Location = new System.Drawing.Point(6, 182);
+            this.gpbxDashChangedLabel.Name = "gpbxDashChangedLabel";
+            this.gpbxDashChangedLabel.Size = new System.Drawing.Size(133, 59);
+            this.gpbxDashChangedLabel.TabIndex = 6;
+            this.gpbxDashChangedLabel.Text = "Amount of wieght changed:";
+            // 
+            // lblChanged
+            // 
+            this.lblChanged.AutoSize = true;
+            this.lblChanged.Location = new System.Drawing.Point(69, 200);
+            this.lblChanged.Name = "lblChanged";
+            this.lblChanged.Size = new System.Drawing.Size(61, 18);
+            this.lblChanged.TabIndex = 7;
+            this.lblChanged.Text = "Changed";
+            // 
+            // lblgpbxDashNumActivitiesLabel
+            // 
+            this.lblgpbxDashNumActivitiesLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashNumActivitiesLabel.Location = new System.Drawing.Point(6, 36);
+            this.lblgpbxDashNumActivitiesLabel.Name = "lblgpbxDashNumActivitiesLabel";
+            this.lblgpbxDashNumActivitiesLabel.Size = new System.Drawing.Size(151, 59);
+            this.lblgpbxDashNumActivitiesLabel.TabIndex = 1;
+            this.lblgpbxDashNumActivitiesLabel.Text = "Number of activities logged:";
+            // 
+            // lblgpbxDashTotalCalsLabel
+            // 
+            this.lblgpbxDashTotalCalsLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashTotalCalsLabel.Location = new System.Drawing.Point(6, 81);
+            this.lblgpbxDashTotalCalsLabel.Name = "lblgpbxDashTotalCalsLabel";
+            this.lblgpbxDashTotalCalsLabel.Size = new System.Drawing.Size(151, 59);
+            this.lblgpbxDashTotalCalsLabel.TabIndex = 2;
+            this.lblgpbxDashTotalCalsLabel.Text = "Number of calories burned:";
+            // 
+            // lblActivitiesNum
+            // 
+            this.lblActivitiesNum.AutoSize = true;
+            this.lblActivitiesNum.Location = new System.Drawing.Point(59, 55);
+            this.lblActivitiesNum.Name = "lblActivitiesNum";
+            this.lblActivitiesNum.Size = new System.Drawing.Size(36, 18);
+            this.lblActivitiesNum.TabIndex = 8;
+            this.lblActivitiesNum.Text = "Num";
+            // 
+            // lblTotalCalsBurned
+            // 
+            this.lblTotalCalsBurned.AutoSize = true;
+            this.lblTotalCalsBurned.Location = new System.Drawing.Point(64, 100);
+            this.lblTotalCalsBurned.Name = "lblTotalCalsBurned";
+            this.lblTotalCalsBurned.Size = new System.Drawing.Size(36, 18);
+            this.lblTotalCalsBurned.TabIndex = 9;
+            this.lblTotalCalsBurned.Text = "Num";
+            // 
+            // lblHighestCalsBurned
+            // 
+            this.lblHighestCalsBurned.AutoSize = true;
+            this.lblHighestCalsBurned.Location = new System.Drawing.Point(62, 150);
+            this.lblHighestCalsBurned.Name = "lblHighestCalsBurned";
+            this.lblHighestCalsBurned.Size = new System.Drawing.Size(54, 18);
+            this.lblHighestCalsBurned.TabIndex = 11;
+            this.lblHighestCalsBurned.Text = "Highest";
+            // 
+            // lblgpbxDashHighestCals
+            // 
+            this.lblgpbxDashHighestCals.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashHighestCals.Location = new System.Drawing.Point(6, 132);
+            this.lblgpbxDashHighestCals.Name = "lblgpbxDashHighestCals";
+            this.lblgpbxDashHighestCals.Size = new System.Drawing.Size(133, 59);
+            this.lblgpbxDashHighestCals.TabIndex = 10;
+            this.lblgpbxDashHighestCals.Text = "Most calories burned:";
+            // 
+            // lblLeastCalsBurned
+            // 
+            this.lblLeastCalsBurned.AutoSize = true;
+            this.lblLeastCalsBurned.Location = new System.Drawing.Point(62, 200);
+            this.lblLeastCalsBurned.Name = "lblLeastCalsBurned";
+            this.lblLeastCalsBurned.Size = new System.Drawing.Size(50, 18);
+            this.lblLeastCalsBurned.TabIndex = 13;
+            this.lblLeastCalsBurned.Text = "Lowest";
+            // 
+            // lblgpbxDashLeastCalsBurned
+            // 
+            this.lblgpbxDashLeastCalsBurned.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashLeastCalsBurned.Location = new System.Drawing.Point(6, 182);
+            this.lblgpbxDashLeastCalsBurned.Name = "lblgpbxDashLeastCalsBurned";
+            this.lblgpbxDashLeastCalsBurned.Size = new System.Drawing.Size(133, 59);
+            this.lblgpbxDashLeastCalsBurned.TabIndex = 12;
+            this.lblgpbxDashLeastCalsBurned.Text = "Least calories burned:";
+            // 
+            // lblMealsNum
+            // 
+            this.lblMealsNum.AutoSize = true;
+            this.lblMealsNum.Location = new System.Drawing.Point(59, 54);
+            this.lblMealsNum.Name = "lblMealsNum";
+            this.lblMealsNum.Size = new System.Drawing.Size(36, 18);
+            this.lblMealsNum.TabIndex = 10;
+            this.lblMealsNum.Text = "Num";
+            // 
+            // lblgpbxDashFoodNum
+            // 
+            this.lblgpbxDashFoodNum.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashFoodNum.Location = new System.Drawing.Point(6, 36);
+            this.lblgpbxDashFoodNum.Name = "lblgpbxDashFoodNum";
+            this.lblgpbxDashFoodNum.Size = new System.Drawing.Size(151, 59);
+            this.lblgpbxDashFoodNum.TabIndex = 9;
+            this.lblgpbxDashFoodNum.Text = "Number of meals logged:";
+            // 
+            // lblTotalCals
+            // 
+            this.lblTotalCals.AutoSize = true;
+            this.lblTotalCals.Location = new System.Drawing.Point(59, 100);
+            this.lblTotalCals.Name = "lblTotalCals";
+            this.lblTotalCals.Size = new System.Drawing.Size(36, 18);
+            this.lblTotalCals.TabIndex = 12;
+            this.lblTotalCals.Text = "Num";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(151, 59);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Total meal calories logged:";
+            // 
+            // lblHighestMealCals
+            // 
+            this.lblHighestMealCals.AutoSize = true;
+            this.lblHighestMealCals.Location = new System.Drawing.Point(52, 150);
+            this.lblHighestMealCals.Name = "lblHighestMealCals";
+            this.lblHighestMealCals.Size = new System.Drawing.Size(54, 18);
+            this.lblHighestMealCals.TabIndex = 14;
+            this.lblHighestMealCals.Text = "Highest";
+            // 
+            // lblgpbxDashHighMealCals
+            // 
+            this.lblgpbxDashHighMealCals.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashHighMealCals.Location = new System.Drawing.Point(8, 132);
+            this.lblgpbxDashHighMealCals.Name = "lblgpbxDashHighMealCals";
+            this.lblgpbxDashHighMealCals.Size = new System.Drawing.Size(133, 59);
+            this.lblgpbxDashHighMealCals.TabIndex = 13;
+            this.lblgpbxDashHighMealCals.Text = "Most calories in one meal:";
+            // 
+            // lblLeastMealCals
+            // 
+            this.lblLeastMealCals.AutoSize = true;
+            this.lblLeastMealCals.Location = new System.Drawing.Point(52, 200);
+            this.lblLeastMealCals.Name = "lblLeastMealCals";
+            this.lblLeastMealCals.Size = new System.Drawing.Size(40, 18);
+            this.lblLeastMealCals.TabIndex = 16;
+            this.lblLeastMealCals.Text = "Least";
+            // 
+            // lblgpbxDashMealLeastCals
+            // 
+            this.lblgpbxDashMealLeastCals.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgpbxDashMealLeastCals.Location = new System.Drawing.Point(8, 182);
+            this.lblgpbxDashMealLeastCals.Name = "lblgpbxDashMealLeastCals";
+            this.lblgpbxDashMealLeastCals.Size = new System.Drawing.Size(133, 59);
+            this.lblgpbxDashMealLeastCals.TabIndex = 15;
+            this.lblgpbxDashMealLeastCals.Text = "Least caloriesin one meal:";
+            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -714,6 +1014,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).EndInit();
             this.SQLTest.ResumeLayout(false);
             this.SQLTest.PerformLayout();
+            this.gpbxDashWeight.ResumeLayout(false);
+            this.gpbxDashWeight.PerformLayout();
+            this.gpbxDashAct.ResumeLayout(false);
+            this.gpbxDashAct.PerformLayout();
+            this.gpboxDashFood.ResumeLayout(false);
+            this.gpboxDashFood.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -772,5 +1078,32 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDashAct;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartFood;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.GroupBox gpboxDashFood;
+        private System.Windows.Forms.GroupBox gpbxDashAct;
+        private System.Windows.Forms.GroupBox gpbxDashWeight;
+        private System.Windows.Forms.Label lblNumWeights;
+        private System.Windows.Forms.Label lblgpbxDashWeightLabel;
+        private System.Windows.Forms.Label gpbxDashHighestLabel;
+        private System.Windows.Forms.Label lblLowestWeight;
+        private System.Windows.Forms.Label gpbxDashLowestLabel;
+        private System.Windows.Forms.Label lblChanged;
+        private System.Windows.Forms.Label gpbxDashChangedLabel;
+        private System.Windows.Forms.Label lblHighest;
+        private System.Windows.Forms.Label lblTotalCalsBurned;
+        private System.Windows.Forms.Label lblActivitiesNum;
+        private System.Windows.Forms.Label lblgpbxDashTotalCalsLabel;
+        private System.Windows.Forms.Label lblgpbxDashNumActivitiesLabel;
+        private System.Windows.Forms.Label lblHighestCalsBurned;
+        private System.Windows.Forms.Label lblgpbxDashHighestCals;
+        private System.Windows.Forms.Label lblLeastCalsBurned;
+        private System.Windows.Forms.Label lblgpbxDashLeastCalsBurned;
+        private System.Windows.Forms.Label lblTotalCals;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblMealsNum;
+        private System.Windows.Forms.Label lblgpbxDashFoodNum;
+        private System.Windows.Forms.Label lblLeastMealCals;
+        private System.Windows.Forms.Label lblgpbxDashMealLeastCals;
+        private System.Windows.Forms.Label lblHighestMealCals;
+        private System.Windows.Forms.Label lblgpbxDashHighMealCals;
     }
 }
