@@ -15,7 +15,7 @@ namespace FitThis
     public partial class SignIn : Form
     {
         // User object to store the current user
-        User currentUserS = new User(); // a current user object
+        public User currentUserS = new User(); // a current user object
 
         // User Management object
         UserManagement UserMgmt = new UserManagement();
@@ -23,19 +23,15 @@ namespace FitThis
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
-        public void OpenFitThisHub()
+        public void CloseSignIn()
         {
-            FitThisHUB FB = new FitThisHUB(this.currentUserS);
-            FB.Show();
             this.Close();
         }
       
         // Instantiation of the form, accepts a user object from the program class.
-        public SignIn(User user1)
+        public SignIn()
         {
             InitializeComponent();
-            // Sets passes in user to current user.
-            user1 = this.currentUserS;
         }
 
         /// <summary>
@@ -53,7 +49,7 @@ namespace FitThis
             if (currentUserS != null)
             {
                 UserMgmt.AddUserToDB(currentUserS);
-                this.OpenFitThisHub();
+                this.CloseSignIn();
             }
             // So program doesn't break if UC form closed
             else
@@ -93,7 +89,7 @@ namespace FitThis
             {
                 UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
                 
-                this.OpenFitThisHub();
+                this.CloseSignIn();
             }
         }
     }

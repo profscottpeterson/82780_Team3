@@ -16,23 +16,22 @@ using FitThis.Classes;
 
 namespace FitThis
 {
-    public partial class FitThisHUB : Form 
+    public partial class FitThisHUB : Form
     {
         // varaible to hold the current user
         User currentUser = new User();
-        
+
 
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
         public SQLiteConfig sqlcmd = new SQLiteConfig();
 
-        public FitThisHUB(User currentUser1)
+        public FitThisHUB()
         {
-            
+
             InitializeComponent();
-            this.currentUser = currentUser1;
-            
+
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -43,12 +42,13 @@ namespace FitThis
             //Initialize activity class
             Activity active = new Activity();
             // Validate the data entered
-            if(active.ValidateActivtyInput(combActivities, tbxDuration))
+            if (active.ValidateActivtyInput(combActivities, tbxDuration))
             {
                 database = new SQLiteConnection("Data Source=FitThis.sqlite");
                 active.sqlDataInsert(combActivities, database);
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
+
             active.ImportData(dataGridActivity, chartActivity);
         }
 
@@ -61,14 +61,18 @@ namespace FitThis
         /// <param name="e"></param>
         private void FitThisHUB_Load(object sender, EventArgs e)
         {
+            SignIn Si = new SignIn();
+            Si.ShowDialog();
+            this.currentUser = Si.currentUserS;
+
             int allWeights = 0;
             int allFoods = 0;
             int allActivities = 0;
-            int allFoodCalories=0;
-            int allBurnedCalories=0;
+            int allFoodCalories = 0;
+            int allBurnedCalories = 0;
             double LowestWeight = 0;
             double HighestWeight = 0;
-            double ChangedWeight =0;
+            double ChangedWeight = 0;
             int LowestCaloriesBurned = 0;
             int HighestCaloriesBurned = 0;
             double AverageMealCalories = 0;
@@ -84,7 +88,7 @@ namespace FitThis
             active.ImportData(dataGridActivity, chartActivity);
 
             // Load and connect to the DB when the form loads.
-            
+
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -158,7 +162,8 @@ namespace FitThis
                 }
             }
 
-            string sqlFoodCalsLowest = "Select calories from food where fk_USERID =" + currentUser.UserID + " order by calories asc limit 1";
+            string sqlFoodCalsLowest = "Select calories from food where fk_USERID =" + currentUser.UserID +
+                                       " order by calories asc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -175,7 +180,8 @@ namespace FitThis
                 }
             }
 
-            string sqlFoodCalsHighest = "Select calories from food where fk_USERID =" + currentUser.UserID + " order by calories desc limit 1";
+            string sqlFoodCalsHighest = "Select calories from food where fk_USERID =" + currentUser.UserID +
+                                        " order by calories desc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -209,7 +215,8 @@ namespace FitThis
                 }
             }
 
-            string sqlWeightLowest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID + " order by weightrecorded asc limit 1";
+            string sqlWeightLowest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID +
+                                     " order by weightrecorded asc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -226,7 +233,8 @@ namespace FitThis
                 }
             }
 
-            string sqlWeightHighest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID + " order by weightrecorded desc limit 1";
+            string sqlWeightHighest = "Select weightrecorded from weight where fk_USERID =" + currentUser.UserID +
+                                      " order by weightrecorded desc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -244,7 +252,8 @@ namespace FitThis
             }
 
 
-            string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID + " order by Caloriesburned asc limit 1";
+            string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID +
+                                          " order by Caloriesburned asc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -261,7 +270,8 @@ namespace FitThis
                 }
             }
 
-            string sqlActivitiesLowest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID + " order by Caloriesburned desc limit 1";
+            string sqlActivitiesLowest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID +
+                                         " order by Caloriesburned desc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -278,7 +288,8 @@ namespace FitThis
                 }
             }
 
-            string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" + currentUser.UserID;
+            string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" +
+                                      currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -318,12 +329,6 @@ namespace FitThis
             Application.Exit();
         }
 
-        private void CreateConnectDb_Click_1(object sender, EventArgs e)
-        {
-            Activity active = new Activity();
-            active.ImportData(dataGridActivity, chartActivity);
-
-        }
 
         private void btnDashWeight_Click(object sender, EventArgs e)
         {
@@ -352,62 +357,5 @@ namespace FitThis
 
         }
 
-        private void btnCalCalc_Click(object sender, EventArgs e)
-        {
-            //variable to hold total number of calories consumed
-            int calorieIntake = 0;
-
-            //vairable for total number of callories recommended for the day
-            int calAllowance = 0;
-
-            //variable for the calories left for the day after eating
-            int calLeft = 0;
-
-            //opens connection to database
-            database = sqlcmd.DatabaseConnection();
-
-            //create reader to collect calories consumed
-            SQLiteDataReader intakeReader = new SQLiteCommand("Select CALORIES from FOOD", database).ExecuteReader();
-
-            //while there is a next record in the database
-            //find the number of calories for each meal
-            //then add them into the calorie intake variable
-            while (intakeReader.Read())
-            {
-
-                for (int i = 0; i < intakeReader.FieldCount; i++)
-                {
-                    calorieIntake += intakeReader.GetInt32(i);
-                }
-
-            }
-
-            //create reader to collect the user's calorie allowance
-            SQLiteDataReader allowanceReader = new SQLiteCommand(
-                "Select RECOMMENDINTAKE from USER where USERID = 1", database).ExecuteReader();
-
-            //finds the user's calorie allowance and places it in the variable
-            while (allowanceReader.Read())
-            {
-
-                for (int i = 0; i < allowanceReader.FieldCount; i++)
-                {
-                    calAllowance += allowanceReader.GetInt32(i);
-                }
-
-            }
-
-            //subtracts the allowance from the intake to get the calories 
-            //that can be consumed
-            calLeft = calAllowance - calorieIntake;
-
-            //adds title to chart
-            //chartCal.Titles.Add("Calories");
-
-            //gives label and values to chart
-            //random text
-            //chartCal.Series["Cals"].Points.AddXY("Calories Consumed", calorieIntake.ToString());
-            //chartCal.Series["Cals"].Points.AddXY("Calories Available", calLeft.ToString());
-        }
     }
 }

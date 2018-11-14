@@ -18,8 +18,7 @@ namespace FitThis
             Application.SetCompatibleTextRenderingDefault(false);
             //TODO RYAN commented out to skip login
             User currentUser = null;
-            Application.Run(new SignIn(currentUser));
-            Application.Run(new FitThisHUB(currentUser));
+            Application.Run(new FitThisHUB());
            
         }
     }
