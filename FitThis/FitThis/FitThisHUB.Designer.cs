@@ -86,7 +86,6 @@
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.tabPersonal = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtStrtWght = new System.Windows.Forms.TextBox();
             this.lblStrtWght = new System.Windows.Forms.Label();
             this.lblHeight = new System.Windows.Forms.Label();
@@ -123,7 +122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
             this.tabPersonal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
@@ -595,7 +593,6 @@
             // 
             this.tabPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabPersonal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPersonal.Controls.Add(this.pictureBox1);
             this.tabPersonal.Controls.Add(this.txtStrtWght);
             this.tabPersonal.Controls.Add(this.lblStrtWght);
             this.tabPersonal.Controls.Add(this.lblHeight);
@@ -612,20 +609,10 @@
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.OldLace;
-            this.pictureBox1.Location = new System.Drawing.Point(117, 182);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(86, 114);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtStrtWght
             // 
             this.txtStrtWght.Enabled = false;
-            this.txtStrtWght.Location = new System.Drawing.Point(195, 129);
+            this.txtStrtWght.Location = new System.Drawing.Point(224, 129);
             this.txtStrtWght.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStrtWght.Name = "txtStrtWght";
             this.txtStrtWght.Size = new System.Drawing.Size(86, 23);
@@ -635,7 +622,7 @@
             // 
             this.lblStrtWght.AutoSize = true;
             this.lblStrtWght.BackColor = System.Drawing.Color.Orange;
-            this.lblStrtWght.Location = new System.Drawing.Point(15, 133);
+            this.lblStrtWght.Location = new System.Drawing.Point(104, 133);
             this.lblStrtWght.Name = "lblStrtWght";
             this.lblStrtWght.Size = new System.Drawing.Size(109, 18);
             this.lblStrtWght.TabIndex = 6;
@@ -645,7 +632,7 @@
             // 
             this.lblHeight.AutoSize = true;
             this.lblHeight.BackColor = System.Drawing.Color.Orange;
-            this.lblHeight.Location = new System.Drawing.Point(15, 66);
+            this.lblHeight.Location = new System.Drawing.Point(160, 66);
             this.lblHeight.Name = "lblHeight";
             this.lblHeight.Size = new System.Drawing.Size(53, 18);
             this.lblHeight.TabIndex = 5;
@@ -654,7 +641,7 @@
             // txtHeight
             // 
             this.txtHeight.Enabled = false;
-            this.txtHeight.Location = new System.Drawing.Point(195, 60);
+            this.txtHeight.Location = new System.Drawing.Point(224, 60);
             this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(86, 23);
@@ -673,7 +660,7 @@
             // txtActLvl
             // 
             this.txtActLvl.Enabled = false;
-            this.txtActLvl.Location = new System.Drawing.Point(195, 96);
+            this.txtActLvl.Location = new System.Drawing.Point(224, 96);
             this.txtActLvl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActLvl.Name = "txtActLvl";
             this.txtActLvl.Size = new System.Drawing.Size(86, 23);
@@ -683,7 +670,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Orange;
-            this.lblName.Location = new System.Drawing.Point(15, 31);
+            this.lblName.Location = new System.Drawing.Point(166, 31);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(47, 18);
             this.lblName.TabIndex = 1;
@@ -692,7 +679,7 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(195, 25);
+            this.txtName.Location = new System.Drawing.Point(224, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(86, 23);
@@ -900,7 +887,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabActivity.ResumeLayout(false);
             this.tabActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
@@ -925,7 +911,6 @@
         private System.Windows.Forms.TextBox txtActLvl;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TabPage tabDash;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabActivity;
         private System.Windows.Forms.Label lblSelectActivity;
         private System.Windows.Forms.Button btnClearActivity;
