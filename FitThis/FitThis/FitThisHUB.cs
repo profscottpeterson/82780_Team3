@@ -163,15 +163,7 @@ namespace FitThis
                         while (rdr.Read())
                         {
                             allFoods++;
-                            string test = rdr[1].ToString();
-                            if (rdr[1].ToString() != "")
-                            {
-                                allFoodCalories = rdr.GetInt32(1);
-                            }
-                            else
-                            {
-                                allFoodCalories = 0;
-                            }
+                            allFoodCalories = rdr.GetInt32(1);
                         }
                     }
                 }
