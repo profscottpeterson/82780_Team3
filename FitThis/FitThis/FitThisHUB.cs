@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using FitThis.Classes;
 
+//testing
 
 
 namespace FitThis
@@ -32,6 +33,12 @@ namespace FitThis
 
             InitializeComponent();
 
+            if (userReader.Read())
+            {
+                CurrentUser = new User();
+                CurrentUser.UserID = int.Parse(userReader["UserID"].ToString());
+                CurrentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
+            }
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -365,5 +372,40 @@ namespace FitThis
 
         }
 
+        private void tabWeight_Enter(object sender, EventArgs e)
+        {
+            // load list box
+            string lbxsql = "Select * From Weight WHERE FK_UserID = " + CurrentUser.UserID;
+            SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
+            while (lbxdata.Read())
+            {
+                //TODO Remove Time From Date Stamp
+                string date = lbxdata.GetDateTime(1).ToString();
+                lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["Weight"]);
+            }
+
+            // load labels (current and goal)
+            string currentweightsql = "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
+                                      "WHERE UserID = " + CurrentUser.UserID +
+                                      " ORDER BY Date";
+            SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
+            if (curwght.Read())
+            {
+                this.lblCurrentWeight.Text = curwght[0].ToString();
+            }
+
+            lblGoalWeight.Text = CurrentUser.GoalWeight.ToString();
+
+        }
+
+        //private void btnClose_Click(object sender, EventArgs e)
+        //{
+        //    Application.Exit();
+        //}
+
+        private void tabFood_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
