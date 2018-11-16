@@ -75,7 +75,7 @@ namespace FitThis
             double ChangedWeight = 0;
             int LowestCaloriesBurned = 0;
             int HighestCaloriesBurned = 0;
-            double AverageMealCalories = 0;
+            double AverageMealCalories2 = 0;
             int MostMealCalories = 0;
             int LeastMealCalories = 0;
 
