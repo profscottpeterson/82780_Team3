@@ -15,7 +15,7 @@ namespace FitThis
     public partial class SignIn : Form
     {
         // User object to store the current user
-        User currentUserS = new User(); // a current user object
+        public User currentUserS = new User(); // a current user object
 
         // User Management object
         UserManagement UserMgmt = new UserManagement();
@@ -23,19 +23,15 @@ namespace FitThis
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
-        public void OpenFitThisHub()
+        public void CloseSignIn()
         {
-            FitThisHUB FB = new FitThisHUB(this.currentUserS);
-            FB.Show();
             this.Close();
         }
       
         // Instantiation of the form, accepts a user object from the program class.
-        public SignIn(User user1)
+        public SignIn()
         {
             InitializeComponent();
-            // Sets passes in user to current user.
-            user1 = this.currentUserS;
         }
 
         /// <summary>
@@ -52,8 +48,8 @@ namespace FitThis
             currentUserS = UC.user1;
             if (currentUserS != null)
             {
-                UserMgmt.AddUserToDB(currentUserS, database);
-                this.OpenFitThisHub();
+                UserMgmt.AddUserToDB(currentUserS);
+                this.CloseSignIn();
             }
             // So program doesn't break if UC form closed
             else
@@ -69,8 +65,11 @@ namespace FitThis
             //this.CreateConnection();
 
             DBManagement DB = new DBManagement();
-            this.database = DB.checkForFiles();
-            UserMgmt.FillLists(database);
+            DB.checkForFiles();
+            
+            UserMgmt.FillLists();
+            
+            
 
             // For each user name in the list, add it as an option to the 
             // combobox dropdown selection menu on the sign in form.
@@ -80,7 +79,7 @@ namespace FitThis
             }
 
             // Have the last user logged in as the default value in the combobox
-            this.cmbUser.SelectedItem = UserMgmt.UserList[0];
+            //this.cmbUser.SelectedItem = UserMgmt.UserList[0];
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -88,8 +87,9 @@ namespace FitThis
             // Check if there's a value in the user combo box
             if (this.cmbUser.Text != null)
             {
-                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text, this.database);
-                this.OpenFitThisHub();
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
+                
+                this.CloseSignIn();
             }
         }
     }
