@@ -176,5 +176,33 @@ namespace FitThis
             }
         }
 
+        public void RemoveActivity(DataGridView grid, System.Windows.Forms.DataVisualization.Charting.Chart chart)
+        {
+            int index = grid.CurrentCell.RowIndex;
+            string date = grid.Rows[index].Cells[0].Value.ToString();
+            string name = grid.Rows[index].Cells[1].Value.ToString();
+            string duration = grid.Rows[index].Cells[2].Value.ToString();
+            string calories = grid.Rows[index].Cells[3].Value.ToString();
+
+            string sqlDelete = ("Delete from Activity where FK_UserID = " + userNum + " and name = '" +
+                name + "' and Duration = " + duration + " and caloriesburned = " + calories + " ");
+            MessageBox.Show(sqlDelete);
+            using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                data.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlDelete, data))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            grid.Rows.Clear();
+            grid.Refresh();
+            chart.Series[0].Points.Clear();
+
+            ImportData(grid, chart);
+
+        }
+
     }
 }

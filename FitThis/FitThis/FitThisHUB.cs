@@ -73,14 +73,6 @@ namespace FitThis
             this.CreateConnection();
         }
 
-
-        private void importDataActivity_Click(object sender, EventArgs e)
-        {
-            Activity active = new Activity();
-            active.ImportData(dataGridActivity, chartActivity);
-
-        }
-
         private void FitThisHUB_Load_1(object sender, EventArgs e)
         {
             // Load and connect to the DB when the form loads.
@@ -90,6 +82,12 @@ namespace FitThis
             Activity active = new Activity();
             active.ImportData(dataGridActivity, chartActivity);
 
+        }
+
+        private void btnRemoveActivity_Click(object sender, EventArgs e)
+        {
+            Activity active = new Activity();
+            active.RemoveActivity(dataGridActivity, chartActivity);        
         }
     }
 }

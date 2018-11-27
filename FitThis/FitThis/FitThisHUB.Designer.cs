@@ -63,6 +63,7 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnRemoveActivity = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -217,6 +218,7 @@
             // tabActivity
             // 
             this.tabActivity.BackColor = System.Drawing.Color.Lime;
+            this.tabActivity.Controls.Add(this.btnRemoveActivity);
             this.tabActivity.Controls.Add(this.dataGridActivity);
             this.tabActivity.Controls.Add(this.chartActivity);
             this.tabActivity.Controls.Add(this.lblCaloriesBurnedDisplay);
@@ -381,6 +383,16 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
+            // btnRemoveActivity
+            // 
+            this.btnRemoveActivity.Location = new System.Drawing.Point(140, 472);
+            this.btnRemoveActivity.Name = "btnRemoveActivity";
+            this.btnRemoveActivity.Size = new System.Drawing.Size(126, 34);
+            this.btnRemoveActivity.TabIndex = 11;
+            this.btnRemoveActivity.Text = "Remove Activity";
+            this.btnRemoveActivity.UseVisualStyleBackColor = true;
+            this.btnRemoveActivity.Click += new System.EventHandler(this.btnRemoveActivity_Click);
+            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -441,5 +453,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColDuration;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColCalories;
+        private System.Windows.Forms.Button btnRemoveActivity;
     }
 }
