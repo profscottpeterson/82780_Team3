@@ -98,7 +98,7 @@ namespace FitThis
                 + "VALUES (" + "'" + user1.FName + "','"
                 + user1.LName + "',"
                 + user1.Height + ","
-                + user1.StartingWeight + ","
+                + user1.CurrentWeight + ","
                 + user1.GoalWeight + ","
                 + user1.Age + ",'"
                 + user1.Gender + "','"

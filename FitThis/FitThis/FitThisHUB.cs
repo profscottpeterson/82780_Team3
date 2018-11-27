@@ -266,7 +266,7 @@ namespace FitThis
             txtName.Text = currentUser.FName + " " + currentUser.LName;
             txtHeight.Text = currentUser.Height.ToString();
             txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.StartingWeight.ToString();
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
             txtBMI.Text = currentUser.CalculateBMI().ToString();
             txtBMR.Text = currentUser.CalculateBMR().ToString();
 
@@ -319,7 +319,14 @@ namespace FitThis
                         while (rdr.Read())
                         {
                             allActivities++;
-                            allBurnedCalories = rdr.GetInt32(1);
+                            try
+                            {
+                                allBurnedCalories = rdr.GetInt32(1);
+                            }
+                            catch
+                            {
+                                allBurnedCalories = 0;
+                            }
                         }
                     }
                 }
