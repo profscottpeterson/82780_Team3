@@ -295,6 +295,7 @@ namespace FitThis
                 }
             }
 
+            //TODO made a change so i can revert
             string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" +
                                       currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
