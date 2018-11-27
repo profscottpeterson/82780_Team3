@@ -178,15 +178,24 @@ namespace FitThis
 
         public void RemoveActivity(DataGridView grid, System.Windows.Forms.DataVisualization.Charting.Chart chart)
         {
+            //Get the row number according to what cell or row is selected
             int index = grid.CurrentCell.RowIndex;
+
+            //Get the row's cell values
             string date = grid.Rows[index].Cells[0].Value.ToString();
             string name = grid.Rows[index].Cells[1].Value.ToString();
             string duration = grid.Rows[index].Cells[2].Value.ToString();
             string calories = grid.Rows[index].Cells[3].Value.ToString();
 
-            string sqlDelete = ("Delete from Activity where FK_UserID = " + userNum + " and name = '" +
+            //Convert Date to correct formating
+            DateTime sqlDate = Convert.ToDateTime(date);
+            string sqlDateString = sqlDate.ToString("yyyy-MM-dd");
+
+
+            //Create sql deletion code and execute
+            string sqlDelete = ("Delete from Activity where FK_UserID = " + userNum + " and date = '" + sqlDateString  + "' and name = '" +
                 name + "' and Duration = " + duration + " and caloriesburned = " + calories + " ");
-            MessageBox.Show(sqlDelete);
+
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 data.Open();
@@ -196,10 +205,12 @@ namespace FitThis
                 }
             }
 
+            //Clear the chart and grid of data
             grid.Rows.Clear();
             grid.Refresh();
             chart.Series[0].Points.Clear();
 
+            //Repopulate chart and data with updated table values
             ImportData(grid, chart);
 
         }
