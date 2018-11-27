@@ -76,7 +76,7 @@ namespace FitThis.Classes
             }
 
             //collects date and total number of calories for given day, to be used in the food chart
-            string sqlFood = "Select dateadded, sum(calories) from food where fk_USERID =" + FitThisHUB.currentUserID +
+            string sqlFood = "Select dateadded, sum(calories) from food where fk_USERID =" +  FitThisHUB.currentUserID +
                              " group by dateadded limit 5";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {

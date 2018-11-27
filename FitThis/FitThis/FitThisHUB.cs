@@ -20,7 +20,7 @@ namespace FitThis
     public partial class FitThisHUB : Form
     {
         // varaible to hold the current user
-        User currentUser = new User();
+        public User currentUser = new User();
 
         public static int currentUserID;
 
@@ -34,8 +34,7 @@ namespace FitThis
         {
 
             InitializeComponent();
-            this.currentUser = currentUser1;
-            currentUserID = currentUser.UserID;
+            //currentUserID = currentUser.UserID;
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -68,8 +67,9 @@ namespace FitThis
             SignIn Si = new SignIn();
             Si.ShowDialog();
             this.currentUser = Si.currentUserS;
+            currentUserID = currentUser.UserID;
 
-            
+
 
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
@@ -81,33 +81,34 @@ namespace FitThis
 
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
-            //makes instance of dashboard class
-            Dashboard dash = new Dashboard();
-            
-            //method to collect information needed for charts
-            dash.DashCharts();
+                //makes instance of dashboard class
+                Dashboard dash = new Dashboard();
 
-            //sets all charts with their respective data points
-            chartWeight.Series["Weight"].Points.AddXY(dash.dashChartWeightDate, dash.dashChartWeightAvg);
-            chartDashAct.Series["Activity"].Points.AddXY(dash.dashChartActivityDate, dash.dashChartActivitySum);
-            chartFood.Series["Food"].Points.AddXY(dash.dashChartFoodDate, dash.dashChartFoodSum);
+                //method to collect information needed for charts
+                dash.DashCharts();
 
-            //method to collect all stats needed for dashboard overview labels
-            dash.DashGetAllStats();
+                //sets all charts with their respective data points
+                chartWeight.Series["Weight"].Points.AddXY(dash.dashChartWeightDate, dash.dashChartWeightAvg);
+                chartDashAct.Series["Activity"].Points.AddXY(dash.dashChartActivityDate, dash.dashChartActivitySum);
+                //chartFood.Series["Food"].Points.AddXY(dash.dashChartFoodDate, dash.dashChartFoodSum);
 
-            //sets all dashboard overview labels to their correct data points
-            lblNumWeights.Text = dash.allWeights.ToString();
-            lblLowestWeight.Text = dash.LowestWeight.ToString();
-            lblHighest.Text = dash.HighestWeight.ToString();
-            lblChanged.Text = dash.ChangedWeight + "lbs";
-            lblActivitiesNum.Text = dash.allActivities.ToString();
-            lblTotalCalsBurned.Text = dash.allBurnedCalories.ToString();
-            lblHighestCalsBurned.Text = dash.HighestCaloriesBurned.ToString();
-            lblLeastCalsBurned.Text = dash.LowestCaloriesBurned.ToString();
-            lblMealsNum.Text = dash.allFoods.ToString();
-            lblTotalCals.Text = dash.allFoodCalories.ToString();
-            lblHighestMealCals.Text = dash.MostMealCalories.ToString();
-            lblLeastMealCals.Text = dash.LeastMealCalories.ToString();
+                //method to collect all stats needed for dashboard overview labels
+                dash.DashGetAllStats();
+
+                //sets all dashboard overview labels to their correct data points
+                lblNumWeights.Text = dash.allWeights.ToString();
+                lblLowestWeight.Text = dash.LowestWeight.ToString();
+                lblHighest.Text = dash.HighestWeight.ToString();
+                lblChanged.Text = dash.ChangedWeight + "lbs";
+                lblActivitiesNum.Text = dash.allActivities.ToString();
+                lblTotalCalsBurned.Text = dash.allBurnedCalories.ToString();
+                lblHighestCalsBurned.Text = dash.HighestCaloriesBurned.ToString();
+                lblLeastCalsBurned.Text = dash.LowestCaloriesBurned.ToString();
+                lblMealsNum.Text = dash.allFoods.ToString();
+                lblTotalCals.Text = dash.allFoodCalories.ToString();
+                lblHighestMealCals.Text = dash.MostMealCalories.ToString();
+                lblLeastMealCals.Text = dash.LeastMealCalories.ToString();
+            }
         }
 
         //button event to close entire program

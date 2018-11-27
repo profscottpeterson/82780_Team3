@@ -93,10 +93,6 @@
             this.chartDashAct = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartWeight = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWeight = new System.Windows.Forms.TabPage();
-            this.txbWeight = new System.Windows.Forms.TextBox();
-            this.btnSaveWeight = new System.Windows.Forms.Button();
-            this.btnResetWeight = new System.Windows.Forms.Button();
-            this.lbxWeightLog = new System.Windows.Forms.ListBox();
             this.tabFood = new System.Windows.Forms.TabPage();
             this.tabPersonal = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -135,12 +131,96 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
+            this.tabWeight.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartActivity)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblGoalWeight
+            // 
+            this.lblGoalWeight.AutoSize = true;
+            this.lblGoalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoalWeight.Location = new System.Drawing.Point(519, 82);
+            this.lblGoalWeight.Name = "lblGoalWeight";
+            this.lblGoalWeight.Size = new System.Drawing.Size(70, 25);
+            this.lblGoalWeight.TabIndex = 8;
+            this.lblGoalWeight.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(489, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 25);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Goal Weight";
+            // 
+            // lblCurrentWeight
+            // 
+            this.lblCurrentWeight.AutoSize = true;
+            this.lblCurrentWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentWeight.Location = new System.Drawing.Point(167, 82);
+            this.lblCurrentWeight.Name = "lblCurrentWeight";
+            this.lblCurrentWeight.Size = new System.Drawing.Size(70, 25);
+            this.lblCurrentWeight.TabIndex = 6;
+            this.lblCurrentWeight.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(124, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Current Weight";
+            // 
+            // lblWeight
+            // 
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Location = new System.Drawing.Point(127, 274);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(51, 18);
+            this.lblWeight.TabIndex = 4;
+            this.lblWeight.Text = "Weight";
+            // 
+            // txbWeight
+            // 
+            this.txbWeight.Location = new System.Drawing.Point(103, 295);
+            this.txbWeight.Name = "txbWeight";
+            this.txbWeight.Size = new System.Drawing.Size(100, 23);
+            this.txbWeight.TabIndex = 3;
+            // 
+            // btnSaveWeight
+            // 
+            this.btnSaveWeight.Location = new System.Drawing.Point(52, 348);
+            this.btnSaveWeight.Name = "btnSaveWeight";
+            this.btnSaveWeight.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveWeight.TabIndex = 2;
+            this.btnSaveWeight.Text = "Save";
+            this.btnSaveWeight.UseVisualStyleBackColor = true;
+            // 
+            // btnResetWeight
+            // 
+            this.btnResetWeight.Location = new System.Drawing.Point(153, 348);
+            this.btnResetWeight.Name = "btnResetWeight";
+            this.btnResetWeight.Size = new System.Drawing.Size(75, 23);
+            this.btnResetWeight.TabIndex = 1;
+            this.btnResetWeight.Text = "Reset";
+            this.btnResetWeight.UseVisualStyleBackColor = true;
+            // 
+            // lbxWeightLog
+            // 
+            this.lbxWeightLog.FormattingEnabled = true;
+            this.lbxWeightLog.ItemHeight = 18;
+            this.lbxWeightLog.Location = new System.Drawing.Point(310, 206);
+            this.lbxWeightLog.Name = "lbxWeightLog";
+            this.lbxWeightLog.Size = new System.Drawing.Size(450, 310);
+            this.lbxWeightLog.TabIndex = 0;
             // 
             // tabConsole1
             // 
@@ -195,7 +275,7 @@
             // lblLeastMealCals
             // 
             this.lblLeastMealCals.AutoSize = true;
-            this.lblLeastMealCals.Location = new System.Drawing.Point(52, 200);
+            this.lblLeastMealCals.Location = new System.Drawing.Point(77, 200);
             this.lblLeastMealCals.Name = "lblLeastMealCals";
             this.lblLeastMealCals.Size = new System.Drawing.Size(40, 18);
             this.lblLeastMealCals.TabIndex = 16;
@@ -208,7 +288,7 @@
             this.lblgpbxDashMealLeastCals.Name = "lblgpbxDashMealLeastCals";
             this.lblgpbxDashMealLeastCals.Size = new System.Drawing.Size(133, 59);
             this.lblgpbxDashMealLeastCals.TabIndex = 15;
-            this.lblgpbxDashMealLeastCals.Text = "Least caloriesin one meal:";
+            this.lblgpbxDashMealLeastCals.Text = "Least calories in one meal:";
             // 
             // lblHighestMealCals
             // 
@@ -386,7 +466,7 @@
             this.gpbxDashChangedLabel.Name = "gpbxDashChangedLabel";
             this.gpbxDashChangedLabel.Size = new System.Drawing.Size(133, 59);
             this.gpbxDashChangedLabel.TabIndex = 6;
-            this.gpbxDashChangedLabel.Text = "Amount of wieght changed:";
+            this.gpbxDashChangedLabel.Text = "Amount of weight changed:";
             // 
             // lblHighest
             // 
@@ -594,95 +674,12 @@
             this.tabWeight.Controls.Add(this.btnSaveWeight);
             this.tabWeight.Controls.Add(this.btnResetWeight);
             this.tabWeight.Controls.Add(this.lbxWeightLog);
-            this.tabWeight.Location = new System.Drawing.Point(4, 27);
+            this.tabWeight.Location = new System.Drawing.Point(4, 30);
             this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(792, 580);
+            this.tabWeight.Size = new System.Drawing.Size(792, 577);
             this.tabWeight.TabIndex = 2;
             this.tabWeight.Text = "Weight Log";
             this.tabWeight.Enter += new System.EventHandler(this.tabWeight_Enter);
-            // 
-            // lblGoalWeight
-            // 
-            this.lblGoalWeight.AutoSize = true;
-            this.lblGoalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoalWeight.Location = new System.Drawing.Point(519, 82);
-            this.lblGoalWeight.Name = "lblGoalWeight";
-            this.lblGoalWeight.Size = new System.Drawing.Size(70, 25);
-            this.lblGoalWeight.TabIndex = 8;
-            this.lblGoalWeight.Text = "label4";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(489, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Goal Weight";
-            // 
-            // lblCurrentWeight
-            // 
-            this.lblCurrentWeight.AutoSize = true;
-            this.lblCurrentWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentWeight.Location = new System.Drawing.Point(167, 82);
-            this.lblCurrentWeight.Name = "lblCurrentWeight";
-            this.lblCurrentWeight.Size = new System.Drawing.Size(70, 25);
-            this.lblCurrentWeight.TabIndex = 6;
-            this.lblCurrentWeight.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(124, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Current Weight";
-            // 
-            // lblWeight
-            // 
-            this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(127, 274);
-            this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(51, 18);
-            this.lblWeight.TabIndex = 4;
-            this.lblWeight.Text = "Weight";
-            // 
-            // txbWeight
-            // 
-            this.txbWeight.Location = new System.Drawing.Point(103, 295);
-            this.txbWeight.Name = "txbWeight";
-            this.txbWeight.Size = new System.Drawing.Size(100, 23);
-            this.txbWeight.TabIndex = 3;
-            // 
-            // btnSaveWeight
-            // 
-            this.btnSaveWeight.Location = new System.Drawing.Point(52, 348);
-            this.btnSaveWeight.Name = "btnSaveWeight";
-            this.btnSaveWeight.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveWeight.TabIndex = 2;
-            this.btnSaveWeight.Text = "Save";
-            this.btnSaveWeight.UseVisualStyleBackColor = true;
-            // 
-            // btnResetWeight
-            // 
-            this.btnResetWeight.Location = new System.Drawing.Point(153, 348);
-            this.btnResetWeight.Name = "btnResetWeight";
-            this.btnResetWeight.Size = new System.Drawing.Size(75, 23);
-            this.btnResetWeight.TabIndex = 1;
-            this.btnResetWeight.Text = "Reset";
-            this.btnResetWeight.UseVisualStyleBackColor = true;
-            // 
-            // lbxWeightLog
-            // 
-            this.lbxWeightLog.FormattingEnabled = true;
-            this.lbxWeightLog.ItemHeight = 18;
-            this.lbxWeightLog.Location = new System.Drawing.Point(310, 206);
-            this.lbxWeightLog.Name = "lbxWeightLog";
-            this.lbxWeightLog.Size = new System.Drawing.Size(450, 310);
-            this.lbxWeightLog.TabIndex = 0;
             // 
             // tabFood
             // 
@@ -1002,6 +999,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
+            this.tabWeight.ResumeLayout(false);
+            this.tabWeight.PerformLayout();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
