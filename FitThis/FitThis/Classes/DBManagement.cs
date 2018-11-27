@@ -70,5 +70,23 @@ namespace FitThis
 
 
         }
+
+        public SQLiteDataReader ExecuteReader(string queryString, SQLiteConnection db)
+        {
+            using (db)
+            {
+                using (SQLiteCommand command = new SQLiteCommand(queryString, db))
+                {
+                    if (db.State == System.Data.ConnectionState.Closed)
+                    {
+                        db.Open();
+                    }
+
+                    return command.ExecuteReader();
+                }
+            }
+
+
+        }
     }
 }

@@ -369,23 +369,34 @@ namespace FitThis
         {
             // load list box
             string lbxsql = "Select * From Weight WHERE FK_UserID = " + currentUser.UserID;
-            SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
-            while (lbxdata.Read())
+            //SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
+            using (database)
             {
-                //TODO Remove Time From Date Stamp
-                string date = lbxdata.GetDateTime(1).ToString();
-                lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["Weight"]);
+                database.Open();
+                using (SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader())
+                {
+                    while (lbxdata.Read())
+                    {
+                        //TODO Remove Time From Date Stamp
+                        //string date = lbxdata.GetDateTime(1).ToString();
+                        lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["WeightRecorded"]);
+                    }
+                    lbxdata.Close();
+                }
             }
+            
 
             // load labels (current and goal)
             string currentweightsql = "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
                                       "WHERE UserID = " + currentUser.UserID +
                                       " ORDER BY Date";
             SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
+
             if (curwght.Read())
             {
                 this.lblCurrentWeight.Text = curwght[0].ToString();
             }
+            curwght.Close();
 
             lblGoalWeight.Text = currentUser.GoalWeight.ToString();
 

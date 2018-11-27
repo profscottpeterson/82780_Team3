@@ -44,6 +44,15 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
+            this.lblGoalWeight = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblCurrentWeight = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblWeight = new System.Windows.Forms.Label();
+            this.txbWeight = new System.Windows.Forms.TextBox();
+            this.btnSaveWeight = new System.Windows.Forms.Button();
+            this.btnResetWeight = new System.Windows.Forms.Button();
+            this.lbxWeightLog = new System.Windows.Forms.ListBox();
             this.tabConsole1 = new System.Windows.Forms.TabControl();
             this.tabDash = new System.Windows.Forms.TabPage();
             this.gpboxDashFood = new System.Windows.Forms.GroupBox();
