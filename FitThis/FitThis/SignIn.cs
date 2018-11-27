@@ -49,6 +49,7 @@ namespace FitThis
             if (currentUserS != null)
             {
                 UserMgmt.AddUserToDB(currentUserS);
+                UserMgmt.LoadUser(currentUserS);
                 this.CloseSignIn();
             }
             // So program doesn't break if UC form closed

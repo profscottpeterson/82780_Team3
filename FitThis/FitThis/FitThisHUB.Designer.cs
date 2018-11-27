@@ -110,6 +110,8 @@
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabDash.SuspendLayout();
             this.gpboxDashFood.SuspendLayout();
@@ -152,11 +154,11 @@
             this.tabDash.Controls.Add(this.gpbxDashWeight);
             this.tabDash.Controls.Add(this.grpbxDashBtns);
             this.tabDash.Controls.Add(this.grpbxDashCharts);
-            this.tabDash.Location = new System.Drawing.Point(4, 30);
+            this.tabDash.Location = new System.Drawing.Point(4, 34);
             this.tabDash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabDash.Name = "tabDash";
             this.tabDash.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabDash.Size = new System.Drawing.Size(792, 577);
+            this.tabDash.Size = new System.Drawing.Size(792, 573);
             this.tabDash.TabIndex = 4;
             this.tabDash.Text = "Dashboard";
             // 
@@ -182,7 +184,7 @@
             this.lblLeastMealCals.AutoSize = true;
             this.lblLeastMealCals.Location = new System.Drawing.Point(52, 200);
             this.lblLeastMealCals.Name = "lblLeastMealCals";
-            this.lblLeastMealCals.Size = new System.Drawing.Size(40, 18);
+            this.lblLeastMealCals.Size = new System.Drawing.Size(52, 23);
             this.lblLeastMealCals.TabIndex = 16;
             this.lblLeastMealCals.Text = "Least";
             // 
@@ -200,7 +202,7 @@
             this.lblHighestMealCals.AutoSize = true;
             this.lblHighestMealCals.Location = new System.Drawing.Point(52, 150);
             this.lblHighestMealCals.Name = "lblHighestMealCals";
-            this.lblHighestMealCals.Size = new System.Drawing.Size(54, 18);
+            this.lblHighestMealCals.Size = new System.Drawing.Size(70, 23);
             this.lblHighestMealCals.TabIndex = 14;
             this.lblHighestMealCals.Text = "Highest";
             // 
@@ -218,7 +220,7 @@
             this.lblTotalCals.AutoSize = true;
             this.lblTotalCals.Location = new System.Drawing.Point(59, 100);
             this.lblTotalCals.Name = "lblTotalCals";
-            this.lblTotalCals.Size = new System.Drawing.Size(36, 18);
+            this.lblTotalCals.Size = new System.Drawing.Size(46, 23);
             this.lblTotalCals.TabIndex = 12;
             this.lblTotalCals.Text = "Num";
             // 
@@ -236,7 +238,7 @@
             this.lblMealsNum.AutoSize = true;
             this.lblMealsNum.Location = new System.Drawing.Point(59, 54);
             this.lblMealsNum.Name = "lblMealsNum";
-            this.lblMealsNum.Size = new System.Drawing.Size(36, 18);
+            this.lblMealsNum.Size = new System.Drawing.Size(46, 23);
             this.lblMealsNum.TabIndex = 10;
             this.lblMealsNum.Text = "Num";
             // 
@@ -271,7 +273,7 @@
             this.lblLeastCalsBurned.AutoSize = true;
             this.lblLeastCalsBurned.Location = new System.Drawing.Point(62, 200);
             this.lblLeastCalsBurned.Name = "lblLeastCalsBurned";
-            this.lblLeastCalsBurned.Size = new System.Drawing.Size(50, 18);
+            this.lblLeastCalsBurned.Size = new System.Drawing.Size(67, 23);
             this.lblLeastCalsBurned.TabIndex = 13;
             this.lblLeastCalsBurned.Text = "Lowest";
             // 
@@ -289,7 +291,7 @@
             this.lblHighestCalsBurned.AutoSize = true;
             this.lblHighestCalsBurned.Location = new System.Drawing.Point(62, 150);
             this.lblHighestCalsBurned.Name = "lblHighestCalsBurned";
-            this.lblHighestCalsBurned.Size = new System.Drawing.Size(54, 18);
+            this.lblHighestCalsBurned.Size = new System.Drawing.Size(70, 23);
             this.lblHighestCalsBurned.TabIndex = 11;
             this.lblHighestCalsBurned.Text = "Highest";
             // 
@@ -307,7 +309,7 @@
             this.lblTotalCalsBurned.AutoSize = true;
             this.lblTotalCalsBurned.Location = new System.Drawing.Point(64, 100);
             this.lblTotalCalsBurned.Name = "lblTotalCalsBurned";
-            this.lblTotalCalsBurned.Size = new System.Drawing.Size(36, 18);
+            this.lblTotalCalsBurned.Size = new System.Drawing.Size(46, 23);
             this.lblTotalCalsBurned.TabIndex = 9;
             this.lblTotalCalsBurned.Text = "Num";
             // 
@@ -316,7 +318,7 @@
             this.lblActivitiesNum.AutoSize = true;
             this.lblActivitiesNum.Location = new System.Drawing.Point(59, 55);
             this.lblActivitiesNum.Name = "lblActivitiesNum";
-            this.lblActivitiesNum.Size = new System.Drawing.Size(36, 18);
+            this.lblActivitiesNum.Size = new System.Drawing.Size(46, 23);
             this.lblActivitiesNum.TabIndex = 8;
             this.lblActivitiesNum.Text = "Num";
             // 
@@ -360,7 +362,7 @@
             this.lblChanged.AutoSize = true;
             this.lblChanged.Location = new System.Drawing.Point(69, 200);
             this.lblChanged.Name = "lblChanged";
-            this.lblChanged.Size = new System.Drawing.Size(61, 18);
+            this.lblChanged.Size = new System.Drawing.Size(78, 23);
             this.lblChanged.TabIndex = 7;
             this.lblChanged.Text = "Changed";
             // 
@@ -378,7 +380,7 @@
             this.lblHighest.AutoSize = true;
             this.lblHighest.Location = new System.Drawing.Point(61, 150);
             this.lblHighest.Name = "lblHighest";
-            this.lblHighest.Size = new System.Drawing.Size(54, 18);
+            this.lblHighest.Size = new System.Drawing.Size(70, 23);
             this.lblHighest.TabIndex = 5;
             this.lblHighest.Text = "Highest";
             // 
@@ -396,7 +398,7 @@
             this.lblLowestWeight.AutoSize = true;
             this.lblLowestWeight.Location = new System.Drawing.Point(60, 100);
             this.lblLowestWeight.Name = "lblLowestWeight";
-            this.lblLowestWeight.Size = new System.Drawing.Size(50, 18);
+            this.lblLowestWeight.Size = new System.Drawing.Size(67, 23);
             this.lblLowestWeight.TabIndex = 3;
             this.lblLowestWeight.Text = "Lowest";
             // 
@@ -414,7 +416,7 @@
             this.lblNumWeights.AutoSize = true;
             this.lblNumWeights.Location = new System.Drawing.Point(60, 55);
             this.lblNumWeights.Name = "lblNumWeights";
-            this.lblNumWeights.Size = new System.Drawing.Size(36, 18);
+            this.lblNumWeights.Size = new System.Drawing.Size(46, 23);
             this.lblNumWeights.TabIndex = 1;
             this.lblNumWeights.Text = "Num";
             // 
@@ -571,10 +573,10 @@
             // 
             this.tabWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabWeight.Location = new System.Drawing.Point(4, 30);
+            this.tabWeight.Location = new System.Drawing.Point(4, 34);
             this.tabWeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabWeight.Name = "tabWeight";
-            this.tabWeight.Size = new System.Drawing.Size(792, 577);
+            this.tabWeight.Size = new System.Drawing.Size(792, 573);
             this.tabWeight.TabIndex = 2;
             this.tabWeight.Text = "Weight";
             // 
@@ -582,10 +584,10 @@
             // 
             this.tabFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabFood.Location = new System.Drawing.Point(4, 30);
+            this.tabFood.Location = new System.Drawing.Point(4, 34);
             this.tabFood.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabFood.Name = "tabFood";
-            this.tabFood.Size = new System.Drawing.Size(792, 577);
+            this.tabFood.Size = new System.Drawing.Size(792, 573);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food";
             // 
@@ -601,11 +603,11 @@
             this.tabPersonal.Controls.Add(this.txtActLvl);
             this.tabPersonal.Controls.Add(this.lblName);
             this.tabPersonal.Controls.Add(this.txtName);
-            this.tabPersonal.Location = new System.Drawing.Point(4, 30);
+            this.tabPersonal.Location = new System.Drawing.Point(4, 34);
             this.tabPersonal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPersonal.Name = "tabPersonal";
             this.tabPersonal.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPersonal.Size = new System.Drawing.Size(792, 577);
+            this.tabPersonal.Size = new System.Drawing.Size(792, 573);
             this.tabPersonal.TabIndex = 0;
             this.tabPersonal.Text = "Personal Information";
             // 
@@ -615,7 +617,7 @@
             this.txtStrtWght.Location = new System.Drawing.Point(224, 129);
             this.txtStrtWght.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStrtWght.Name = "txtStrtWght";
-            this.txtStrtWght.Size = new System.Drawing.Size(86, 23);
+            this.txtStrtWght.Size = new System.Drawing.Size(86, 26);
             this.txtStrtWght.TabIndex = 7;
             // 
             // lblStrtWght
@@ -624,7 +626,7 @@
             this.lblStrtWght.BackColor = System.Drawing.Color.Orange;
             this.lblStrtWght.Location = new System.Drawing.Point(104, 133);
             this.lblStrtWght.Name = "lblStrtWght";
-            this.lblStrtWght.Size = new System.Drawing.Size(109, 18);
+            this.lblStrtWght.Size = new System.Drawing.Size(141, 23);
             this.lblStrtWght.TabIndex = 6;
             this.lblStrtWght.Text = "Starting Weight:";
             // 
@@ -634,7 +636,7 @@
             this.lblHeight.BackColor = System.Drawing.Color.Orange;
             this.lblHeight.Location = new System.Drawing.Point(160, 66);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(53, 18);
+            this.lblHeight.Size = new System.Drawing.Size(69, 23);
             this.lblHeight.TabIndex = 5;
             this.lblHeight.Text = "Height:";
             // 
@@ -644,7 +646,7 @@
             this.txtHeight.Location = new System.Drawing.Point(224, 60);
             this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(86, 23);
+            this.txtHeight.Size = new System.Drawing.Size(86, 26);
             this.txtHeight.TabIndex = 4;
             // 
             // lblActivity
@@ -653,7 +655,7 @@
             this.lblActivity.BackColor = System.Drawing.Color.Orange;
             this.lblActivity.Location = new System.Drawing.Point(15, 98);
             this.lblActivity.Name = "lblActivity";
-            this.lblActivity.Size = new System.Drawing.Size(198, 18);
+            this.lblActivity.Size = new System.Drawing.Size(255, 23);
             this.lblActivity.TabIndex = 3;
             this.lblActivity.Text = "Usual Activity Level (in hours):";
             // 
@@ -663,7 +665,7 @@
             this.txtActLvl.Location = new System.Drawing.Point(224, 96);
             this.txtActLvl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActLvl.Name = "txtActLvl";
-            this.txtActLvl.Size = new System.Drawing.Size(86, 23);
+            this.txtActLvl.Size = new System.Drawing.Size(86, 26);
             this.txtActLvl.TabIndex = 2;
             // 
             // lblName
@@ -672,7 +674,7 @@
             this.lblName.BackColor = System.Drawing.Color.Orange;
             this.lblName.Location = new System.Drawing.Point(166, 31);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 18);
+            this.lblName.Size = new System.Drawing.Size(61, 23);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name:";
             // 
@@ -682,7 +684,7 @@
             this.txtName.Location = new System.Drawing.Point(224, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(86, 23);
+            this.txtName.Size = new System.Drawing.Size(86, 26);
             this.txtName.TabIndex = 0;
             // 
             // tabActivity
@@ -699,11 +701,11 @@
             this.tabActivity.Controls.Add(this.combActivities);
             this.tabActivity.Controls.Add(this.btnClearActivity);
             this.tabActivity.Controls.Add(this.btnAddActivity);
-            this.tabActivity.Location = new System.Drawing.Point(4, 30);
+            this.tabActivity.Location = new System.Drawing.Point(4, 34);
             this.tabActivity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabActivity.Name = "tabActivity";
             this.tabActivity.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabActivity.Size = new System.Drawing.Size(792, 577);
+            this.tabActivity.Size = new System.Drawing.Size(792, 573);
             this.tabActivity.TabIndex = 5;
             this.tabActivity.Text = "Activity";
             // 
@@ -766,7 +768,7 @@
             this.lblCaloriesBurnedDisplay.AutoSize = true;
             this.lblCaloriesBurnedDisplay.Location = new System.Drawing.Point(195, 321);
             this.lblCaloriesBurnedDisplay.Name = "lblCaloriesBurnedDisplay";
-            this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 18);
+            this.lblCaloriesBurnedDisplay.Size = new System.Drawing.Size(0, 23);
             this.lblCaloriesBurnedDisplay.TabIndex = 7;
             // 
             // lblCaloriesBurned
@@ -774,7 +776,7 @@
             this.lblCaloriesBurned.AutoSize = true;
             this.lblCaloriesBurned.Location = new System.Drawing.Point(27, 316);
             this.lblCaloriesBurned.Name = "lblCaloriesBurned";
-            this.lblCaloriesBurned.Size = new System.Drawing.Size(148, 18);
+            this.lblCaloriesBurned.Size = new System.Drawing.Size(190, 23);
             this.lblCaloriesBurned.TabIndex = 6;
             this.lblCaloriesBurned.Text = "Total Calories Burned: ";
             // 
@@ -783,7 +785,7 @@
             this.tbxDuration.Location = new System.Drawing.Point(157, 204);
             this.tbxDuration.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDuration.Name = "tbxDuration";
-            this.tbxDuration.Size = new System.Drawing.Size(86, 23);
+            this.tbxDuration.Size = new System.Drawing.Size(86, 26);
             this.tbxDuration.TabIndex = 5;
             // 
             // lblSelectDuration
@@ -791,7 +793,7 @@
             this.lblSelectDuration.AutoSize = true;
             this.lblSelectDuration.Location = new System.Drawing.Point(27, 204);
             this.lblSelectDuration.Name = "lblSelectDuration";
-            this.lblSelectDuration.Size = new System.Drawing.Size(124, 18);
+            this.lblSelectDuration.Size = new System.Drawing.Size(159, 23);
             this.lblSelectDuration.TabIndex = 4;
             this.lblSelectDuration.Text = "Duration (minutes)";
             // 
@@ -800,7 +802,7 @@
             this.lblSelectActivity.AutoSize = true;
             this.lblSelectActivity.Location = new System.Drawing.Point(27, 148);
             this.lblSelectActivity.Name = "lblSelectActivity";
-            this.lblSelectActivity.Size = new System.Drawing.Size(95, 18);
+            this.lblSelectActivity.Size = new System.Drawing.Size(127, 23);
             this.lblSelectActivity.TabIndex = 3;
             this.lblSelectActivity.Text = "Select Activity";
             // 
@@ -817,7 +819,7 @@
             this.combActivities.Location = new System.Drawing.Point(157, 148);
             this.combActivities.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.combActivities.Name = "combActivities";
-            this.combActivities.Size = new System.Drawing.Size(104, 26);
+            this.combActivities.Size = new System.Drawing.Size(104, 30);
             this.combActivities.TabIndex = 2;
             // 
             // btnClearActivity
@@ -854,21 +856,49 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // HelpButton
+            // 
+            this.HelpButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.HelpButton.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpButton.Location = new System.Drawing.Point(31, 310);
+            this.HelpButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(89, 33);
+            this.HelpButton.TabIndex = 2;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = false;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // buttonLogout
+            // 
+            this.buttonLogout.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonLogout.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogout.Location = new System.Drawing.Point(31, 369);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(89, 33);
+            this.buttonLogout.TabIndex = 3;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // FitThisHUB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(138)))), ((int)(((byte)(46)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(977, 636);
+            this.Controls.Add(this.buttonLogout);
+            this.Controls.Add(this.HelpButton);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabConsole1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FitThisHUB";
-            this.Text = "FitThis - Hub";
+            this.Text = "f";
             this.Load += new System.EventHandler(this.FitThisHUB_Load);
             this.Click += new System.EventHandler(this.btnClose_Click);
             this.tabConsole1.ResumeLayout(false);
@@ -964,5 +994,7 @@
         private System.Windows.Forms.Label lblgpbxDashMealLeastCals;
         private System.Windows.Forms.Label lblHighestMealCals;
         private System.Windows.Forms.Label lblgpbxDashHighMealCals;
+        private System.Windows.Forms.Button HelpButton;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }
