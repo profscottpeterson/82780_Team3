@@ -259,6 +259,16 @@ namespace FitThis
                 }
             }
 
+            ///
+            /// Load Personal Information
+            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
+            ///
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.StartingWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
 
             string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID +
                                           " order by Caloriesburned asc limit 1";
