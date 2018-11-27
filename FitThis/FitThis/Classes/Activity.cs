@@ -153,7 +153,7 @@ namespace FitThis
             }
 
             //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 2");
+            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 10");
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 data.Open();
