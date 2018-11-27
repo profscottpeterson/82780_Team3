@@ -33,12 +33,12 @@ namespace FitThis
 
             InitializeComponent();
 
-            if (userReader.Read())
-            {
-                CurrentUser = new User();
-                CurrentUser.UserID = int.Parse(userReader["UserID"].ToString());
-                CurrentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
-            }
+            //if (userReader.Read())
+            //{
+            //    currentUser = new User();
+            //    currentUser.UserID = int.Parse(userReader["UserID"].ToString());
+            //    currentUser.GoalWeight = int.Parse(userReader["GoalWeight"].ToString());
+            //}
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -294,8 +294,8 @@ namespace FitThis
                     }
                 }
             }
+            
 
-            //TODO made a change so i can revert
             string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" +
                                       currentUser.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
@@ -368,7 +368,7 @@ namespace FitThis
         private void tabWeight_Enter(object sender, EventArgs e)
         {
             // load list box
-            string lbxsql = "Select * From Weight WHERE FK_UserID = " + CurrentUser.UserID;
+            string lbxsql = "Select * From Weight WHERE FK_UserID = " + currentUser.UserID;
             SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
             while (lbxdata.Read())
             {
@@ -379,7 +379,7 @@ namespace FitThis
 
             // load labels (current and goal)
             string currentweightsql = "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
-                                      "WHERE UserID = " + CurrentUser.UserID +
+                                      "WHERE UserID = " + currentUser.UserID +
                                       " ORDER BY Date";
             SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
             if (curwght.Read())
@@ -387,7 +387,7 @@ namespace FitThis
                 this.lblCurrentWeight.Text = curwght[0].ToString();
             }
 
-            lblGoalWeight.Text = CurrentUser.GoalWeight.ToString();
+            lblGoalWeight.Text = currentUser.GoalWeight.ToString();
 
         }
 
