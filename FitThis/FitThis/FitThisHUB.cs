@@ -259,17 +259,6 @@ namespace FitThis
                 }
             }
 
-            ///
-            /// Load Personal Information
-            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
-            ///
-            txtName.Text = currentUser.FName + " " + currentUser.LName;
-            txtHeight.Text = currentUser.Height.ToString();
-            txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
-            txtBMI.Text = currentUser.CalculateBMI().ToString();
-            txtBMR.Text = currentUser.CalculateBMR().ToString();
-
             string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + currentUser.UserID +
                                           " order by Caloriesburned asc limit 1";
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
@@ -345,6 +334,18 @@ namespace FitThis
             lblTotalCals.Text = allFoodCalories.ToString();
             lblHighestMealCals.Text = MostMealCalories.ToString();
             lblLeastMealCals.Text = LeastMealCalories.ToString();
+
+            
+            ///
+            /// Load Personal Information
+            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
+            ///
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
         }
 
 
@@ -383,4 +384,5 @@ namespace FitThis
         }
 
     }
+
 }
