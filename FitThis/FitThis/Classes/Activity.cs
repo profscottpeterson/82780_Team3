@@ -124,7 +124,6 @@ namespace FitThis
                     "values ('" + activityName + "', "
                     + duration + ", " + totalCalories + ", date('now')" + ", " + userNum.ToString() + ")");
             dbm.ExecuteNonQuery(sqlInsert, db);
-            
         }
 
         public void ImportData(DataGridView dataGridActivity, System.Windows.Forms.DataVisualization.Charting.Chart chartActivity)
@@ -163,7 +162,7 @@ namespace FitThis
                     {
                         while (reader.Read())
                         {
-                            // Converts database date to c# date?
+                            // Converts database date to c# date? 
                             DateTime date = reader.GetDateTime(0).Date;
 
                             //Adds the date to the chart
