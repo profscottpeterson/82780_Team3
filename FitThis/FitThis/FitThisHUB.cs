@@ -69,6 +69,17 @@ namespace FitThis
             this.currentUser = Si.currentUserS;
             currentUserID = currentUser.UserID;
 
+            ///
+            /// Load Personal Information
+            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
+            ///
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
+
 
 
             // Load and connect to the DB when the form loads.
@@ -130,22 +141,7 @@ namespace FitThis
             tabConsole1.SelectedTab = tabFood;
         }
 
-        //TODO RYAN IS THIS RIGHT? button event to navigate to the activity tab
-        private void btnDashActive_Click(object sender, EventArgs e)
-        {
-            tabConsole1.SelectedTab = tabActivity;
-        }
-
-            ///
-            /// Load Personal Information
-            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
-            ///
-            txtName.Text = currentUser.FName + " " + currentUser.LName;
-            txtHeight.Text = currentUser.Height.ToString();
-            txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
-            txtBMI.Text = currentUser.CalculateBMI().ToString();
-            txtBMR.Text = currentUser.CalculateBMR().ToString();
+            
         
         //button event to navigate to the personal tab
         private void btnDashPersonal_Click(object sender, EventArgs e)
