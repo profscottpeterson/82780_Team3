@@ -130,12 +130,23 @@ namespace FitThis
             tabConsole1.SelectedTab = tabFood;
         }
 
-        //button event to navigate to the activity tab
+        //TODO RYAN IS THIS RIGHT? button event to navigate to the activity tab
         private void btnDashActive_Click(object sender, EventArgs e)
         {
             tabConsole1.SelectedTab = tabActivity;
         }
 
+            ///
+            /// Load Personal Information
+            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
+            ///
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
+        
         //button event to navigate to the personal tab
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
@@ -186,10 +197,10 @@ namespace FitThis
 
         }
 
-        //private void btnClose_Click(object sender, EventArgs e)
-        //{
-        //    Application.Exit();
-        //}
+        private void btnDashActive_Click(object sender, EventArgs e)
+        {
+            tabConsole1.SelectedTab = tabActivity;
+        }
 
         private void tabFood_Click(object sender, EventArgs e)
         {
