@@ -42,6 +42,37 @@ namespace FitThis
 
         }
 
+        public User LoadUser(User user1)
+        {
+            // Find the user ID, given a user name.
+            int userID = 0;
+
+            // Need command and reader to find object
+            string sqlFindUser = "SELECT * FROM USER WHERE USER.FName = '" + user1.FName +
+            "' AND USER.LName = '" + user1.LName + "'";
+
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFindUser, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        reader.Read();
+                        user1.UserID = reader.GetInt32(0);
+                        user1.FName = reader.GetString(1);
+                        user1.LName = reader.GetString(2);
+                        user1.StartingWeight = reader.GetInt32(3);
+                        user1.GoalWeight = reader.GetInt32(4);
+                        user1.Age = reader.GetInt32(5);
+                        user1.RecommendIntake = reader.GetInt32(6);
+
+                    }
+                }
+            }
+            active.setUserId(user1.UserID);
+            return user1;
+        }
         public User LoadUser(User user1, string userName)
         {
             // Find the user ID, given a user name.
@@ -77,7 +108,6 @@ namespace FitThis
                     }
                 }
             }
-            this.UpdateLastLogin(user1);
             active.setUserId(user1.UserID);
             return user1;
         }
@@ -85,8 +115,14 @@ namespace FitThis
         public void UpdateLastLogin(User user1)
         {
             string updateLastLogin = "Update User Set LastLogin = date('now') Where UserID = " + user1.UserID;
-            SQLiteConnection db = new SQLiteConnection("Data Source=FitThis.sqlite");
-            dbm.ExecuteNonQuery(updateLastLogin, db);
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(updateLastLogin, c))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
         }
 

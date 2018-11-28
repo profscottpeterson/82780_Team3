@@ -36,37 +36,34 @@ namespace FitThis
             InitializeComponent();
             //currentUserID = currentUser.UserID;
         }
-
-        private void btnAddActivity_Click(object sender, EventArgs e)
-        {
-            dataGridActivity.Rows.Clear();
-            dataGridActivity.Refresh();
-            chartActivity.Series[0].Points.Clear();
-            //Initialize activity class
-            Activity active = new Activity();
-            // Validate the data entered
-            if (active.ValidateActivtyInput(combActivities, tbxDuration))
-            {
-                database = new SQLiteConnection("Data Source=FitThis.sqlite");
-                active.sqlDataInsert(combActivities, database);
-                lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
-            }
-
-            active.ImportData(dataGridActivity, chartActivity);
-        }
-
-
-
         /// <summary>
-        /// On fit this hub load, establish database connection.
+        /// Loads user information upon new user login.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FitThisHUB_Load(object sender, EventArgs e)
+        private void LoadUser()
         {
             SignIn Si = new SignIn();
             Si.ShowDialog();
             this.currentUser = Si.currentUserS;
+            // If last login = null, show the about form.
+            string checkLastLogin = "SELECT USER.LastLogin FROM USER WHERE USER.LastLogin ISNULL AND USER.UserID = " + currentUser.UserID.ToString();
+
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(checkLastLogin, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            AboutForm AF = new AboutForm();
+                            AF.ShowDialog();
+                        }
+                    }
+                }
+            }
+            UserManagement UM = new UserManagement();
+            UM.UpdateLastLogin(currentUser);
             currentUserID = currentUser.UserID;
 
             ///
@@ -173,22 +170,48 @@ namespace FitThis
                         //string date = lbxdata.GetDateTime(1).ToString();
                         lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["WeightRecorded"]);
                     }
+
                     lbxdata.Close();
                 }
-            }
-            
 
-            // load labels (current and goal)
-            string currentweightsql = "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
-                                      "WHERE UserID = " + currentUser.UserID +
-                                      " ORDER BY Date";
-            SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
 
-            if (curwght.Read())
-            {
-                this.lblCurrentWeight.Text = curwght[0].ToString();
+
+
+
+                // load labels (current and goal)
+                string currentweightsql =
+                    "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
+                    "WHERE UserID = " + currentUser.UserID +
+                    " ORDER BY Date";
+                SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
+
+                if (curwght.Read())
+                {
+                    this.lblCurrentWeight.Text = curwght[0].ToString();
+                }
+
+                curwght.Close();
             }
-            curwght.Close();
+        }
+
+        /// <summary>
+        /// On fit this hub load, establish database connection.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FitThisHUB_Load(object sender, EventArgs e)
+        {
+            // Call the load user event to load current user's infomration
+            this.LoadUser();
+        }
+
+
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
 
             lblGoalWeight.Text = currentUser.GoalWeight.ToString();
 
@@ -202,6 +225,22 @@ namespace FitThis
         private void tabFood_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the about form and open it.
+            AboutForm AF = new AboutForm();
+            AF.Show();
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            // Remove reference to current user
+            currentUser = null;
+
+            // Show the sign in form & load a differnet user.
+            this.LoadUser();
         }
     }
 }
