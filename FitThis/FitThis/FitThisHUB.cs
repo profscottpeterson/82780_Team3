@@ -36,6 +36,25 @@ namespace FitThis
             InitializeComponent();
             //currentUserID = currentUser.UserID;
         }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            dataGridActivity.Rows.Clear();
+            dataGridActivity.Refresh();
+            chartActivity.Series[0].Points.Clear();
+            //Initialize activity class
+            Activity active = new Activity();
+            // Validate the data entered
+            if (active.ValidateActivtyInput(combActivities, tbxDuration))
+            {
+                database = new SQLiteConnection("Data Source=FitThis.sqlite");
+                active.sqlDataInsert(combActivities, database);
+                lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
+            }
+
+            active.ImportData(dataGridActivity, chartActivity);
+        }
+
         /// <summary>
         /// Loads user information upon new user login.
         /// </summary>
@@ -119,12 +138,6 @@ namespace FitThis
             }
         }
 
-        //button event to close entire program
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
 
         //button event to navigate to the weight tab
         private void btnDashWeight_Click(object sender, EventArgs e)
@@ -179,6 +192,7 @@ namespace FitThis
 
 
                 // load labels (current and goal)
+                lblGoalWeight.Text = currentUser.GoalWeight.ToString();
                 string currentweightsql =
                     "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
                     "WHERE UserID = " + currentUser.UserID +
@@ -212,10 +226,7 @@ namespace FitThis
             Application.Exit();
         }
 
-
-            lblGoalWeight.Text = currentUser.GoalWeight.ToString();
-
-        }
+        
 
         private void btnDashActive_Click(object sender, EventArgs e)
         {
