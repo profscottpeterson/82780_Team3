@@ -126,6 +126,7 @@
             this.bmiLabel = new System.Windows.Forms.Label();
             this.txtBMI = new System.Windows.Forms.Label();
             this.txtBMR = new System.Windows.Forms.Label();
+            this.btnRemoveActivity = new System.Windows.Forms.Button();
             this.tabConsole1.SuspendLayout();
             this.tabDash.SuspendLayout();
             this.gpboxDashFood.SuspendLayout();
@@ -830,6 +831,7 @@
             // 
             // tabActivity
             // 
+            this.tabActivity.Controls.Add(this.btnRemoveActivity);
             this.tabActivity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabActivity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabActivity.Controls.Add(this.dataGridActivity);
@@ -1031,6 +1033,16 @@
             this.txtBMR.Size = new System.Drawing.Size(89, 21);
             this.txtBMR.TabIndex = 11;
             // 
+            // btnRemoveActivity
+            // 
+            this.btnRemoveActivity.Location = new System.Drawing.Point(140, 472);
+            this.btnRemoveActivity.Name = "btnRemoveActivity";
+            this.btnRemoveActivity.Size = new System.Drawing.Size(126, 34);
+            this.btnRemoveActivity.TabIndex = 11;
+            this.btnRemoveActivity.Text = "Remove Activity";
+            this.btnRemoveActivity.UseVisualStyleBackColor = true;
+            this.btnRemoveActivity.Click += new System.EventHandler(this.btnRemoveActivity_Click);
+            // 
             // FitThisHUB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -1161,5 +1173,6 @@
         private System.Windows.Forms.Label bmiDescription;
         private System.Windows.Forms.Label txtBMR;
         private System.Windows.Forms.Label txtBMI;
+        private System.Windows.Forms.Button btnRemoveActivity;
     }
 }

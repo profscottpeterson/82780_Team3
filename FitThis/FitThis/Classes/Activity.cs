@@ -124,7 +124,6 @@ namespace FitThis
                     "values ('" + activityName + "', "
                     + duration + ", " + totalCalories + ", date('now')" + ", " + userNum.ToString() + ")");
             dbm.ExecuteNonQuery(sqlInsert, db);
-            
         }
 
         public void ImportData(DataGridView dataGridActivity, System.Windows.Forms.DataVisualization.Charting.Chart chartActivity)
@@ -153,7 +152,7 @@ namespace FitThis
             }
 
             //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 2");
+            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 10");
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 data.Open();
@@ -163,7 +162,7 @@ namespace FitThis
                     {
                         while (reader.Read())
                         {
-                            // Converts database date to c# date?
+                            // Converts database date to c# date? 
                             DateTime date = reader.GetDateTime(0).Date;
 
                             //Adds the date to the chart
@@ -174,6 +173,45 @@ namespace FitThis
                     }
                 }
             }
+        }
+
+        public void RemoveActivity(DataGridView grid, System.Windows.Forms.DataVisualization.Charting.Chart chart)
+        {
+            //Get the row number according to what cell or row is selected
+            int index = grid.CurrentCell.RowIndex;
+
+            //Get the row's cell values
+            string date = grid.Rows[index].Cells[0].Value.ToString();
+            string name = grid.Rows[index].Cells[1].Value.ToString();
+            string duration = grid.Rows[index].Cells[2].Value.ToString();
+            string calories = grid.Rows[index].Cells[3].Value.ToString();
+
+            //Convert Date to correct formating
+            DateTime sqlDate = Convert.ToDateTime(date);
+            string sqlDateString = sqlDate.ToString("yyyy-MM-dd");
+
+
+            //Create sql deletion code and execute
+            string sqlDelete = ("Delete from Activity where FK_UserID = " + userNum + " and date = '" + sqlDateString  + "' and name = '" +
+                name + "' and Duration = " + duration + " and caloriesburned = " + calories + " ");
+
+            using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                data.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlDelete, data))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            //Clear the chart and grid of data
+            grid.Rows.Clear();
+            grid.Refresh();
+            chart.Series[0].Points.Clear();
+
+            //Repopulate chart and data with updated table values
+            ImportData(grid, chart);
+
         }
 
     }

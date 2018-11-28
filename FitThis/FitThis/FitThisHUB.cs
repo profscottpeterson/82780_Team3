@@ -147,13 +147,14 @@ namespace FitThis
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
             tabConsole1.SelectedTab = tabPersonal;
-            // Load and connect to the DB when the form loads.
-            DBManagement DB = new DBManagement();
-            this.database = DB.ConnectDB(database);
-            //this.CreateConnection();
-            Activity active = new Activity();
-            active.ImportData(dataGridActivity, chartActivity);
 
+
+        }
+
+        private void btnRemoveActivity_Click(object sender, EventArgs e)
+        {
+            Activity active = new Activity();
+            active.RemoveActivity(dataGridActivity, chartActivity);        
         }
 
         private void tabWeight_Enter(object sender, EventArgs e)
