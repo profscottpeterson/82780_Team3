@@ -82,21 +82,11 @@ namespace FitThis
                 }
             }
             UserManagement UM = new UserManagement();
+
+            //todo see how this fits in
+
             UM.UpdateLastLogin(currentUser);
             currentUserID = currentUser.UserID;
-
-            ///
-            /// Load Personal Information
-            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
-            ///
-            txtName.Text = currentUser.FName + " " + currentUser.LName;
-            txtHeight.Text = currentUser.Height.ToString();
-            txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
-            txtBMI.Text = currentUser.CalculateBMI().ToString();
-            txtBMR.Text = currentUser.CalculateBMR().ToString();
-
-
 
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
@@ -158,7 +148,10 @@ namespace FitThis
         {
             tabConsole1.SelectedTab = tabPersonal;
 
-
+            //Create PersonalInfo Class
+            PersonalInfo PersonalInfo = new PersonalInfo();
+            PersonalInfo.LoadUserInfo();
+            //Load Personal Info
         }
 
         private void btnRemoveActivity_Click(object sender, EventArgs e)
