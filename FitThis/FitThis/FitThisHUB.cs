@@ -23,8 +23,7 @@ namespace FitThis
         public User currentUser = new User();
 
         public static int currentUserID;
-
-
+        
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
@@ -147,11 +146,6 @@ namespace FitThis
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
             tabConsole1.SelectedTab = tabPersonal;
-
-            //Create PersonalInfo Class
-            PersonalInfo PersonalInfo = new PersonalInfo();
-            PersonalInfo.LoadUserInfo();
-            //Load Personal Info
         }
 
         private void btnRemoveActivity_Click(object sender, EventArgs e)
@@ -245,6 +239,25 @@ namespace FitThis
 
             // Show the sign in form & load a differnet user.
             this.LoadUser();
+
+            //Refresh Personal Info to form
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
+        }
+
+        private void tabPersonal_Enter(object sender, EventArgs e)
+        {
+            //Load Personal Info to form
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
         }
     }
 }

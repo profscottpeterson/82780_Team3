@@ -80,9 +80,6 @@
     <Compile Include="Classes\Dashboard.cs" />
     <Compile Include="Classes\DBManagement.cs" />
     <Compile Include="Classes\Food.cs" />
-    <Compile Include="Classes\PersonalInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Classes\UserManagement.cs" />
     <Compile Include="Classes\Weight.cs" />
     <Compile Include="Classes\User.cs" />
@@ -112,6 +109,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FitThisHUB.resx">
       <DependentUpon>FitThisHUB.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserCreation.resx">
       <DependentUpon>UserCreation.cs</DependentUpon>

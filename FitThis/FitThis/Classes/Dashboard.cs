@@ -112,7 +112,15 @@ namespace FitThis.Classes
                         while (rdr.Read())
                         {
                             allFoods++;
-                            allFoodCalories = rdr.GetInt32(1);
+                            try
+                            {
+                                allFoodCalories = rdr.GetInt32(1);
+                            }
+                            catch
+                            {
+                                allFoodCalories = 0;
+                            }
+                            
                         }
                     }
                 }
@@ -257,7 +265,14 @@ namespace FitThis.Classes
                         while (rdr.Read())
                         {
                             allActivities++;
-                            allBurnedCalories = rdr.GetInt32(1);
+                            try
+                            {
+                                allBurnedCalories = rdr.GetInt32(1);
+                            }
+                            catch
+                            {
+                                allBurnedCalories = 0;
+                            }
                         }
                     }
                 }

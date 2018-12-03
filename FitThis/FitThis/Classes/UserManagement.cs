@@ -100,11 +100,38 @@ namespace FitThis
                         user1.UserID = reader.GetInt32(0);
                         user1.FName = reader.GetString(1);
                         user1.LName = reader.GetString(2);
-                        user1.StartingWeight = reader.GetInt32(3);
-                        user1.GoalWeight = reader.GetInt32(4);
-                        user1.Age = reader.GetInt32(5);
-                        user1.RecommendIntake = reader.GetInt32(6);
-                        
+                        user1.Height = reader.GetInt32(3);
+                        user1.StartingWeight = reader.GetInt32(4);
+                        user1.GoalWeight = reader.GetInt32(5);
+                        user1.Age = reader.GetInt32(6);
+                        user1.Gender = reader.GetString(7);
+                        user1.RecommendIntake = reader.GetInt32(8);
+                        user1.ActivityLevel = reader.GetString(9);
+                    }
+                }
+            }
+
+            //load current weight into current user
+            sqlFindUser = "SELECT WeightRecorded FROM WEIGHT WHERE FK_UserID =" + userID.ToString() + " Order By Date Desc Limit 1";
+
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlFindUser, c))
+                {
+                    //if value exists in current weight table
+                    try
+                    {
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            reader.Read();
+                            user1.CurrentWeight = reader.GetInt32(0);
+                        }
+                    }
+                    //if value does not exist in current weight table
+                    catch
+                    {
+                        user1.CurrentWeight = user1.StartingWeight;
                     }
                 }
             }
