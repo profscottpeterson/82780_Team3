@@ -10,11 +10,12 @@
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+
+
     public partial class UserCreationForm : Form
     {
-        public User user1;
-        private SQLiteConnection database = new SQLiteConnection();
-        private DBManagement DB = new DBManagement();
+        public User user1;  // Blank user object.
+        // Activity level list for form combobox use
         private List<string> activityLevel = new List<string>();
         
         public UserCreationForm()
@@ -149,30 +150,11 @@
             }
             else
             {
-
-                //COMEHITHER
                 
                 string sqlCheckName = "Select * from User where FName = '" +
                     ucfName + "' and LName = '" + ucLName + "'";
-                /*
-                database = DB.ConnectDB(database);
-                SQLiteCommand command = new SQLiteCommand(sqlCheckName, database);
-                SQLiteDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    MessageBox.Show("User already exists.  Log in or change name.");
-                    fNameTxtBox.Enabled = true;
-                    lNameTxtBox.Enabled = true;
-                    reader.Close();
-                }
-                else
-                {
-                    user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
-                    ucGender, ucActivityLevel);
-                    this.Close();
-                }
-                */
-
+            
+                // Check if the user exists in the database. 
                 using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
                 {
                     c.Open();
@@ -182,6 +164,7 @@
                         {
                             if (reader.Read())
                             {
+                                // If the user exists, prompt them to change name or log in.
                                 MessageBox.Show("User already exists.  Log in or change name.");
                                 fNameTxtBox.Enabled = true;
                                 lNameTxtBox.Enabled = true;
@@ -189,6 +172,8 @@
                             }
                             else
                             {
+                                // If the user does not exis, create them in database & close the user
+                                // creation form
                                 user1 = new User(ucfName, ucLName, ucAge, ucHeight, ucWeight, ucGoalWeight,
                                 ucGender, ucActivityLevel);
                                 this.Close();
@@ -211,6 +196,8 @@
 
         private void UserCreationForm_Load(object sender, EventArgs e)
         {
+            // When the form loads, fill the activity level combobox & set 
+            // the default value.
             this.activityLevel.Add("Sedentary");
             this.activityLevel.Add("Lightly Active");
             this.activityLevel.Add("Moderately Active");

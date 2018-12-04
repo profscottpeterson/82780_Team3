@@ -61,13 +61,11 @@ namespace FitThis
 
         private void SignIn_Load(object sender, EventArgs e)
         {
-
-            // Connect to the database when the form loads.
-            //this.CreateConnection();
-
+            // When the sign in loads, check if the program database exists.
             DBManagement DB = new DBManagement();
             DB.checkForFiles();
-            
+
+            // Load the previous user lists based on database information.
             UserMgmt.FillLists();
             
             
@@ -80,7 +78,7 @@ namespace FitThis
             }
 
             // Have the last user logged in as the default value in the combobox
-            //this.cmbUser.SelectedItem = UserMgmt.UserList[0];
+            this.cmbUser.SelectedItem = UserMgmt.UserList[0];
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
@@ -88,8 +86,8 @@ namespace FitThis
             // Check if there's a value in the user combo box
             if (this.cmbUser.Text != null)
             {
-                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
-                
+                // If there is a selected value, loaad the user and close the form.
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);     
                 this.CloseSignIn();
             }
         }

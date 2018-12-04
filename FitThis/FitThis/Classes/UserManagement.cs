@@ -7,21 +7,30 @@ using System.Threading.Tasks;
 
 namespace FitThis
 {
+    /// <summary>
+    /// The user management class contains methods related to loading user information from 
+    /// the SQLite database.
+    /// </summary>
     class UserManagement
     {
-        SQLiteCommand command = null;
-        SQLiteDataReader reader = null;
+        //SQLiteCommand command = null;
+        //SQLiteDataReader reader = null;
         public List<string> UserList = new List<string>();
         public List<int> UserIDList = new List<int>();
         DBManagement dbm = new DBManagement();
-        Activity active = new Activity();
-        public int UserNum;
+        //Activity active = new Activity();
+        //public int UserNum;
 
+        /// <summary>
+        /// Method to fill log in list on sign in page and a second list to hold corresponding
+        /// user ID's
+        /// </summary>
         public void FillLists()
         {
             // Create a query to select the list of user names from the database.
             String selectUsers = "Select Fname, LName, UserID from USER Order by LastLogin DESC";
-
+            
+            // Database access to send query and retrieve information
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 c.Open();
@@ -31,31 +40,38 @@ namespace FitThis
                     {
                         while (reader.Read())
                         {
+                            // Concatenate first and last name before adding to user name list.
                             string Name = reader["Fname"].ToString() + " " + reader["LName"].ToString();
                             this.UserList.Add(Name);
+                            
+                            // Add user ID to corresponding list.
                             this.UserIDList.Add(reader.GetInt32(2));
                         }
                     }
                 }
             }
-            
 
         }
 
+        /// <summary>
+        /// Overloaded LoadUser method, for newly created users.
+        /// Given a user object, load all database information for this user and return user.
+        /// </summary>
+        /// <param name="user1"> The passed in user object<param>
+        /// <returns></returns>
         public User LoadUser(User user1)
         {
-            // Find the user ID, given a user name.
-            int userID = 0;
-
-            // Need command and reader to find object
+            // SQL string to find the newly created user object in the database and load all fields.
             string sqlFindUser = "SELECT * FROM USER WHERE USER.FName = '" + user1.FName +
             "' AND USER.LName = '" + user1.LName + "'";
 
+            // Database connection to find user.
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 c.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand(sqlFindUser, c))
                 {
+                    // Assign user information from the reader object.
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
                         reader.Read();
@@ -70,15 +86,25 @@ namespace FitThis
                     }
                 }
             }
-            active.setUserId(user1.UserID);
+            // return a reference to the filled user object.
             return user1;
         }
+
+        /// <summary>
+        /// Loads a user object for a user that has previously used the program, 
+        /// given a user object and the userName.
+        /// </summary>
+        /// <param name="user1"></param>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public User LoadUser(User user1, string userName)
         {
             // Find the user ID, given a user name.
             int userID = 0;
             foreach (string s in this.UserList)
             {
+                // Search through user list until Name found & assign 
+                // user ID from userID list.
                 if (s == userName)
                 {
                     userID = this.UserIDList[this.UserList.IndexOf(s)];
@@ -86,7 +112,7 @@ namespace FitThis
                 }
             }
 
-            // Need command and reader to find object
+            // Based on the user ID, query the database for user information.
             string sqlFindUser = "SELECT * FROM USER WHERE UserID =" + userID.ToString();
 
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
@@ -94,6 +120,7 @@ namespace FitThis
                 c.Open();
                 using (SQLiteCommand cmd = new SQLiteCommand(sqlFindUser, c))
                 {
+                    // Load in user information from database reaer.
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
                         reader.Read();
@@ -108,12 +135,20 @@ namespace FitThis
                     }
                 }
             }
-            active.setUserId(user1.UserID);
+            
+            // Return a refernce to the updated user object.
             return user1;
         }
 
+        /// <summary>
+        /// Method to update the last login field given a user.
+        /// </summary>
+        /// <param name="user1"></param>
         public void UpdateLastLogin(User user1)
         {
+
+            // Query the database to find the current user id & update the last login date based
+            // on the current time.
             string updateLastLogin = "Update User Set LastLogin = date('now') Where UserID = " + user1.UserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
@@ -126,8 +161,13 @@ namespace FitThis
 
         }
 
+        /// <summary>
+        /// Method to add a newly created user to the database.
+        /// </summary>
+        /// <param name="user1"></param>
         public void AddUserToDB(User user1)
         {
+            // Insert all user information into the user table.
             string sqlUserInsert = "INSERT INTO USER" +
                 "(FName, LName, Height, StartingWeight, GoalWeight, Age, Gender," +
                 "ActivityLevel, RecommendIntake)"
@@ -147,17 +187,6 @@ namespace FitThis
             //Must send new connection becuase old one is sent for the trash after
             //it has been opened
             this.UpdateLastLogin(user1);
-        }
-        /// <summary>
-        /// Set the given user instance to null 
-        /// TODO not sure we actually need a method for this.
-        /// </summary>
-        /// <param name="user1"></param>
-        /// <returns></returns>
-        public User LogOut(User user1)
-        {
-            user1 = null;
-            return user1;
         }
     }
 }
