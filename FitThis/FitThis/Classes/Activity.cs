@@ -126,10 +126,10 @@ namespace FitThis
             dbm.ExecuteNonQuery(sqlInsert, db);
         }
 
-        public void ImportData(DataGridView dataGridActivity, System.Windows.Forms.DataVisualization.Charting.Chart chartActivity)
+        public void ImportData(DataGridView dataGridActivity, System.Windows.Forms.DataVisualization.Charting.Chart ActivityChart)
         {
-            // Makes the X value of type date so that dates are shown instead of numbers
-            chartActivity.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            //Makes the X value of type date so that dates are shown instead of numbers
+            ActivityChart.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
             // Populate the data grid
             string sql = ("select * from Activity where FK_userID = " + userNum + " order by Date");
@@ -166,7 +166,7 @@ namespace FitThis
                             DateTime date = reader.GetDateTime(0).Date;
 
                             //Adds the date to the chart
-                            chartActivity.Series["Minutes"].Points.AddXY(date, reader["sum(duration)"]);
+                            ActivityChart.Series["Minutes"].Points.AddXY(date, reader["sum(duration)"]);
                         }
 
 
