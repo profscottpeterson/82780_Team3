@@ -28,20 +28,18 @@ namespace FitThis
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
-        public SQLiteConfig sqlcmd = new SQLiteConfig();
-
         public FitThisHUB()
         {
 
             InitializeComponent();
-            //currentUserID = currentUser.UserID;
+
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
             dataGridActivity.Rows.Clear();
             dataGridActivity.Refresh();
-            chartActivity.Series[0].Points.Clear();
+            ActivityChart.Series[0].Points.Clear();
             //Initialize activity class
             Activity active = new Activity();
             // Validate the data entered
@@ -52,7 +50,7 @@ namespace FitThis
                 lblCaloriesBurnedDisplay.Text = active.giveMeTheTotal().ToString();
             }
 
-            active.ImportData(dataGridActivity, chartActivity);
+            active.ImportData(dataGridActivity, ActivityChart);
         }
 
         /// <summary>
@@ -102,40 +100,7 @@ namespace FitThis
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
             Activity active = new Activity();
-            active.ImportData(dataGridActivity, chartActivity);
-
-            // Load and connect to the DB when the form loads.
-
-            using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
-            {
-                //makes instance of dashboard class
-                Dashboard dash = new Dashboard();
-
-                //method to collect information needed for charts
-                dash.DashCharts();
-
-                //sets all charts with their respective data points
-                chartWeight.Series["Weight"].Points.AddXY(dash.dashChartWeightDate, dash.dashChartWeightAvg);
-                chartDashAct.Series["Activity"].Points.AddXY(dash.dashChartActivityDate, dash.dashChartActivitySum);
-                //chartFood.Series["Food"].Points.AddXY(dash.dashChartFoodDate, dash.dashChartFoodSum);
-
-                //method to collect all stats needed for dashboard overview labels
-                dash.DashGetAllStats();
-
-                //sets all dashboard overview labels to their correct data points
-                lblNumWeights.Text = dash.allWeights.ToString();
-                lblLowestWeight.Text = dash.LowestWeight.ToString();
-                lblHighest.Text = dash.HighestWeight.ToString();
-                lblChanged.Text = dash.ChangedWeight + "lbs";
-                lblActivitiesNum.Text = dash.allActivities.ToString();
-                lblTotalCalsBurned.Text = dash.allBurnedCalories.ToString();
-                lblHighestCalsBurned.Text = dash.HighestCaloriesBurned.ToString();
-                lblLeastCalsBurned.Text = dash.LowestCaloriesBurned.ToString();
-                lblMealsNum.Text = dash.allFoods.ToString();
-                lblTotalCals.Text = dash.allFoodCalories.ToString();
-                lblHighestMealCals.Text = dash.MostMealCalories.ToString();
-                lblLeastMealCals.Text = dash.LeastMealCalories.ToString();
-            }
+            active.ImportData(dataGridActivity, ActivityChart);
         }
 
 
@@ -164,7 +129,7 @@ namespace FitThis
         private void btnRemoveActivity_Click(object sender, EventArgs e)
         {
             Activity active = new Activity();
-            active.RemoveActivity(dataGridActivity, chartActivity);        
+            active.RemoveActivity(dataGridActivity, ActivityChart);        
         }
 
         private void tabWeight_Enter(object sender, EventArgs e)
@@ -252,6 +217,33 @@ namespace FitThis
 
             // Show the sign in form & load a differnet user.
             this.LoadUser();
+        }
+        
+
+        private void DashTab_Enter(object sender, EventArgs e)
+        {
+            //makes instance of dashboard class
+            Dashboard dash = new Dashboard();
+     
+            //method to collect information needed for charts
+            dash.DashCharts(chartWeight, chartDashAct, chartDashFood);
+
+            //method to collect all stats needed for dashboard overview labels
+            dash.DashGetAllStats();
+
+            //sets all dashboard overview labels to their correct data points
+            lblNumWeights.Text = dash.allWeights.ToString();
+            lblLowestWeight.Text = dash.LowestWeight.ToString();
+            lblHighest.Text = dash.HighestWeight.ToString();
+            lblChanged.Text = dash.ChangedWeight + "lbs";
+            lblActivitiesNum.Text = dash.allActivities.ToString();
+            lblTotalCalsBurned.Text = dash.allBurnedCalories.ToString();
+            lblHighestCalsBurned.Text = dash.HighestCaloriesBurned.ToString();
+            lblLeastCalsBurned.Text = dash.LowestCaloriesBurned.ToString();
+            lblMealsNum.Text = dash.allFoods.ToString();
+            lblTotalCals.Text = dash.allFoodCalories.ToString();
+            lblHighestMealCals.Text = dash.MostMealCalories.ToString();
+            lblLeastMealCals.Text = dash.LeastMealCalories.ToString();
         }
     }
 }

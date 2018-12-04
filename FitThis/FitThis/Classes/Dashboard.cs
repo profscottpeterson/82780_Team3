@@ -30,8 +30,12 @@ namespace FitThis.Classes
         public int MostMealCalories = 0;
         public int LeastMealCalories = 0;
 
+
+
         //collects all data needed for the charts on the dashboard
-        public void DashCharts()
+        public void DashCharts(System.Windows.Forms.DataVisualization.Charting.Chart weightChart,
+            System.Windows.Forms.DataVisualization.Charting.Chart activityChart,
+            System.Windows.Forms.DataVisualization.Charting.Chart foodChart)
         {
 
             //collects the date and average weight to be used in the weight chart
@@ -47,9 +51,8 @@ namespace FitThis.Classes
                     {
                         while (rdr.Read())
                         {
-                            dashChartWeightDate = rdr.GetDateTime(1).Date;
-                            dashChartWeightAvg = rdr["avg(weightrecorded)"].ToString();
-                           
+                            DateTime date = rdr.GetDateTime(1).Date;
+                            weightChart.Series["Weight"].Points.AddXY(date, rdr[0]);
                         }
                     }
                 }
@@ -68,8 +71,8 @@ namespace FitThis.Classes
                     {
                         while (rdr.Read())
                         {
-                            dashChartActivityDate = rdr.GetDateTime(0).Date;
-                            dashChartActivitySum = rdr["Sum(duration)"].ToString();
+                            DateTime date = rdr.GetDateTime(0).Date;
+                            activityChart.Series["Minutes"].Points.AddXY(date, rdr[1]);
                         }
                     }
                 }
@@ -88,8 +91,8 @@ namespace FitThis.Classes
                     {
                         while (rdr.Read())
                         {
-                            dashChartFoodDate = rdr.GetDateTime(0).Date;
-                            dashChartFoodSum = rdr["Sum(calories)"].ToString();
+                            DateTime date = rdr.GetDateTime(0).Date;
+                            foodChart.Series["Calories"].Points.AddXY(date, rdr[1]);
                         }
                     }
                 }
@@ -109,10 +112,18 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            allFoods++;
-                            allFoodCalories = rdr.GetInt32(1);
+                            while (rdr.Read())
+                            {
+                                allFoods++;
+                                allFoodCalories = rdr.GetInt32(1);
+                            }
+                        }
+                        catch
+                        {
+                            allFoods = 0;
+                            allFoodCalories = 0;
                         }
                     }
                 }
@@ -128,9 +139,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.NextResult())
+                        try
                         {
-                            LeastMealCalories = rdr.GetInt32(0);
+                            while (rdr.NextResult())
+                            {
+                                LeastMealCalories = rdr.GetInt32(0);
+                            }
+                        }
+                        catch
+                        {
+                            LeastMealCalories = 0;
                         }
                     }
                 }
@@ -146,9 +164,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.NextResult())
+                        try
                         {
-                            MostMealCalories = rdr.GetInt32(0);
+                            while (rdr.NextResult())
+                            {
+                                MostMealCalories = rdr.GetInt32(0);
+                            }
+                        }
+                        catch
+                        {
+                            MostMealCalories = 0;
                         }
                     }
                 }
@@ -164,9 +189,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            allWeights++;
+                            while (rdr.Read())
+                            {
+                                allWeights++;
+                            }
+                        }
+                        catch
+                        {
+                            allWeights = 0;
                         }
                     }
                 }
@@ -182,9 +214,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.NextResult())
+                        try
                         {
-                            LowestWeight = rdr.GetDouble(0);
+                            while (rdr.NextResult())
+                            {
+                                LowestWeight = rdr.GetDouble(0);
+                            }
+                        }
+                        catch
+                        {
+                            LowestWeight = 0;
                         }
                     }
                 }
@@ -200,9 +239,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            HighestWeight = rdr.GetDouble(0);
+                            while (rdr.Read())
+                            {
+                                HighestWeight = rdr.GetDouble(0);
+                            }
+                        }
+                        catch
+                        {
+                            HighestWeight = 0;
                         }
                     }
                 }
@@ -218,9 +264,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            HighestCaloriesBurned = rdr.GetInt32(0);
+                            while (rdr.Read())
+                            {
+                                HighestCaloriesBurned = rdr.GetInt32(0);
+                            }
+                        }
+                        catch
+                        {
+                            HighestCaloriesBurned = 0;
                         }
                     }
                 }
@@ -236,9 +289,16 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            LowestCaloriesBurned = rdr.GetInt32(0);
+                            while (rdr.Read())
+                            {
+                                LowestCaloriesBurned = rdr.GetInt32(0);
+                            }
+                        }
+                        catch
+                        {
+                            LowestCaloriesBurned = 0;
                         }
                     }
                 }
@@ -254,10 +314,18 @@ namespace FitThis.Classes
                 {
                     using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        while (rdr.Read())
+                        try
                         {
-                            allActivities++;
-                            allBurnedCalories = rdr.GetInt32(1);
+                            while (rdr.Read())
+                            {
+                                allActivities++;
+                                allBurnedCalories = rdr.GetInt32(1);
+                            }
+                        }
+                        catch
+                        {
+                            allActivities = 0;
+                            allBurnedCalories = 0;
                         }
                     }
                 }
