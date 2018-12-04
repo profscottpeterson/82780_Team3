@@ -734,7 +734,7 @@
             this.personalInfoGroup.Controls.Add(this.bmiDescription);
             this.personalInfoGroup.Controls.Add(this.bmrLabel);
             this.personalInfoGroup.Controls.Add(this.bmrDescription);
-            this.personalInfoGroup.Location = new System.Drawing.Point(18, 159);
+            this.personalInfoGroup.Location = new System.Drawing.Point(18, 156);
             this.personalInfoGroup.Name = "personalInfoGroup";
             this.personalInfoGroup.Size = new System.Drawing.Size(754, 293);
             this.personalInfoGroup.TabIndex = 8;
@@ -744,7 +744,7 @@
             // txtBMR
             // 
             this.txtBMR.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBMR.Location = new System.Drawing.Point(267, 81);
+            this.txtBMR.Location = new System.Drawing.Point(267, 91);
             this.txtBMR.Name = "txtBMR";
             this.txtBMR.Size = new System.Drawing.Size(89, 21);
             this.txtBMR.TabIndex = 11;
@@ -752,7 +752,7 @@
             // txtBMI
             // 
             this.txtBMI.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBMI.Location = new System.Drawing.Point(267, 164);
+            this.txtBMI.Location = new System.Drawing.Point(268, 200);
             this.txtBMI.Name = "txtBMI";
             this.txtBMI.Size = new System.Drawing.Size(89, 21);
             this.txtBMI.TabIndex = 10;
@@ -760,7 +760,7 @@
             // bmiLabel
             // 
             this.bmiLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bmiLabel.Location = new System.Drawing.Point(182, 164);
+            this.bmiLabel.Location = new System.Drawing.Point(183, 200);
             this.bmiLabel.Name = "bmiLabel";
             this.bmiLabel.Size = new System.Drawing.Size(89, 21);
             this.bmiLabel.TabIndex = 9;
@@ -769,7 +769,7 @@
             // bmiDescription
             // 
             this.bmiDescription.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bmiDescription.Location = new System.Drawing.Point(22, 105);
+            this.bmiDescription.Location = new System.Drawing.Point(23, 131);
             this.bmiDescription.Name = "bmiDescription";
             this.bmiDescription.Size = new System.Drawing.Size(698, 59);
             this.bmiDescription.TabIndex = 8;
@@ -778,7 +778,7 @@
             // bmrLabel
             // 
             this.bmrLabel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bmrLabel.Location = new System.Drawing.Point(182, 81);
+            this.bmrLabel.Location = new System.Drawing.Point(182, 91);
             this.bmrLabel.Name = "bmrLabel";
             this.bmrLabel.Size = new System.Drawing.Size(89, 21);
             this.bmrLabel.TabIndex = 2;
@@ -796,21 +796,22 @@
             // txtStrtWght
             // 
             this.txtStrtWght.Enabled = false;
-            this.txtStrtWght.Location = new System.Drawing.Point(195, 129);
+            this.txtStrtWght.Location = new System.Drawing.Point(229, 95);
             this.txtStrtWght.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStrtWght.Name = "txtStrtWght";
             this.txtStrtWght.Size = new System.Drawing.Size(86, 23);
             this.txtStrtWght.TabIndex = 7;
+            this.txtStrtWght.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblStrtWght
             // 
             this.lblStrtWght.AutoSize = true;
             this.lblStrtWght.BackColor = System.Drawing.Color.Orange;
-            this.lblStrtWght.Location = new System.Drawing.Point(15, 133);
+            this.lblStrtWght.Location = new System.Drawing.Point(15, 99);
             this.lblStrtWght.Name = "lblStrtWght";
-            this.lblStrtWght.Size = new System.Drawing.Size(109, 18);
+            this.lblStrtWght.Size = new System.Drawing.Size(108, 18);
             this.lblStrtWght.TabIndex = 6;
-            this.lblStrtWght.Text = "Starting Weight:";
+            this.lblStrtWght.Text = "Current Weight:";
             // 
             // lblHeight
             // 
@@ -825,30 +826,32 @@
             // txtHeight
             // 
             this.txtHeight.Enabled = false;
-            this.txtHeight.Location = new System.Drawing.Point(195, 60);
+            this.txtHeight.Location = new System.Drawing.Point(229, 60);
             this.txtHeight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(86, 23);
             this.txtHeight.TabIndex = 4;
+            this.txtHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblActivity
             // 
             this.lblActivity.AutoSize = true;
             this.lblActivity.BackColor = System.Drawing.Color.Orange;
-            this.lblActivity.Location = new System.Drawing.Point(15, 98);
+            this.lblActivity.Location = new System.Drawing.Point(414, 31);
             this.lblActivity.Name = "lblActivity";
-            this.lblActivity.Size = new System.Drawing.Size(198, 18);
+            this.lblActivity.Size = new System.Drawing.Size(133, 18);
             this.lblActivity.TabIndex = 3;
-            this.lblActivity.Text = "Usual Activity Level (in hours):";
+            this.lblActivity.Text = "Usual Activity Level:";
             // 
             // txtActLvl
             // 
             this.txtActLvl.Enabled = false;
-            this.txtActLvl.Location = new System.Drawing.Point(195, 96);
+            this.txtActLvl.Location = new System.Drawing.Point(403, 60);
             this.txtActLvl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtActLvl.Name = "txtActLvl";
-            this.txtActLvl.Size = new System.Drawing.Size(86, 23);
+            this.txtActLvl.Size = new System.Drawing.Size(156, 23);
             this.txtActLvl.TabIndex = 2;
+            this.txtActLvl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblName
             // 
@@ -863,11 +866,12 @@
             // txtName
             // 
             this.txtName.Enabled = false;
-            this.txtName.Location = new System.Drawing.Point(195, 25);
+            this.txtName.Location = new System.Drawing.Point(229, 25);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(86, 23);
             this.txtName.TabIndex = 0;
+            this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabActivity
             // 
@@ -1096,7 +1100,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FitThisHUB";
-            this.Text = "f";
+            this.Text = "FitThis!";
             this.Load += new System.EventHandler(this.FitThisHUB_Load);
             this.Click += new System.EventHandler(this.btnClose_Click);
             this.tabConsole1.ResumeLayout(false);
@@ -1137,10 +1141,10 @@
         private System.Windows.Forms.Label lblActivity;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblStrtWght;
-        private System.Windows.Forms.TextBox txtStrtWght;
-        private System.Windows.Forms.TextBox txtHeight;
-        private System.Windows.Forms.TextBox txtActLvl;
-        private System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtStrtWght;
+        public System.Windows.Forms.TextBox txtHeight;
+        public System.Windows.Forms.TextBox txtActLvl;
+        public System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TabPage tabDash;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabActivity;
@@ -1209,8 +1213,8 @@
         private System.Windows.Forms.Label bmrDescription;
         private System.Windows.Forms.Label bmiLabel;
         private System.Windows.Forms.Label bmiDescription;
-        private System.Windows.Forms.Label txtBMR;
-        private System.Windows.Forms.Label txtBMI;
+        public System.Windows.Forms.Label txtBMR;
+        public System.Windows.Forms.Label txtBMI;
         private System.Windows.Forms.Button btnRemoveActivity;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button buttonLogout;

@@ -315,7 +315,7 @@
             double weightInKg = this.currentWeight * 0.453592;
 
             // Calculated BMI based on height and weight
-            double bmi = weightInKg / heightInMeters;
+            double bmi = weightInKg / (heightInMeters*heightInMeters);
 
             // Return the calculated BMI
             return bmi;

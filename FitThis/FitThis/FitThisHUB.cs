@@ -23,8 +23,7 @@ namespace FitThis
         public User currentUser = new User();
 
         public static int currentUserID;
-
-
+        
         // Create a SQLite database object
         public SQLiteConnection database = new SQLiteConnection();
 
@@ -83,19 +82,6 @@ namespace FitThis
             UM.UpdateLastLogin(currentUser);
             currentUserID = currentUser.UserID;
 
-            ///
-            /// Load Personal Information
-            /// Name, Height, Activity Level, Starting Weight, BMR, BMI
-            ///
-            txtName.Text = currentUser.FName + " " + currentUser.LName;
-            txtHeight.Text = currentUser.Height.ToString();
-            txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
-            txtBMI.Text = currentUser.CalculateBMI().ToString();
-            txtBMR.Text = currentUser.CalculateBMR().ToString();
-
-
-
             // Load and connect to the DB when the form loads.
             DBManagement DB = new DBManagement();
             this.database = DB.ConnectDB(database);
@@ -122,8 +108,6 @@ namespace FitThis
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
             tabConsole1.SelectedTab = tabPersonal;
-
-
         }
 
         private void btnRemoveActivity_Click(object sender, EventArgs e)
@@ -139,7 +123,17 @@ namespace FitThis
             //SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
             using (database)
             {
-                database.Open();
+                try
+                {
+                    database.Open();
+                }
+                catch
+                {
+                    // Load and connect to the DB when the form loads.
+                    DBManagement DB = new DBManagement();
+                    this.database = DB.ConnectDB(database);
+                    database.Open();
+                }
                 using (SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader())
                 {
                     while (lbxdata.Read())
@@ -159,7 +153,7 @@ namespace FitThis
                 // load labels (current and goal)
                 lblGoalWeight.Text = currentUser.GoalWeight.ToString();
                 string currentweightsql =
-                    "Select Weight, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
+                    "Select WeightRecorded, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
                     "WHERE UserID = " + currentUser.UserID +
                     " ORDER BY Date";
                 SQLiteDataReader curwght = new SQLiteCommand(currentweightsql, database).ExecuteReader();
@@ -217,6 +211,14 @@ namespace FitThis
 
             // Show the sign in form & load a differnet user.
             this.LoadUser();
+
+            //Refresh Personal Info to form
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
         }
         
 
