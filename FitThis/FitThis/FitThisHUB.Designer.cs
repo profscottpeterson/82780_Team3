@@ -95,6 +95,13 @@
             this.chartWeight = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabWeight = new System.Windows.Forms.TabPage();
             this.tabFood = new System.Windows.Forms.TabPage();
+            this.lblTitleFood = new System.Windows.Forms.Label();
+            this.txbTitleFood = new System.Windows.Forms.TextBox();
+            this.lblCalories = new System.Windows.Forms.Label();
+            this.txbCalories = new System.Windows.Forms.TextBox();
+            this.btnSaveFood = new System.Windows.Forms.Button();
+            this.btnResetFood = new System.Windows.Forms.Button();
+            this.lbxFood = new System.Windows.Forms.ListBox();
             this.tabPersonal = new System.Windows.Forms.TabPage();
             this.personalInfoGroup = new System.Windows.Forms.GroupBox();
             this.txtBMR = new System.Windows.Forms.Label();
@@ -142,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDashAct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).BeginInit();
             this.tabWeight.SuspendLayout();
+            this.tabFood.SuspendLayout();
             this.tabPersonal.SuspendLayout();
             this.personalInfoGroup.SuspendLayout();
             this.tabActivity.SuspendLayout();
@@ -213,6 +221,7 @@
             this.btnSaveWeight.TabIndex = 2;
             this.btnSaveWeight.Text = "Save";
             this.btnSaveWeight.UseVisualStyleBackColor = true;
+            this.btnSaveWeight.Click += new System.EventHandler(this.btnSaveWeight_Click);
             // 
             // btnResetWeight
             // 
@@ -222,6 +231,7 @@
             this.btnResetWeight.TabIndex = 1;
             this.btnResetWeight.Text = "Reset";
             this.btnResetWeight.UseVisualStyleBackColor = true;
+            this.btnResetWeight.Click += new System.EventHandler(this.btnResetWeight_Click);
             // 
             // lbxWeightLog
             // 
@@ -698,12 +708,81 @@
             // 
             this.tabFood.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabFood.Controls.Add(this.lblTitleFood);
+            this.tabFood.Controls.Add(this.txbTitleFood);
+            this.tabFood.Controls.Add(this.lblCalories);
+            this.tabFood.Controls.Add(this.txbCalories);
+            this.tabFood.Controls.Add(this.btnSaveFood);
+            this.tabFood.Controls.Add(this.btnResetFood);
+            this.tabFood.Controls.Add(this.lbxFood);
             this.tabFood.Location = new System.Drawing.Point(4, 30);
             this.tabFood.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabFood.Name = "tabFood";
             this.tabFood.Size = new System.Drawing.Size(792, 577);
             this.tabFood.TabIndex = 3;
             this.tabFood.Text = "Food";
+            this.tabFood.Enter += new System.EventHandler(this.tabFood_Enter);
+            // 
+            // lblTitleFood
+            // 
+            this.lblTitleFood.AutoSize = true;
+            this.lblTitleFood.Location = new System.Drawing.Point(117, 176);
+            this.lblTitleFood.Name = "lblTitleFood";
+            this.lblTitleFood.Size = new System.Drawing.Size(75, 18);
+            this.lblTitleFood.TabIndex = 15;
+            this.lblTitleFood.Text = "Food Name";
+            // 
+            // txbTitleFood
+            // 
+            this.txbTitleFood.Location = new System.Drawing.Point(68, 197);
+            this.txbTitleFood.Name = "txbTitleFood";
+            this.txbTitleFood.Size = new System.Drawing.Size(169, 23);
+            this.txbTitleFood.TabIndex = 14;
+            // 
+            // lblCalories
+            // 
+            this.lblCalories.AutoSize = true;
+            this.lblCalories.Location = new System.Drawing.Point(126, 239);
+            this.lblCalories.Name = "lblCalories";
+            this.lblCalories.Size = new System.Drawing.Size(57, 18);
+            this.lblCalories.TabIndex = 13;
+            this.lblCalories.Text = "Calories";
+            // 
+            // txbCalories
+            // 
+            this.txbCalories.Location = new System.Drawing.Point(103, 260);
+            this.txbCalories.Name = "txbCalories";
+            this.txbCalories.Size = new System.Drawing.Size(100, 23);
+            this.txbCalories.TabIndex = 12;
+            // 
+            // btnSaveFood
+            // 
+            this.btnSaveFood.Location = new System.Drawing.Point(68, 313);
+            this.btnSaveFood.Name = "btnSaveFood";
+            this.btnSaveFood.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveFood.TabIndex = 11;
+            this.btnSaveFood.Text = "Save";
+            this.btnSaveFood.UseVisualStyleBackColor = true;
+            this.btnSaveFood.Click += new System.EventHandler(this.btnSaveFood_Click);
+            // 
+            // btnResetFood
+            // 
+            this.btnResetFood.Location = new System.Drawing.Point(169, 313);
+            this.btnResetFood.Name = "btnResetFood";
+            this.btnResetFood.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFood.TabIndex = 10;
+            this.btnResetFood.Text = "Reset";
+            this.btnResetFood.UseVisualStyleBackColor = true;
+            this.btnResetFood.Click += new System.EventHandler(this.btnResetFood_Click);
+            // 
+            // lbxFood
+            // 
+            this.lbxFood.FormattingEnabled = true;
+            this.lbxFood.ItemHeight = 18;
+            this.lbxFood.Location = new System.Drawing.Point(299, 46);
+            this.lbxFood.Name = "lbxFood";
+            this.lbxFood.Size = new System.Drawing.Size(450, 472);
+            this.lbxFood.TabIndex = 9;
             // 
             // tabPersonal
             // 
@@ -943,6 +1022,23 @@
             this.ColCalories.HeaderText = "Calories";
             this.ColCalories.Name = "ColCalories";
             this.ColCalories.ReadOnly = true;
+            // TODO Jake does this actually work or no? Thanks Jake.
+            // 
+            // chartActivity
+            // 
+            chartArea20.Name = "ChartArea1";
+            this.chartActivity.ChartAreas.Add(chartArea20);
+            legend20.Name = "Legend1";
+            this.chartActivity.Legends.Add(legend20);
+            this.chartActivity.Location = new System.Drawing.Point(378, 3);
+            this.chartActivity.Name = "chartActivity";
+            this.chartActivity.Series.Add(series13);
+            this.chartActivity.Size = new System.Drawing.Size(300, 300);
+            this.chartActivity.TabIndex = 9;
+            this.chartActivity.Text = "chart1";
+            title4.Name = "Testing";
+            title4.Text = "Activity (minutes)";
+            this.chartActivity.Titles.Add(title4);
             // 
             // lblCaloriesBurnedDisplay
             // 
@@ -1119,6 +1215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartWeight)).EndInit();
             this.tabWeight.ResumeLayout(false);
             this.tabWeight.PerformLayout();
+            this.tabFood.ResumeLayout(false);
+            this.tabFood.PerformLayout();
             this.tabPersonal.ResumeLayout(false);
             this.tabPersonal.PerformLayout();
             this.personalInfoGroup.ResumeLayout(false);
@@ -1218,6 +1316,13 @@
         private System.Windows.Forms.Button btnRemoveActivity;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button buttonLogout;
+        private System.Windows.Forms.Label lblCalories;
+        private System.Windows.Forms.TextBox txbCalories;
+        private System.Windows.Forms.Button btnSaveFood;
+        private System.Windows.Forms.Button btnResetFood;
+        private System.Windows.Forms.ListBox lbxFood;
+        private System.Windows.Forms.Label lblTitleFood;
+        private System.Windows.Forms.TextBox txbTitleFood;
         private System.Windows.Forms.DataVisualization.Charting.Chart ActivityChart;
     }
 }
