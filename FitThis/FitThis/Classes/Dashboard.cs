@@ -49,7 +49,6 @@ namespace FitThis.Classes
                         {
                             dashChartWeightDate = rdr.GetDateTime(1).Date;
                             dashChartWeightAvg = rdr["avg(weightrecorded)"].ToString();
-                           
                         }
                     }
                 }
