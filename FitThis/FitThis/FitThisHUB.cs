@@ -60,12 +60,14 @@ namespace FitThis
         /// </summary>
         private void LoadUser()
         {
+            // Show the sign in form to find to create/select the current user.
             SignIn Si = new SignIn();
             Si.ShowDialog();
+            // Set this form's current user field from the user selected at sign in.
             this.currentUser = Si.currentUserS;
+
             // If last login = null, show the about form.
             string checkLastLogin = "SELECT USER.LastLogin FROM USER WHERE USER.LastLogin ISNULL AND USER.UserID = " + currentUser.UserID.ToString();
-
             using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 c.Open();
@@ -81,6 +83,8 @@ namespace FitThis
                     }
                 }
             }
+
+            // Update the last login field for the user.
             UserManagement UM = new UserManagement();
             UM.UpdateLastLogin(currentUser);
             currentUserID = currentUser.UserID;
@@ -147,8 +151,7 @@ namespace FitThis
             tabConsole1.SelectedTab = tabFood;
         }
 
-            
-        
+               
         //button event to navigate to the personal tab
         private void btnDashPersonal_Click(object sender, EventArgs e)
         {
@@ -191,10 +194,6 @@ namespace FitThis
                     lbxdata.Close();
                 }
 
-
-
-
-
                 // load labels (current and goal)
                 lblGoalWeight.Text = currentUser.GoalWeight.ToString();
                 string currentweightsql =
@@ -213,7 +212,7 @@ namespace FitThis
         }
 
         /// <summary>
-        /// On fit this hub load, establish database connection.
+        /// On fit this hub load, establish database connection, and find which user to load.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -223,8 +222,7 @@ namespace FitThis
             this.LoadUser();
         }
 
-
-
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();

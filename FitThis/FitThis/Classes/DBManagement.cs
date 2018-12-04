@@ -88,5 +88,32 @@ namespace FitThis
 
 
         }
+
+        public SQLiteDataReader DatabaseReader(string queryString)
+        {
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(queryString, c))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        return reader;  
+                    }
+                }
+            }
+        }
+
+        public void DatabasCommand(string queryString)
+        {
+            using (SQLiteConnection c = new SQLiteConnection("Data Source=FitThis.sqlite"))
+            {
+                c.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(queryString, c))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
