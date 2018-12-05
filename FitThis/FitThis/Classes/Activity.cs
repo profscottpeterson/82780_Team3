@@ -36,11 +36,11 @@ namespace FitThis
         // Fills the dictionary
         private void fillDictionary()
         {
-            workouts.Add("Running", 16);
-            workouts.Add("Walking", 10);
-            workouts.Add("Swimming", 24);
-            workouts.Add("Biking", 14);
-            workouts.Add("Eliptical", 30);
+            workouts.Add("Running", 11);
+            workouts.Add("Walking", 8);
+            workouts.Add("Swimming", 20);
+            workouts.Add("Biking", 12);
+            workouts.Add("Eliptical", 18);
         }
 
         public Boolean ValidateActivtyInput(ComboBox combo, TextBox time)
