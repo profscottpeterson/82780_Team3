@@ -57,6 +57,8 @@ namespace FitThis
         /// </summary>
         private void LoadUser()
         {
+            tabConsole1.SelectedTab = tabDash;
+
             // Show the sign in form to find to create/select the current user.
             SignIn Si = new SignIn();
             Si.ShowDialog();
@@ -91,6 +93,24 @@ namespace FitThis
             this.database = DB.ConnectDB(database);
             Activity active = new Activity();
             active.ImportData(dataGridActivity, ActivityChart);
+
+            //Refresh Personal Info to form
+            txtName.Text = currentUser.FName + " " + currentUser.LName;
+            txtHeight.Text = currentUser.Height.ToString();
+            txtActLvl.Text = currentUser.ActivityLevel;
+            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
+            txtBMI.Text = currentUser.CalculateBMI().ToString();
+            txtBMR.Text = currentUser.CalculateBMR().ToString();
+
+            if (currentUser.UserID == 0)
+            {
+                Application.Exit(); 
+            }
+            else
+            {
+                this.Show();
+                UpdateDashInfo();
+            }
         }
 
 
@@ -156,7 +176,7 @@ namespace FitThis
                 string currentweightsql =
                     "Select WeightRecorded, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
                     "WHERE UserID = " + currentUser.UserID +
-                    " ORDER BY Date DESC";
+                    " order by weightID desc";
             using (database = new SQLiteConnection("Data Source=FitThis.sqlite"))
             { 
                 database.Open();
@@ -213,25 +233,23 @@ namespace FitThis
         {
             // Remove reference to current user
             currentUser = null;
+            this.Hide();
 
             // Show the sign in form & load a differnet user.
             this.LoadUser();
-
-            //Refresh Personal Info to form
-            txtName.Text = currentUser.FName + " " + currentUser.LName;
-            txtHeight.Text = currentUser.Height.ToString();
-            txtActLvl.Text = currentUser.ActivityLevel;
-            txtStrtWght.Text = currentUser.CurrentWeight.ToString();
-            txtBMI.Text = currentUser.CalculateBMI().ToString();
-            txtBMR.Text = currentUser.CalculateBMR().ToString();
         }
         
 
         private void DashTab_Enter(object sender, EventArgs e)
         {
+            UpdateDashInfo();
+        }
+
+        private void UpdateDashInfo()
+        {
             //makes instance of dashboard class
             Dashboard dash = new Dashboard();
-     
+
             //method to collect information needed for charts
             dash.DashCharts(chartWeight, chartDashAct, chartDashFood);
 
@@ -277,30 +295,41 @@ namespace FitThis
                     }
 
                     // update listbox
+                    //string lbxsql = "Select * From Weight WHERE FK_UserID = " + currentUser.UserID + " ORDER BY Date DESC";
+                    ////SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
+                    //using (database = new SQLiteConnection("Data Source=FitThis.sqlite"))
+                    //{
+                    //    database.Open();
+                    //    using (SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader())
+                    //    {
+                    //        lbxWeightLog.Items.Clear();
+                    //        while (lbxdata.Read())
+                    //        {
+                    //            //TODO Remove Time From Date Stamp
+                    //            //string date = lbxdata.GetDateTime(1).ToString();
+                    //            lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["WeightRecorded"]);
+                    //        }
+
+                    //        lbxdata.Close();
+                    //    }
+                    //}
+
+                    // update dgv
                     string lbxsql = "Select * From Weight WHERE FK_UserID = " + currentUser.UserID + " ORDER BY Date DESC";
-                    //SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader();
                     using (database = new SQLiteConnection("Data Source=FitThis.sqlite"))
                     {
                         database.Open();
                         using (SQLiteDataReader lbxdata = new SQLiteCommand(lbxsql, database).ExecuteReader())
                         {
-                            lbxWeightLog.Items.Clear();
-                            while (lbxdata.Read())
-                            {
-                                //TODO Remove Time From Date Stamp
-                                //string date = lbxdata.GetDateTime(1).ToString();
-                                lbxWeightLog.Items.Add(lbxdata["Date"] + "\t" + lbxdata["WeightRecorded"]);
-                            }
 
-                            lbxdata.Close();
                         }
                     }
 
-                    //update current weight
-                    string currentweightsql =
-                        "Select WeightRecorded, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
-                        "WHERE UserID = " + currentUser.UserID +
-                        " AND Date in (SELECT MAX(WeightID) from WEIGHT GROUP BY FK_UserID)";
+                        //update current weight
+                        string currentweightsql =
+                            "Select WeightRecorded, Date FROM WEIGHT INNER JOIN USER ON User.UserID = Weight.FK_UserID " +
+                            "WHERE UserID = " + currentUser.UserID +
+                            " order by weightid desc";
 
                     // Date in ( SELECT MAX(Date) from Test_Most_Recent group by User)
 

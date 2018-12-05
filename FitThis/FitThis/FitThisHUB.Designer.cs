@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FitThisHUB));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblGoalWeight = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblCurrentWeight = new System.Windows.Forms.Label();
@@ -133,10 +133,11 @@
             this.combActivities = new System.Windows.Forms.ComboBox();
             this.btnClearActivity = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
+            this.ActivityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnClose = new System.Windows.Forms.Button();
             this.HelpButton = new System.Windows.Forms.Button();
             this.buttonLogout = new System.Windows.Forms.Button();
-            this.ActivityChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dgvWeightLog = new System.Windows.Forms.DataGridView();
             this.tabConsole1.SuspendLayout();
             this.tabDash.SuspendLayout();
             this.gpboxDashFood.SuspendLayout();
@@ -155,6 +156,7 @@
             this.tabActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActivityChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightLog)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGoalWeight
@@ -237,7 +239,7 @@
             // 
             this.lbxWeightLog.FormattingEnabled = true;
             this.lbxWeightLog.ItemHeight = 18;
-            this.lbxWeightLog.Location = new System.Drawing.Point(310, 206);
+            this.lbxWeightLog.Location = new System.Drawing.Point(356, 37);
             this.lbxWeightLog.Name = "lbxWeightLog";
             this.lbxWeightLog.Size = new System.Drawing.Size(450, 310);
             this.lbxWeightLog.TabIndex = 0;
@@ -257,7 +259,6 @@
             this.tabConsole1.SelectedIndex = 0;
             this.tabConsole1.Size = new System.Drawing.Size(800, 611);
             this.tabConsole1.TabIndex = 0;
-            this.tabConsole1.Enter += new System.EventHandler(this.DashTab_Enter);
             // 
             // tabDash
             // 
@@ -275,6 +276,7 @@
             this.tabDash.Size = new System.Drawing.Size(792, 577);
             this.tabDash.TabIndex = 4;
             this.tabDash.Text = "Dashboard";
+            this.tabDash.Enter += new System.EventHandler(this.DashTab_Enter);
             // 
             // gpboxDashFood
             // 
@@ -611,35 +613,35 @@
             // 
             // chartDashFood
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartDashFood.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartDashFood.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.chartDashFood.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chartDashFood.Legends.Add(legend7);
             this.chartDashFood.Location = new System.Drawing.Point(486, 34);
             this.chartDashFood.Name = "chartDashFood";
             this.chartDashFood.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Calories";
-            this.chartDashFood.Series.Add(series1);
+            series7.BorderWidth = 3;
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Calories";
+            this.chartDashFood.Series.Add(series7);
             this.chartDashFood.Size = new System.Drawing.Size(218, 176);
             this.chartDashFood.TabIndex = 3;
             this.chartDashFood.Text = "chartFood";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea8.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chart1.Legends.Add(legend8);
             this.chart1.Location = new System.Drawing.Point(561, 85);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chart1.Series.Add(series8);
             this.chart1.Size = new System.Drawing.Size(0, 0);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
@@ -647,19 +649,19 @@
             // chartDashAct
             // 
             this.chartDashAct.BorderlineWidth = 3;
-            chartArea3.Name = "ChartArea1";
-            this.chartDashAct.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartDashAct.Legends.Add(legend3);
+            chartArea9.Name = "ChartArea1";
+            this.chartDashAct.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.chartDashAct.Legends.Add(legend9);
             this.chartDashAct.Location = new System.Drawing.Point(254, 34);
             this.chartDashAct.Name = "chartDashAct";
             this.chartDashAct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Minutes";
-            this.chartDashAct.Series.Add(series3);
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Minutes";
+            this.chartDashAct.Series.Add(series9);
             this.chartDashAct.Size = new System.Drawing.Size(218, 176);
             this.chartDashAct.TabIndex = 1;
             this.chartDashAct.Text = "chart1";
@@ -667,19 +669,19 @@
             // chartWeight
             // 
             this.chartWeight.BorderlineWidth = 3;
-            chartArea4.Name = "ChartArea1";
-            this.chartWeight.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartWeight.Legends.Add(legend4);
+            chartArea10.Name = "ChartArea1";
+            this.chartWeight.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chartWeight.Legends.Add(legend10);
             this.chartWeight.Location = new System.Drawing.Point(21, 34);
             this.chartWeight.Name = "chartWeight";
             this.chartWeight.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Weight";
-            this.chartWeight.Series.Add(series4);
+            series10.BorderWidth = 3;
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Legend = "Legend1";
+            series10.Name = "Weight";
+            this.chartWeight.Series.Add(series10);
             this.chartWeight.Size = new System.Drawing.Size(218, 176);
             this.chartWeight.TabIndex = 0;
             // 
@@ -687,6 +689,7 @@
             // 
             this.tabWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(207)))), ((int)(((byte)(138)))));
             this.tabWeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabWeight.Controls.Add(this.dgvWeightLog);
             this.tabWeight.Controls.Add(this.lblGoalWeight);
             this.tabWeight.Controls.Add(this.label3);
             this.tabWeight.Controls.Add(this.lblCurrentWeight);
@@ -977,7 +980,7 @@
             // 
             // btnRemoveActivity
             // 
-            this.btnRemoveActivity.Location = new System.Drawing.Point(140, 472);
+            this.btnRemoveActivity.Location = new System.Drawing.Point(146, 472);
             this.btnRemoveActivity.Name = "btnRemoveActivity";
             this.btnRemoveActivity.Size = new System.Drawing.Size(126, 34);
             this.btnRemoveActivity.TabIndex = 11;
@@ -1022,23 +1025,6 @@
             this.ColCalories.HeaderText = "Calories";
             this.ColCalories.Name = "ColCalories";
             this.ColCalories.ReadOnly = true;
-            // TODO Jake does this actually work or no? Thanks Jake.
-            // 
-            // chartActivity
-            // 
-            chartArea20.Name = "ChartArea1";
-            this.chartActivity.ChartAreas.Add(chartArea20);
-            legend20.Name = "Legend1";
-            this.chartActivity.Legends.Add(legend20);
-            this.chartActivity.Location = new System.Drawing.Point(378, 3);
-            this.chartActivity.Name = "chartActivity";
-            this.chartActivity.Series.Add(series13);
-            this.chartActivity.Size = new System.Drawing.Size(300, 300);
-            this.chartActivity.TabIndex = 9;
-            this.chartActivity.Text = "chart1";
-            title4.Name = "Testing";
-            title4.Text = "Activity (minutes)";
-            this.chartActivity.Titles.Add(title4);
             // 
             // lblCaloriesBurnedDisplay
             // 
@@ -1111,14 +1097,35 @@
             // 
             // btnAddActivity
             // 
-            this.btnAddActivity.Location = new System.Drawing.Point(78, 473);
+            this.btnAddActivity.Location = new System.Drawing.Point(30, 473);
             this.btnAddActivity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddActivity.Name = "btnAddActivity";
-            this.btnAddActivity.Size = new System.Drawing.Size(64, 28);
+            this.btnAddActivity.Size = new System.Drawing.Size(112, 33);
             this.btnAddActivity.TabIndex = 0;
             this.btnAddActivity.Text = "Add Activity";
             this.btnAddActivity.UseVisualStyleBackColor = true;
             this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
+            // 
+            // ActivityChart
+            // 
+            chartArea6.Name = "ChartArea1";
+            this.ActivityChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.ActivityChart.Legends.Add(legend6);
+            this.ActivityChart.Location = new System.Drawing.Point(378, 3);
+            this.ActivityChart.Name = "ActivityChart";
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Minutes";
+            this.ActivityChart.Series.Add(series6);
+            this.ActivityChart.Size = new System.Drawing.Size(300, 300);
+            this.ActivityChart.TabIndex = 9;
+            this.ActivityChart.Text = "chart1";
+            title2.Name = "Testing";
+            title2.Text = "Activity (minutes)";
+            this.ActivityChart.Titles.Add(title2);
             // 
             // btnClose
             // 
@@ -1159,26 +1166,13 @@
             this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // ActivityChart
+            // dgvWeightLog
             // 
-            chartArea5.Name = "ChartArea1";
-            this.ActivityChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.ActivityChart.Legends.Add(legend5);
-            this.ActivityChart.Location = new System.Drawing.Point(378, 3);
-            this.ActivityChart.Name = "ActivityChart";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Minutes";
-            this.ActivityChart.Series.Add(series5);
-            this.ActivityChart.Size = new System.Drawing.Size(300, 300);
-            this.ActivityChart.TabIndex = 9;
-            this.ActivityChart.Text = "chart1";
-            title1.Name = "Testing";
-            title1.Text = "Activity (minutes)";
-            this.ActivityChart.Titles.Add(title1);
+            this.dgvWeightLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeightLog.Location = new System.Drawing.Point(310, 206);
+            this.dgvWeightLog.Name = "dgvWeightLog";
+            this.dgvWeightLog.Size = new System.Drawing.Size(459, 317);
+            this.dgvWeightLog.TabIndex = 9;
             // 
             // FitThisHUB
             // 
@@ -1224,6 +1218,7 @@
             this.tabActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActivity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ActivityChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeightLog)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1324,5 +1319,6 @@
         private System.Windows.Forms.Label lblTitleFood;
         private System.Windows.Forms.TextBox txbTitleFood;
         private System.Windows.Forms.DataVisualization.Charting.Chart ActivityChart;
+        private System.Windows.Forms.DataGridView dgvWeightLog;
     }
 }

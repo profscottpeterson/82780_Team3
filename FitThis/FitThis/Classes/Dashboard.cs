@@ -5,6 +5,8 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using FitThis.Classes;
 
 namespace FitThis.Classes
@@ -37,6 +39,13 @@ namespace FitThis.Classes
             System.Windows.Forms.DataVisualization.Charting.Chart activityChart,
             System.Windows.Forms.DataVisualization.Charting.Chart foodChart)
         {
+            weightChart.Series[0].Points.Clear();
+            activityChart.Series[0].Points.Clear();
+            foodChart.Series[0].Points.Clear();
+
+            activityChart.Series[0].XValueType = ChartValueType.DateTime;
+            weightChart.Series[0].XValueType = ChartValueType.DateTime;
+            foodChart.Series[0].XValueType = ChartValueType.DateTime;
 
             //collects the date and average weight to be used in the weight chart
             string sqlweight = "Select avg(weightrecorded), date from WEIGHT where fk_USERID =" +
@@ -71,8 +80,8 @@ namespace FitThis.Classes
                     {
                         while (rdr.Read())
                         {
-                            DateTime date = rdr.GetDateTime(0).Date;
-                            activityChart.Series["Minutes"].Points.AddXY(date, rdr[1]);
+                            DateTime date = rdr.GetDateTime(0).Date;                    
+                            activityChart.Series["Minutes"].Points.AddXY(date, rdr["sum(duration)"]);
                         }
                     }
                 }
@@ -103,7 +112,7 @@ namespace FitThis.Classes
         public void DashGetAllStats()
         {
             //collects data for how many meals were logged and the total number of calories logged. 
-            string sqlFoodAll = "Select foodid, Sum(Calories) from food where fk_USERID =" + FitThisHUB.currentUserID;
+            string sqlFoodAll = "Select foodid, Calories from food where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -117,7 +126,7 @@ namespace FitThis.Classes
                             while (rdr.Read())
                             {
                                 allFoods++;
-                                allFoodCalories = rdr.GetInt32(1);
+                                allFoodCalories += rdr.GetInt32(1);
                             }
                         }
                         catch
@@ -129,8 +138,10 @@ namespace FitThis.Classes
                 }
             }
 
+
+
             //collects the lowest amount of calories logged in a single meal
-            string sqlFoodCalsLowest = "Select calories from food where fk_USERID =" + FitThisHUB.currentUserID + " order by calories asc limit 1";
+            string sqlFoodCalsLowest = "Select min(calories) from food where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -141,10 +152,8 @@ namespace FitThis.Classes
                     {
                         try
                         {
-                            while (rdr.NextResult())
-                            {
-                                LeastMealCalories = rdr.GetInt32(0);
-                            }
+                            rdr.Read();
+                            LeastMealCalories = rdr.GetInt32(0);
                         }
                         catch
                         {
@@ -155,7 +164,7 @@ namespace FitThis.Classes
             }
 
             //collects the highest amount of calories logged in a single meal
-            string sqlFoodCalsHighest = "Select calories from food where fk_USERID =" + FitThisHUB.currentUserID + " order by calories desc limit 1";
+            string sqlFoodCalsHighest = "Select max(calories) from food where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -166,10 +175,8 @@ namespace FitThis.Classes
                     {
                         try
                         {
-                            while (rdr.NextResult())
-                            {
-                                MostMealCalories = rdr.GetInt32(0);
-                            }
+                            rdr.Read();
+                            MostMealCalories = rdr.GetInt32(0);
                         }
                         catch
                         {
@@ -205,7 +212,7 @@ namespace FitThis.Classes
             }
 
             //collects the lowest weight ever recorded 
-            string sqlWeightLowest = "Select weightrecorded from weight where fk_USERID =" + FitThisHUB.currentUserID + " order by weightrecorded asc limit 1";
+            string sqlWeightLowest = "Select min(weightrecorded) from weight where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -216,10 +223,8 @@ namespace FitThis.Classes
                     {
                         try
                         {
-                            while (rdr.NextResult())
-                            {
-                                LowestWeight = rdr.GetDouble(0);
-                            }
+                            rdr.Read();
+                            LowestWeight = rdr.GetDouble(0);
                         }
                         catch
                         {
@@ -255,7 +260,7 @@ namespace FitThis.Classes
             }
 
             //collects the highest calories burned out of all activities
-            string sqlActivitiesHighest = "Select CaloriesBurned from activity where fk_USERID =" + FitThisHUB.currentUserID + " order by Caloriesburned asc limit 1";
+            string sqlActivitiesHighest = "Select max(CaloriesBurned) from activity where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -266,10 +271,9 @@ namespace FitThis.Classes
                     {
                         try
                         {
-                            while (rdr.Read())
-                            {
-                                HighestCaloriesBurned = rdr.GetInt32(0);
-                            }
+                            rdr.Read();
+                            HighestCaloriesBurned = rdr.GetInt32(0);
+
                         }
                         catch
                         {
@@ -280,7 +284,7 @@ namespace FitThis.Classes
             }
 
             //collects the lowest calories burned out of all activities
-            string sqlActivitiesLowest = "Select CaloriesBurned from activity where fk_USERID =" + FitThisHUB.currentUserID + " order by Caloriesburned desc limit 1";
+            string sqlActivitiesLowest = "Select min(CaloriesBurned) from activity where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -291,10 +295,8 @@ namespace FitThis.Classes
                     {
                         try
                         {
-                            while (rdr.Read())
-                            {
-                                LowestCaloriesBurned = rdr.GetInt32(0);
-                            }
+                            rdr.Read();
+                            LowestCaloriesBurned = rdr.GetInt32(0);
                         }
                         catch
                         {
@@ -305,7 +307,7 @@ namespace FitThis.Classes
             }
 
             //collects total number of activities logged and total number of callories burned from all activities
-            string sqlActivitiesAll = "Select activityID, Sum(CaloriesBurned) from activity where fk_USERID =" + FitThisHUB.currentUserID;
+            string sqlActivitiesAll = "Select activityID, CaloriesBurned from activity where fk_USERID =" + FitThisHUB.currentUserID;
             using (SQLiteConnection c = new SQLiteConnection("Data Source = FitThis.sqlite"))
             {
 
@@ -319,7 +321,7 @@ namespace FitThis.Classes
                             while (rdr.Read())
                             {
                                 allActivities++;
-                                allBurnedCalories = rdr.GetInt32(1);
+                                allBurnedCalories += rdr.GetInt32(1);
                             }
                         }
                         catch

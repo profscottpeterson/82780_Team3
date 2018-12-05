@@ -87,7 +87,7 @@ namespace FitThis
             if (this.cmbUser.Text != null)
             {
                 // If there is a selected value, loaad the user and close the form.
-                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);     
+                UserMgmt.LoadUser(this.currentUserS, this.cmbUser.Text);
                 this.CloseSignIn();
             }
         }

@@ -29,17 +29,9 @@ namespace FitThis
         // The sql insert text
         string sqlInsert = "";
 
-        // Temporary date incrementor
-        int dateInt = 0;
-
         public static int userNum;
 
         DBManagement dbm = new DBManagement();
-
-        public void setUserId(int x)
-        {
-            userNum = x;
-        }
 
         // Fills the dictionary
         private void fillDictionary()
@@ -113,16 +105,10 @@ namespace FitThis
         public void sqlDataInsert(ComboBox combo, System.Data.SQLite.SQLiteConnection db)
         {
 
-            // Random number for activity ID;
-            Random rand = new Random();
-
-            dateInt++;
-            string dateStr = dateInt.ToString();
-
             // Activity ID was changed from combo.selectedindex +1 to a random number becuase activity IDs have to be unique.
             sqlInsert = ("Insert into Activity (Name, Duration, CaloriesBurned, Date, FK_USERID) " +
                     "values ('" + activityName + "', "
-                    + duration + ", " + totalCalories + ", date('now')" + ", " + userNum.ToString() + ")");
+                    + duration + ", " + totalCalories + ", date('now')" + ", " + FitThisHUB.currentUserID + ")");
             dbm.ExecuteNonQuery(sqlInsert, db);
         }
 
@@ -132,7 +118,7 @@ namespace FitThis
             ActivityChart.Series["Minutes"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
 
             // Populate the data grid
-            string sql = ("select * from Activity where FK_userID = " + userNum + " order by Date");
+            string sql = ("select * from Activity where FK_userID = " + FitThisHUB.currentUserID + " order by Date");
 
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
@@ -152,7 +138,7 @@ namespace FitThis
             }
 
             //filling in the chart
-            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + userNum + " group by Date limit 10");
+            string sqlChart = ("select Date, sum(duration) from Activity where FK_userID = " + FitThisHUB.currentUserID + " group by Date limit 10");
             using (SQLiteConnection data = new SQLiteConnection("Data Source=FitThis.sqlite"))
             {
                 data.Open();
